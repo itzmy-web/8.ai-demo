@@ -59,6 +59,19 @@ def index():
     return FileResponse(str(config.STATIC_DIR / "index.html"))
 
 
+# ---- 个人作品集（子路径 /portfolio，与工作台共用同一条发布链接）----
+PORTFOLIO_DIR = config.STATIC_DIR / "portfolio"
+
+if PORTFOLIO_DIR.exists():
+    from fastapi.responses import FileResponse
+
+    @app.get("/portfolio", include_in_schema=False)
+    def portfolio_page():
+        return FileResponse(str(PORTFOLIO_DIR / "index.html"))
+
+    app.mount("/portfolio", StaticFiles(directory=str(PORTFOLIO_DIR), html=True), name="portfolio")
+
+
 if __name__ == "__main__":
     import uvicorn
 
