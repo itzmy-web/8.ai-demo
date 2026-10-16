@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>四合一融合工作台</title>
+<link rel="stylesheet" href="/static/assets/app.css">
+</head>
+<body>
+<div class="layout">
+  <!-- ============ 侧边栏 ============ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-logo">融</div>
+      <div class="brand-text">
+        <b>融合工作台</b>
+        <span>Fusion Workbench</span>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="#/overview" data-nav="overview" class="nav-item">
+        <span class="ni-ico">🏠</span><span class="ni-text">总览</span>
+      </a>
+      <a href="#/kb" data-nav="kb" class="nav-item">
+        <span class="ni-ico">📚</span><span class="ni-text">RAG 智库</span>
+      </a>
+      <a href="#/contract" data-nav="contract" class="nav-item">
+        <span class="ni-ico">📑</span><span class="ni-text">合同审批</span>
+      </a>
+      <a href="#/cs" data-nav="cs" class="nav-item">
+        <span class="ni-ico">💬</span><span class="ni-text">电商小二</span>
+      </a>
+      <a href="#/ops" data-nav="ops" class="nav-item">
+        <span class="ni-ico">📈</span><span class="ni-text">运营助手</span>
+      </a>
+    </nav>
+    <div class="sidebar-foot">
+      <div class="llm-badge" id="llmBadge">检测中…</div>
+      <div class="build-mark">v1.0 · 2026-10-16</div>
+    </div>
+  </aside>
+  <div class="sidebar-mask" id="sidebarMask"></div>
+
+  <!-- ============ 主区 ============ -->
+  <main class="main">
+    <header class="topbar">
+      <button class="menu-btn" id="menuBtn" aria-label="菜单">☰</button>
+      <h1 class="page-title" id="pageTitle">总览</h1>
+      <div class="topbar-right">
+        <span class="demo-chip" id="demoChip">演示模式</span>
+      </div>
+    </header>
+
+    <div class="content" id="content">
+      <!-- ======== 总览 ======== -->
+      <section class="view" id="view-overview">
+        <div class="hero-card">
+          <div class="hero-glow"></div>
+          <h2>四个系统 · 一个工作台</h2>
+          <p>RAG 智库、合同审批、电商小二、电商运营助手已融合为单端口应用，原有功能全部保留。</p>
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="#/kb">进入智库</a>
+            <a class="btn btn-ghost" href="#/cs">问问小二</a>
+          </div>
+        </div>
+        <div class="module-grid" id="moduleGrid"></div>
+        <div class="panel">
+          <div class="panel-head"><h3>系统状态</h3></div>
+          <div class="panel-body" id="sysStatus"></div>
+        </div>
+      </section>
+
+      <!-- ======== RAG 智库 ======== -->
+      <section class="view" id="view-kb">
+        <div class="kb-layout">
+          <div class="panel">
+            <div class="panel-head"><h3>📥 文档导入</h3></div>
+            <div class="panel-body">
+              <input class="input" id="kbName" placeholder="文档名称，如：售后政策.txt">
+              <textarea class="input textarea" id="kbText" rows="5" placeholder="粘贴文档内容（txt / md）…"></textarea>
+              <div class="row-gap">
+                <button class="btn btn-gold" id="kbImportText">导入文本</button>
+                <label class="btn btn-ghost file-btn">
+                  上传文件<input type="file" id="kbFile" hidden>
+                </label>
+              </div>
+              <div class="divider"><span>已导入文档</span></div>
+              <div class="doc-list" id="kbDocList"></div>
+            </div>
+          </div>
+          <div class="panel kb-chat-panel">
+            <div class="panel-head"><h3>💬 知识库问答</h3><span class="panel-tip" id="kbModeTip"></span></div>
+            <div class="chat-scroll" id="kbChatScroll"></div>
+            <div class="chat-inputbar">
+              <input class="input" id="kbQuestion" placeholder="基于已导入文档提问，回车发送">
+              <button class="btn btn-gold" id="kbAsk">提问</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======== 合同审批 ======== -->
+      <section class="view" id="view-contract">
+        <div class="panel">
+          <div class="panel-head"><h3>📑 提交合同审查</h3></div>
+          <div class="panel-body">
+            <div class="form-grid">
+              <input class="input" id="ctName" placeholder="合同名称">
+              <select class="input" id="ctBiz">
+                <option value="procurement">采购合同</option>
+                <option value="sales">销售合同</option>
+                <option value="service">服务合同</option>
+                <option value="labor">劳动合同</option>
+              </select>
+              <input class="input" id="ctApplicant" placeholder="经办人" value="李四">
+            </div>
+            <textarea class="input textarea" id="ctText" rows="6" placeholder="粘贴合同全文，或上传 .txt 合同文件…"></textarea>
+            <div class="row-gap">
+              <button class="btn btn-gold" id="ctSubmit">开始审查</button>
+              <button class="btn btn-ghost" id="ctDemo">填入示例合同</button>
+              <label class="btn btn-ghost file-btn">
+                上传合同<input type="file" id="ctFile" hidden accept=".txt,.md">
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h3>审查列表</h3>
+            <select class="input input-sm" id="ctStatusFilter">
+              <option value="">全部状态</option>
+              <option value="pending">待审批</option>
+              <option value="approved">已通过</option>
+              <option value="rejected">已拒绝</option>
+              <option value="rectifying">整改中</option>
+            </select>
+          </div>
+          <div class="panel-body table-wrap" id="ctTableWrap"></div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h3>🛡️ 审计日志</h3><button class="btn btn-ghost btn-sm" id="ctAuditRefresh">刷新</button></div>
+          <div class="panel-body table-wrap" id="ctAuditWrap"></div>
+        </div>
+      </section>
+
+      <!-- ======== 电商小二 ======== -->
+      <section class="view" id="view-cs">
+        <div class="cs-layout">
+          <div class="panel cs-chat-panel">
+            <div class="panel-head">
+              <h3>💬 电商小二</h3>
+              <div class="row-gap">
+                <span class="panel-tip" id="csTrackTip">三轨对话引擎</span>
+                <button class="btn btn-ghost btn-sm" id="csReset">重置会话</button>
+              </div>
+            </div>
+            <div class="chat-scroll" id="csChatScroll"></div>
+            <div class="chat-inputbar">
+              <input class="input" id="csInput" placeholder="试试：查订单 / 查物流 / 申请退款 / 转人工 / 退款政策">
+              <button class="btn btn-gold" id="csSend">发送</button>
+            </div>
+          </div>
+          <div class="cs-side">
+            <div class="panel">
+              <div class="panel-head"><h3>⚡ 快捷入口</h3></div>
+              <div class="panel-body quick-grid" id="csQuick"></div>
+            </div>
+            <div class="panel">
+              <div class="panel-head"><h3>🧑‍💼 数字人坐席</h3></div>
+              <div class="panel-body dh-body">
+                <div class="dh-avatar">🤖</div>
+                <div class="dh-info">
+                  <b>小二 · 数字人</b>
+                  <p>状态：在线（演示）<br>负责：接待 / 答疑 / 引导</p>
+                </div>
+              </div>
+            </div>
+            <div class="panel">
+              <div class="panel-head"><h3>⭐ 服务评价</h3></div>
+              <div class="panel-body">
+                <div class="rate-row" id="csRateRow">
+                  <span class="rate-star" data-v="1">★</span><span class="rate-star" data-v="2">★</span><span class="rate-star" data-v="3">★</span><span class="rate-star" data-v="4">★</span><span class="rate-star" data-v="5">★</span>
+                </div>
+                <div class="panel-tip" id="csRateTip">点击星星评价本次服务</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======== 运营助手 ======== -->
+      <section class="view" id="view-ops">
+        <div class="metric-grid" id="opsMetrics"></div>
+        <div class="tabs" id="opsTabs">
+          <button class="tab active" data-tab="products">商品池</button>
+          <button class="tab" data-tab="stores">店铺管理</button>
+          <button class="tab" data-tab="agents">运营 Agent</button>
+          <button class="tab" data-tab="workflows">自动化工作流</button>
+        </div>
+        <div class="tab-pane active" id="pane-products">
+          <div class="panel">
+            <div class="panel-head"><h3>商品管理</h3>
+              <button class="btn btn-gold btn-sm" id="opsNewProduct">+ 新增商品</button>
+            </div>
+            <div class="panel-body table-wrap" id="opsProductTable"></div>
+          </div>
+        </div>
+        <div class="tab-pane" id="pane-stores">
+          <div class="panel">
+            <div class="panel-head"><h3>店铺管理</h3>
+              <button class="btn btn-gold btn-sm" id="opsNewStore">+ 新增店铺</button>
+            </div>
+            <div class="panel-body table-wrap" id="opsStoreTable"></div>
+          </div>
+        </div>
+        <div class="tab-pane" id="pane-agents">
+          <div class="panel">
+            <div class="panel-head"><h3>🤖 运营 Agent</h3></div>
+            <div class="panel-body agent-grid" id="opsAgentGrid"></div>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><h3>运行记录</h3></div>
+            <div class="panel-body" id="opsRunList"></div>
+          </div>
+        </div>
+        <div class="tab-pane" id="pane-workflows">
+          <div class="panel">
+            <div class="panel-head"><h3>⚙️ 自动化工作流</h3></div>
+            <div class="panel-body table-wrap" id="opsWorkflowTable"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<div class="toast" id="toast"></div>
+<script src="/static/assets/app.js"></script>
+</body>
+</html>
