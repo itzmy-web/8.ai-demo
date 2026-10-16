@@ -3,35 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>个人简历 | 土豆</title>
+  <title>郑孟瑶的个人简历 | AI 应用工程师</title>
   <link rel="stylesheet" href="https://fonts.loli.net/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap">
   <link rel="stylesheet" href="/portfolio/assets/style.css">
   <style>
     .resume { max-width: 880px; margin: 0 auto; padding: 36px 22px 90px; position: relative; z-index: 1; }
     .resume-actions { display: flex; gap: 12px; justify-content: center; margin-bottom: 26px; flex-wrap: wrap; }
     .resume-head { text-align: center; padding: 30px 26px; background: linear-gradient(135deg, rgba(255,255,255,.95), rgba(248,250,252,.95)); backdrop-filter: blur(16px); border: 1px solid rgba(0,0,0,.12); border-radius: 1rem; box-shadow: 0 12px 48px rgba(0,0,0,.06); }
-    .resume-head h1 { font-size: 2rem; font-weight: 800; letter-spacing: 1px; font-family: "Inter", "PingFang SC", sans-serif; }
+    .resume-head h1 { font-size: 2rem; font-weight: 800; letter-spacing: 2px; font-family: "Inter", "PingFang SC", sans-serif; }
     .resume-head .r-role { margin-top: 6px; color: var(--primary-blue); font-weight: 700; letter-spacing: 1px; }
+    .resume-head .r-info { margin-top: 10px; color: var(--text-secondary); font-size: .9rem; }
     .resume-head .r-contact { margin-top: 12px; color: var(--text-muted); font-size: .92rem; word-break: break-all; }
+    .resume-head .r-contact a { color: var(--primary-blue); text-decoration: none; }
+    .resume-head .r-contact a:hover { text-decoration: underline; }
     .resume section { margin-top: 26px; background: linear-gradient(135deg, rgba(255,255,255,.95), rgba(248,250,252,.95)); backdrop-filter: blur(16px); border: 1px solid rgba(0,0,0,.12); border-radius: 1rem; box-shadow: 0 12px 48px rgba(0,0,0,.06); padding: 26px 28px; }
     .resume h2 { font-size: 1.15rem; font-weight: 700; padding-bottom: 12px; margin-bottom: 16px; border-bottom: 2px solid var(--primary-blue); display: inline-block; }
     .resume h3 { font-size: 1.02rem; font-weight: 700; display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 6px; }
     .resume h3 .r-date { font-size: .85rem; color: var(--text-muted); font-weight: 500; font-family: var(--font-mono); }
-    .resume ul { margin: 8px 0 18px; padding-left: 20px; }
+    .resume ul { margin: 8px 0 10px; padding-left: 20px; }
     .resume li { color: var(--text-secondary); font-size: .93rem; margin-bottom: 5px; }
     .resume .r-summary { color: var(--text-secondary); }
+    .r-org { margin: 4px 0 10px; color: var(--text-secondary); font-size: .93rem; }
+    .r-tech { margin: 6px 0 8px; padding: 8px 12px; border-radius: .5rem; background: rgba(37,99,235,.06); border: 1px solid rgba(37,99,235,.14); color: var(--text-secondary); font-size: .84rem; font-family: var(--font-mono); }
+    .r-result { margin: 2px 0 18px; padding: 10px 14px; border-radius: .5rem; background: rgba(5,150,105,.07); border: 1px solid rgba(5,150,105,.2); color: #065f46; font-size: .9rem; }
+    .r-result b { color: #047857; }
     .r-skill-group { margin-bottom: 14px; }
     .r-skill-group b { display: block; font-size: .93rem; margin-bottom: 4px; }
     .r-skill-group span { color: var(--text-secondary); font-size: .93rem; }
-    .r-ph { background: rgba(37,99,235,.08); border: 1px dashed var(--primary-blue); border-radius: 6px; padding: 0 6px; color: var(--primary-blue); font-weight: 600; }
     @media print {
       body { background: #fff; }
       .nav, .resume-actions, .footer { display: none !important; }
       .resume { max-width: 100%; padding: 0; }
       .resume-head, .resume section { box-shadow: none; border: 1px solid #ddd; border-radius: 0; break-inside: avoid; backdrop-filter: none; background: #fff; }
       .resume-head h1, .resume h2, .resume h3, .r-skill-group b { color: #000; }
-      .resume-head .r-role, .r-ph { color: #333; }
-      .resume li, .resume .r-summary, .r-skill-group span, .resume-head .r-contact { color: #333; }
+      .resume-head .r-role { color: #333; }
+      .resume li, .resume .r-summary, .r-skill-group span, .resume-head .r-contact, .resume-head .r-info, .r-org, .r-tech { color: #333; }
+      .r-tech, .r-result { background: #fff; border: 1px solid #ddd; }
+      .r-result, .r-result b { color: #333; }
     }
   </style>
 </head>
@@ -40,76 +48,93 @@
   <div class="resume">
     <div class="resume-actions">
       <button class="btn btn-primary" onclick="window.print()">打印 / 保存为 PDF</button>
+      <a class="btn btn-outline" href="/portfolio/assets/郑孟瑶简历.pdf" download>下载 PDF 简历</a>
       <a class="btn btn-outline" href="/portfolio">返回作品集</a>
     </div>
 
     <header class="resume-head">
-      <h1><span class="r-ph">【你的姓名】</span></h1>
-      <p class="r-role">求职意向：全栈开发工程师 / AI 应用开发</p>
-      <p class="r-contact">3505895840@qq.com · github.com/itzmy-web · 作品集：fusion-workbench-confirm.app.workbuddy.host/portfolio</p>
+      <h1>郑孟瑶</h1>
+      <p class="r-role">求职意向：AI 应用工程师 / FDE（大模型应用方向）</p>
+      <p class="r-info">23 岁 · 女 · 本科 · 1.5 年大模型应用开发经验 · 证书：CET-6、影刀 RPA（高级） · 期望薪资：面议 · 一周以内到岗</p>
+      <p class="r-contact">15896651762 · <a href="mailto:3505895840@qq.com">3505895840@qq.com</a> · <a href="https://github.com/itzmy-web" target="_blank" rel="noopener">github.com/itzmy-web</a> · 作品集：<a href="https://fusion-workbench-confirm.app.workbuddy.host/portfolio" target="_blank" rel="noopener">fusion-workbench-confirm.app.workbuddy.host/portfolio</a></p>
     </header>
 
     <section>
       <h2>个人简介</h2>
-      <p class="r-summary">全栈开发者（AI 应用方向），熟悉 Python / FastAPI 与 LangGraph / DeepAgents 多 Agent 框架，具备 RAG 检索增强、Text2SQL、LLM 应用落地的完整实战经验；能独立完成后端 API 设计与前端交互界面，有 8 个上线项目，重视代码质量与回归测试。</p>
+      <p class="r-summary">AI 应用工程师，一年半大模型应用开发经验，专注 RAG 知识库、Agent 编排与多模态全链路落地。熟悉 Python / FastAPI 异步服务与 SSE 流式输出，掌握 LangChain / LangGraph 多子 Agent 协同、Function Calling / MCP 工具对接；RAG 全链路（解析 → 切分 → 向量化 → 混合检索 → 重排 → 评测）与 Text2SQL 数据问数实战经验丰富。心态积极、抗压能力强，习惯从报错日志里挖根因，坚持「挑刺 → 修复 → 回归 → 评测」的节奏打磨每一个上线功能，能独立完成从架构设计到云端部署的完整闭环。</p>
+    </section>
+
+    <section>
+      <h2>工作经历</h2>
+      <h3>口袋连锁便利公司 · AI 应用工程师 <span class="r-date">2025.07 ~ 2026.09</span></h3>
+      <p class="r-org">主导智能知识库、合同智能审核、门店智能客服与经营数据 Agent 四条产品线，负责从需求拆解、架构设计到上线验收的全流程闭环。</p>
     </section>
 
     <section>
       <h2>项目经历</h2>
 
-      <h3>电商小二 · AI 客服管家 <span class="r-date">2026</span></h3>
+      <h3>驾驶舱 · AI 电商运营助手（口袋便利 · 门店经营参谋） <span class="r-date">2026.06 ~ 2026.10</span></h3>
+      <p class="r-tech">技术栈：Python、LangGraph、FastAPI、Vue3、Qwen3-VL、Milvus、MySQL、Redis、ECharts、SSE</p>
       <ul>
-        <li>三轨对话引擎移植与实现：TurnPlanner 意图路由 → TurnPlanValidator 防幻觉校验 → 三轨分发</li>
-        <li>6 个业务对话 flow（登录引导 / 订单查询 / 物流跟踪 / 退款申请 / 相似推荐 / 人工客服）YAML 配置驱动</li>
-        <li>SQLite 会话状态持久化（sender_id PK + state_json），支持演示订单全流程查询</li>
+        <li>Supervisor 编排「商品理解 / 选品分析 / 竞对监测 / 话术生成 / 数据问数」多个子 Agent，统一入口协作</li>
+        <li>Qwen3-VL 多模态解析商品图与海报，品牌 / 规格 / 卖点结构化落库；结合 NL2SQL 问数看板与经营简报，输出选品建议与经营结论</li>
+        <li>前端商务简洁风重构，流式输出，一键生成话术与经营日报</li>
       </ul>
+      <p class="r-result"><b>项目成果：</b>商品属性录入效率提升约 80%（2 分钟/SKU → 10 秒/SKU）；选品与竞对分析由小时级缩短至分钟级；话术与日报生成效率提升约 70%</p>
 
-      <h3>驾驶舱 · AI 电商运营助手 <span class="r-date">2026</span></h3>
+      <h3>灵犀 · RAG 智能智库（口袋便利 · 门店百事通） <span class="r-date">2026.03 ~ 2026.06</span></h3>
+      <p class="r-tech">技术栈：Python、FastAPI、LangChain、BGE-M3、BGE-Reranker、Milvus、BM25、MySQL、Redis、Docker、SSE</p>
       <ul>
-        <li>FastAPI + Celery + LangGraph 后端：商品 / 店铺 CRUD、经营看板统计、4 个预置 Agent 分步执行、工作流编排</li>
-        <li>Next.js 运营工作台，Docker Compose 偏移端口部署（MySQL / Redis / Postgres checkpoints）</li>
+        <li>搭建多格式文档解析链路（含 OCR），父子块切分 + 元数据规范（来源 / 版本 / 有效期），答案可溯源</li>
+        <li>BGE-M3 稠密 + 稀疏向量入 Milvus，RRF 融合召回后 Reranker 精排，Query 改写增强覆盖；Ragas 离线评测，证据不足主动拒答转人工</li>
+        <li>FastAPI 流式问答接口，Redis 缓存高频问答</li>
       </ul>
+      <p class="r-result"><b>项目成果：</b>Top-5 召回率 94%；查资料由人工翻文档 3–5 分钟缩短至 10 秒内，重复性咨询量下降约 50%</p>
 
-      <h3>罗盘 · 医药智能体 <span class="r-date">2026</span></h3>
+      <h3>电商小二 · AI 客服管家（口袋便利 · 智能客服「小口袋」） <span class="r-date">2026.01 ~ 2026.03</span></h3>
+      <p class="r-tech">技术栈：Python、FastAPI、LangGraph、Function Calling、MySQL、Redis、SSE、向量检索</p>
       <ul>
-        <li>基于 DeepAgents / LangGraph 的医药行业多 Agent 系统，对接 MySQL pharma_db（药品 / 库存 / 销售三表）</li>
-        <li>RAGFlow 知识检索 + Tavily 联网搜索双通道，LLM 多链路（阿里百炼 / SiliconFlow）故障自动降级</li>
+        <li>意图分流 + 多轮 session 上下文维护，高风险问题统一兜底，敏感信息脱敏</li>
+        <li>知识库检索结合业务库查询（营业信息 / 活动 / 售后 SOP 自然语言查询），Function Calling 调订单 / 库存接口，退款与投诉自动升级人工接管</li>
+        <li>覆盖正常 / 边界 / 异常测试集，预留 ASR / TTS 接口可扩展语音客服</li>
       </ul>
+      <p class="r-result"><b>项目成果：</b>意图识别准确率约 92%；响应由 20–30 秒降至 5 秒内，高频咨询自动解决率约 70%，人工客服处理量减少约 55%</p>
 
-      <h3>问数 ChatBI · 智能问数平台 <span class="r-date">2026</span></h3>
+      <h3>法眼 · AI 合同智审平台（口袋便利 · 合同智能审核） <span class="r-date">2025.10 ~ 2026.01</span></h3>
+      <p class="r-tech">技术栈：Python、FastAPI、LangChain、BGE-M3、Milvus、MySQL、Redis</p>
       <ul>
-        <li>12 节点 LangGraph Text2SQL Agent：schema linking → SQL 生成 → 校验 → 执行 → 总结</li>
-        <li>Qdrant + Elasticsearch 双索引 + bge embedding，FastAPI SSE 流式输出</li>
+        <li>沉淀合同审查规则库（资质 / 付款账期 / 违约责任 / 独家条款等），条款自动比对与风险分级</li>
+        <li>RAG 检索历史合同与制度范本，辅助生成修改建议与审查意见书；初审 → 复核 → 出报告全流程留痕，风险点定位原文高亮</li>
       </ul>
+      <p class="r-result"><b>项目成果：</b>单份合同初审由 1–2 小时降至 10 分钟内，常见风险条款漏审率显著下降，平均审核周期缩短约 60%</p>
 
-      <h3>省身 · 企业问题自检平台 <span class="r-date">2026</span></h3>
+      <h3>融界 · 四合一 AI 融合工作台（口袋便利 AI 工作台） <span class="r-date">2025.07 ~ 2025.10</span></h3>
+      <p class="r-tech">技术栈：Python、FastAPI、LangGraph、MySQL、Redis、JWT、RBAC、向量库、Docker</p>
       <ul>
-        <li>文档导入 → AI 抽题 → 翻卡自检 → 薄弱汇总全流程，26 项功能 / 297 项回归全绿</li>
-        <li>自研 SRS 间隔重复算法驱动复习计划，SQLite + 单文件前端，强制登录 + 演示模式</li>
+        <li>多租户数据隔离：租户级知识库 / 会话 / 模型配额相互独立；RBAC 权限模型 + JWT 鉴权，支持角色、菜单与操作审计</li>
+        <li>统一模型网关与可复用 Agent / 技能市场，新场景配置化上线；Docker 编排一键私有化部署，配套日志与监控</li>
       </ul>
-
-      <h3>融界 · 四合一 AI 融合工作台 <span class="r-date">2026.10</span></h3>
-      <ul>
-        <li>将 RAG 智库、AI 合同审批、电商小二客服、电商运营助手 4 个独立项目融合为单端口工作台，设计并实现 36 个 RESTful API</li>
-        <li>自研客服三轨对话引擎（task / knowledge / chitchat）：LLM 意图路由 + 白名单校验防幻觉，flows.yml 配置驱动 6 个对话流程</li>
-        <li>合同数据驱动规则引擎：keyword / regex / absence / custom 四种审查模式、11 条内置规则，LLM 语义增强可选开启</li>
-        <li>解决 SQLite FTS5 中文检索不命中问题：索引与查询双侧二元分词（bigram）展开 + LIKE 降级兜底</li>
-        <li>LLM 双链路设计（SiliconFlow / OpenAI 兼容），未配置 Key 时全系统自动降级规则 / 演示模式，功能不残缺</li>
-      </ul>
+      <p class="r-result"><b>项目成果：</b>四大能力统一接入；沉淀可复用 Agent / 技能 20+ 个，新场景交付由天级缩短至小时级</p>
     </section>
 
     <section>
       <h2>专业技能</h2>
-      <div class="r-skill-group"><b>后端</b><span>Python · FastAPI · SQLAlchemy · RESTful API 设计 · Celery</span></div>
-      <div class="r-skill-group"><b>AI 应用</b><span>LangGraph · DeepAgents · RAG 检索增强 · Text2SQL · Prompt 工程 · 多 Agent 编排 · HITL</span></div>
-      <div class="r-skill-group"><b>数据与存储</b><span>SQLite（WAL / FTS5）· MySQL · Redis · Qdrant · Elasticsearch</span></div>
-      <div class="r-skill-group"><b>工程化</b><span>Docker · Git · uv / venv · 回归测试</span></div>
-      <div class="r-skill-group"><b>前端</b><span>HTML / CSS / JavaScript · Next.js · Vue（基础）</span></div>
+      <div class="r-skill-group"><b>编程与工程</b><span>Python / SQL 扎实，FastAPI 异步服务与 SSE 流式输出，Claude Code 辅助开发；MySQL、Redis、Docker、Git</span></div>
+      <div class="r-skill-group"><b>Agent 与编排</b><span>LangChain / LangGraph 多子 Agent 协同、意图分流与反思重试；Function Calling / MCP 对接外部工具，Pydantic 结构化校验</span></div>
+      <div class="r-skill-group"><b>RAG 全链路</b><span>解析 → 切分 → 向量化 → 混合检索（RRF）→ 重排 → 评测；BGE-M3、Milvus / Qdrant / ES、Reranker、Query 改写与引用溯源</span></div>
+      <div class="r-skill-group"><b>Text2SQL 数据问数</b><span>意图识别 → Schema Linking → SQL 生成 → 校验自修复链路，白名单字段 + 最小权限保障数据安全</span></div>
+      <div class="r-skill-group"><b>工程化交付</b><span>Docker Compose 部署、Celery + Redis 异步任务、JWT / RBAC 鉴权与 ECharts 数据看板</span></div>
+      <div class="r-skill-group"><b>评测与低代码</b><span>Ragas 评测与拒答兜底设计；影刀 RPA、Dify 工作流</span></div>
     </section>
 
     <section>
       <h2>教育背景</h2>
-      <p class="r-summary"><span class="r-ph">【学校名称】</span> · <span class="r-ph">【专业】</span> · <span class="r-ph">【学历】</span> · <span class="r-ph">【起止时间】</span></p>
+      <p class="r-summary">郑州西亚斯学院 · 本科 · 2022.09 – 2026.06</p>
+    </section>
+
+    <section>
+      <h2>自我评价</h2>
+      <p class="r-summary">心态积极、抗压能力强，面对新技术与新场景愿意主动啃下来，从「不会」到「上手」只差一个动手。责任心强，对交付质量较真，坚持「挑刺 → 修复 → 回归 → 评测」的节奏打磨每一个上线功能。动手能力强、专注力高，习惯从报错日志里挖根因，能独立完成从架构设计到云端部署的完整闭环。</p>
     </section>
   </div>
 
