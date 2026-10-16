@@ -448,3 +448,9 @@ button { font-family: inherit; }
   .reveal { opacity: 1; transform: none; }
   * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
+
+/* ===== 占位按钮（演示整理中）===== */
+.p-btn-disabled {
+  cursor: default; opacity: .65; border-style: dashed;
+}
+.p-btn-disabled:hover { border-color: #cbd5e1; color: var(--text-secondary); transform: none; }
