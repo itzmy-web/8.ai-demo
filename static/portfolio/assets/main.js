@@ -1,16 +1,34 @@
-// 土豆的个人作品集 · 交互脚本
+// 土豆的个人作品集 · 交互脚本（对齐参考站行为：汉堡菜单 / 滚动高亮 / 浮现 / 技能条）
 (function () {
   "use strict";
 
-  // 导航滚动态
-  var nav = document.getElementById("nav");
-  function onScroll() {
-    if (nav) nav.classList.toggle("scrolled", window.scrollY > 12);
+  // ---- 移动端汉堡菜单 ----
+  var burger = document.getElementById("navBurger");
+  var mobile = document.getElementById("navMobile");
+  if (burger && mobile) {
+    burger.addEventListener("click", function () {
+      mobile.classList.toggle("open");
+    });
+    mobile.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", function () { mobile.classList.remove("open"); });
+    });
   }
-  window.addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
 
-  // 滚动浮现 + 技能条动画
+  // ---- 滚动高亮当前区块（参考站 scroll spy）----
+  var links = Array.prototype.slice.call(document.querySelectorAll(".nav-links > a[href^='#']"));
+  var sections = links.map(function (a) { return document.querySelector(a.getAttribute("href")); }).filter(Boolean);
+  function spy() {
+    var pos = window.scrollY + 120;
+    var current = sections[0];
+    sections.forEach(function (s) { if (s.offsetTop <= pos) current = s; });
+    links.forEach(function (a) {
+      a.classList.toggle("active", current && a.getAttribute("href") === "#" + current.id);
+    });
+  }
+  window.addEventListener("scroll", spy, { passive: true });
+  spy();
+
+  // ---- 滚动浮现 + 技能条动画 ----
   var items = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window) {
     var io = new IntersectionObserver(function (entries) {
@@ -26,7 +44,7 @@
     items.forEach(function (el) { el.classList.add("in"); });
   }
 
-  // 页脚年份
+  // ---- 页脚年份 ----
   var year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
 })();
