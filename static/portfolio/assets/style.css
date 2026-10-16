@@ -172,7 +172,7 @@ a { color: inherit; text-decoration: none; }
 .p-src:hover { color: var(--gold-deep); }
 
 /* ===== 联系我 ===== */
-.contact-grid { margin-top: 38px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.contact-grid { margin-top: 38px; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 24px; }
 .contact-card {
   background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
   padding: 36px 24px; text-align: center; box-shadow: var(--shadow);
