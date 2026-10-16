@@ -4,30 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>个人简历 | 土豆</title>
+  <link rel="stylesheet" href="https://fonts.loli.net/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap">
   <link rel="stylesheet" href="/portfolio/assets/style.css">
   <style>
     .resume { max-width: 880px; margin: 0 auto; padding: 36px 22px 90px; position: relative; z-index: 1; }
     .resume-actions { display: flex; gap: 12px; justify-content: center; margin-bottom: 26px; flex-wrap: wrap; }
-    .resume-head { text-align: center; padding: 30px 26px; background: linear-gradient(135deg, rgba(18,18,26,.9), rgba(10,10,15,.95)); backdrop-filter: blur(20px); border: 1px solid var(--line); border-radius: 1.5rem; box-shadow: 0 0 24px rgba(0,240,255,.08); }
-    .resume-head h1 { font-size: 2rem; font-weight: 700; letter-spacing: 2px; font-family: "Space Grotesk", "PingFang SC", sans-serif; }
-    .resume-head .r-role { margin-top: 6px; color: var(--primary); font-weight: 700; letter-spacing: 1px; text-shadow: 0 0 12px rgba(0,240,255,.4); }
-    .resume-head .r-contact { margin-top: 12px; color: var(--ink-70); font-size: .92rem; word-break: break-all; }
-    .resume section { margin-top: 26px; background: linear-gradient(135deg, rgba(18,18,26,.9), rgba(10,10,15,.95)); backdrop-filter: blur(20px); border: 1px solid var(--line); border-radius: 1.5rem; box-shadow: 0 0 24px rgba(0,240,255,.08); padding: 26px 28px; }
-    .resume h2 { font-size: 1.15rem; font-weight: 700; padding-bottom: 12px; margin-bottom: 16px; border-bottom: 2px solid var(--primary); display: inline-block; }
+    .resume-head { text-align: center; padding: 30px 26px; background: linear-gradient(135deg, rgba(255,255,255,.95), rgba(248,250,252,.95)); backdrop-filter: blur(16px); border: 1px solid rgba(0,0,0,.12); border-radius: 1rem; box-shadow: 0 12px 48px rgba(0,0,0,.06); }
+    .resume-head h1 { font-size: 2rem; font-weight: 800; letter-spacing: 1px; font-family: "Inter", "PingFang SC", sans-serif; }
+    .resume-head .r-role { margin-top: 6px; color: var(--primary-blue); font-weight: 700; letter-spacing: 1px; }
+    .resume-head .r-contact { margin-top: 12px; color: var(--text-muted); font-size: .92rem; word-break: break-all; }
+    .resume section { margin-top: 26px; background: linear-gradient(135deg, rgba(255,255,255,.95), rgba(248,250,252,.95)); backdrop-filter: blur(16px); border: 1px solid rgba(0,0,0,.12); border-radius: 1rem; box-shadow: 0 12px 48px rgba(0,0,0,.06); padding: 26px 28px; }
+    .resume h2 { font-size: 1.15rem; font-weight: 700; padding-bottom: 12px; margin-bottom: 16px; border-bottom: 2px solid var(--primary-blue); display: inline-block; }
     .resume h3 { font-size: 1.02rem; font-weight: 700; display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 6px; }
-    .resume h3 .r-date { font-size: .85rem; color: var(--ink-40); font-weight: 500; }
+    .resume h3 .r-date { font-size: .85rem; color: var(--text-muted); font-weight: 500; font-family: var(--font-mono); }
     .resume ul { margin: 8px 0 18px; padding-left: 20px; }
-    .resume li { color: var(--ink-70); font-size: .93rem; margin-bottom: 5px; }
-    .resume .r-summary { color: var(--ink-70); }
+    .resume li { color: var(--text-secondary); font-size: .93rem; margin-bottom: 5px; }
+    .resume .r-summary { color: var(--text-secondary); }
     .r-skill-group { margin-bottom: 14px; }
     .r-skill-group b { display: block; font-size: .93rem; margin-bottom: 4px; }
-    .r-skill-group span { color: var(--ink-70); font-size: .93rem; }
-    .r-ph { background: rgba(0,240,255,.12); border: 1px dashed var(--primary); border-radius: 6px; padding: 0 6px; color: var(--primary); font-weight: 600; }
+    .r-skill-group span { color: var(--text-secondary); font-size: .93rem; }
+    .r-ph { background: rgba(37,99,235,.08); border: 1px dashed var(--primary-blue); border-radius: 6px; padding: 0 6px; color: var(--primary-blue); font-weight: 600; }
     @media print {
       body { background: #fff; }
       .nav, .resume-actions, .footer { display: none !important; }
       .resume { max-width: 100%; padding: 0; }
-      .resume-head, .resume section { box-shadow: none; border: 1px solid #ddd; border-radius: 0; break-inside: avoid; }
+      .resume-head, .resume section { box-shadow: none; border: 1px solid #ddd; border-radius: 0; break-inside: avoid; backdrop-filter: none; background: #fff; }
       .resume-head h1, .resume h2, .resume h3, .r-skill-group b { color: #000; }
       .resume-head .r-role, .r-ph { color: #333; }
       .resume li, .resume .r-summary, .r-skill-group span, .resume-head .r-contact { color: #333; }
@@ -38,8 +39,8 @@
 
   <div class="resume">
     <div class="resume-actions">
-      <button class="btn btn-gold" onclick="window.print()">打印 / 保存为 PDF</button>
-      <a class="btn btn-ghost" href="/portfolio">返回作品集</a>
+      <button class="btn btn-primary" onclick="window.print()">打印 / 保存为 PDF</button>
+      <a class="btn btn-outline" href="/portfolio">返回作品集</a>
     </div>
 
     <header class="resume-head">

@@ -1,26 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#12121a"/><stop offset="1" stop-color="#0a0a0f"/>
+      <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f1f5f9"/>
     </linearGradient>
     <linearGradient id="g" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#00f0ff"/><stop offset="1" stop-color="#00ffa3"/>
+      <stop offset="0" stop-color="#0891b2"/><stop offset="1" stop-color="#059669"/>
     </linearGradient>
     <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
-      <feGaussianBlur stdDeviation="5" result="b"/>
+      <feGaussianBlur stdDeviation="4" result="b"/>
       <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
   </defs>
   <rect width="640" height="400" fill="url(#bg)"/>
-  <g stroke="rgba(0,240,255,.05)" stroke-width="1">
+  <g stroke="rgba(37,99,235,.05)" stroke-width="1">
     <path d="M0 80h640M0 160h640M0 240h640M0 320h640M80 0v400M160 0v400M240 0v400M320 0v400M400 0v400M480 0v400M560 0v400"/>
   </g>
-  <circle cx="540" cy="70" r="90" fill="#00f0ff" opacity=".10"/>
-  <circle cx="90" cy="340" r="80" fill="#00ffa3" opacity=".12"/>
-  <g filter="url(#glow)" transform="translate(320 190)">
-    <g transform="scale(3.2)" stroke="url(#g)" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="545" cy="65" r="85" fill="#0891b2" opacity=".07"/>
+  <circle cx="85" cy="345" r="75" fill="#059669" opacity=".08"/>
+  <g filter="url(#glow)" transform="translate(320 185)">
+    <g transform="scale(3.1)" stroke="url(#g)" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round">
       <path d="M-13 10v-8l6 -6 5 5 8 -9"/><path d="M-13 -2h26M-13 6h18"/><rect x="-15" y="-14" width="30" height="26" rx="3"/>
     </g>
   </g>
-  <text x="320" y="330" text-anchor="middle" font-family="sans-serif" font-size="26" font-weight="bold" fill="url(#g)">AI 电商运营助手</text>
+  <text x="320" y="330" text-anchor="middle" font-family="sans-serif" font-size="25" font-weight="bold" fill="url(#g)">AI 电商运营助手</text>
 </svg>
