@@ -3,10 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>四合一融合工作台</title>
+<title>融界 · 四合一融合工作台</title>
 <link rel="stylesheet" href="/static/assets/app.css">
 </head>
 <body>
+
+<!-- ============ SVG 图标库（装饰层，不承载任何逻辑） ============ -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="ico-home" viewBox="0 0 24 24"><path d="M3 10.7 12 3l9 7.7"/><path d="M5.5 9.6V20a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1V9.6"/><path d="M9.6 21v-6.2h4.8V21"/></symbol>
+  <symbol id="ico-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></symbol>
+  <symbol id="ico-shield" viewBox="0 0 24 24"><path d="M12 21.5s7.5-3.4 7.5-9.3V5.4L12 2.5 4.5 5.4v6.8c0 5.9 7.5 9.3 7.5 9.3z"/><path d="m9 11.6 2.1 2.1 4-4.4"/></symbol>
+  <symbol id="ico-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5c-1.4 0-2.7-.3-3.9-.9L4 21l1.9-4.6A8.5 8.5 0 1 1 21 11.5z"/></symbol>
+  <symbol id="ico-chart" viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M6 21v-7"/><path d="M12 21V5"/><path d="M18 21v-10"/></symbol>
+  <symbol id="ico-spark" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M12 2.5 13.9 8.6 20 10.5l-6.1 1.9L12 18.5l-1.9-6.1L4 10.5l6.1-1.9z"/><path fill="currentColor" stroke="none" d="M18.6 15.4l.7 2.2 2.2.7-2.2.7-.7 2.2-.7-2.2-2.2-.7 2.2-.7z"/></symbol>
+  <symbol id="ico-file" viewBox="0 0 24 24"><path d="M14 2.5H6.5A2 2 0 0 0 4.5 4.5v15a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V8z"/><path d="M14 2.5V8h5.5"/></symbol>
+  <symbol id="ico-bulb" viewBox="0 0 24 24"><path d="M9.5 18h5"/><path d="M10.5 21h3"/><path d="M12 2.8a5.8 5.8 0 0 0-3.4 10.5c.6.5 1 1.2 1 2.2h4.8c0-1 .4-1.7 1-2.2A5.8 5.8 0 0 0 12 2.8z"/></symbol>
+  <symbol id="ico-clipboard" viewBox="0 0 24 24"><path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2"/><rect x="8" y="2" width="8" height="4" rx="1.2"/></symbol>
+  <symbol id="ico-upload" viewBox="0 0 24 24"><path d="M21 15v3.5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V15"/><path d="M17 7.5 12 2.5 7 7.5"/><path d="M12 2.5V15"/></symbol>
+  <symbol id="ico-bolt" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M13 2 4.5 13.5H11l-1 8.5 8.5-11.5H12z"/></symbol>
+  <symbol id="ico-user" viewBox="0 0 24 24"><circle cx="12" cy="7.5" r="3.8"/><path d="M4.5 20.5c0-3.6 3.4-5.8 7.5-5.8s7.5 2.2 7.5 5.8"/></symbol>
+  <symbol id="ico-star" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="m12 2.6 2.8 5.9 6.4.9-4.7 4.5 1.2 6.4L12 17l-5.7 3.3 1.2-6.4-4.7-4.5 6.4-.9z"/></symbol>
+  <symbol id="ico-sliders" viewBox="0 0 24 24"><path d="M4 21v-6"/><path d="M4 11V3"/><path d="M12 21v-9"/><path d="M12 8V3"/><path d="M20 21v-4"/><path d="M20 13V3"/><path d="M1.5 14.5h5"/><path d="M9.5 8h5"/><path d="M17.5 16.5h5"/></symbol>
+  <symbol id="ico-link" viewBox="0 0 24 24"><path d="M10.5 13.5a5 5 0 0 0 7.1.4l2.6-2.6a5 5 0 0 0-7.1-7.1l-1.4 1.4"/><path d="M13.5 10.5a5 5 0 0 0-7.1-.4L3.8 12.7a5 5 0 0 0 7.1 7.1l1.4-1.4"/></symbol>
+  <symbol id="ico-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 6.5"/></symbol>
+  <symbol id="ico-refresh" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 3v6h-6"/></symbol>
+  <symbol id="ico-send" viewBox="0 0 24 24"><path d="M21.5 2.5 11 13"/><path d="M21.5 2.5 15 21.5l-4-8.5-8.5-4z"/></symbol>
+</svg>
+
 <div class="layout">
   <!-- ============ 侧边栏 ============ -->
   <aside class="sidebar" id="sidebar">
@@ -19,24 +42,24 @@
     </div>
     <nav class="nav">
       <a href="#/overview" data-nav="overview" class="nav-item">
-        <span class="ni-ico">🏠</span><span class="ni-text">总览</span>
+        <span class="ni-ico"><svg class="ico"><use href="#ico-home"/></svg></span><span class="ni-text">总览</span>
       </a>
       <a href="#/kb" data-nav="kb" class="nav-item">
-        <span class="ni-ico">📚</span><span class="ni-text">RAG 智库</span>
+        <span class="ni-ico"><svg class="ico"><use href="#ico-book"/></svg></span><span class="ni-text">RAG 智库</span>
       </a>
       <a href="#/contract" data-nav="contract" class="nav-item">
-        <span class="ni-ico">📑</span><span class="ni-text">合同审批</span>
+        <span class="ni-ico"><svg class="ico"><use href="#ico-shield"/></svg></span><span class="ni-text">合同审批</span>
       </a>
       <a href="#/cs" data-nav="cs" class="nav-item">
-        <span class="ni-ico">💬</span><span class="ni-text">电商小二</span>
+        <span class="ni-ico"><svg class="ico"><use href="#ico-chat"/></svg></span><span class="ni-text">电商小二</span>
       </a>
       <a href="#/ops" data-nav="ops" class="nav-item">
-        <span class="ni-ico">📈</span><span class="ni-text">运营助手</span>
+        <span class="ni-ico"><svg class="ico"><use href="#ico-chart"/></svg></span><span class="ni-text">运营助手</span>
       </a>
     </nav>
     <div class="sidebar-foot">
       <div class="llm-badge" id="llmBadge">检测中…</div>
-      <div class="build-mark">v1.0 · 2026-10-16</div>
+      <div class="build-mark">v2.0 · 2026-10-17</div>
     </div>
   </aside>
   <div class="sidebar-mask" id="sidebarMask"></div>
@@ -56,16 +79,59 @@
       <section class="view" id="view-overview">
         <div class="hero-card">
           <div class="hero-glow"></div>
-          <h2>四个系统 · 一个工作台</h2>
-          <p>RAG 智库、合同审批、电商小二、电商运营助手已融合为单端口应用，原有功能全部保留。</p>
-          <div class="hero-actions">
-            <a class="btn btn-gold" href="#/kb">进入智库</a>
-            <a class="btn btn-ghost" href="#/cs">问问小二</a>
+          <div class="hero-main">
+            <div class="hero-kicker">FUSION WORKBENCH · 四合一融合架构</div>
+            <h2>四个系统 · 一个工作台</h2>
+            <p>RAG 智库、合同审批、电商小二、电商运营助手已融合为单端口应用，原有功能全部保留。</p>
+            <div class="hero-stats">
+              <div class="hs-item"><b>4</b><span>融合模块</span></div>
+              <div class="hs-sep"></div>
+              <div class="hs-item"><b>1</b><span>单端口部署</span></div>
+              <div class="hs-sep"></div>
+              <div class="hs-item"><b>100%</b><span>原功能保留</span></div>
+            </div>
+            <div class="hero-actions">
+              <a class="btn btn-gold" href="#/kb">进入智库</a>
+              <a class="btn btn-ghost" href="#/cs">问问小二</a>
+            </div>
           </div>
+          <svg class="hero-orbit" viewBox="0 0 340 340" fill="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="orbGold" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#E8CF9E"/><stop offset=".55" stop-color="#C9A96A"/><stop offset="1" stop-color="#A8823F"/>
+              </linearGradient>
+              <radialGradient id="orbGlow" cx=".5" cy=".5" r=".5">
+                <stop offset="0" stop-color="#C9A96A" stop-opacity=".26"/><stop offset="1" stop-color="#C9A96A" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <circle cx="170" cy="170" r="152" fill="url(#orbGlow)"/>
+            <g class="orbit-ring">
+              <circle cx="170" cy="170" r="128" stroke="#C9A96A" stroke-opacity=".5" stroke-width="1.4" stroke-dasharray="3 9"/>
+            </g>
+            <g stroke="#C9A96A" stroke-opacity=".55" stroke-width="1.4">
+              <path d="M170 44v82"/><path d="M296 170h-82"/><path d="M170 296v-82"/><path d="M44 170h82"/>
+            </g>
+            <g text-anchor="middle">
+              <circle cx="170" cy="170" r="52" fill="url(#orbGold)"/>
+              <circle cx="170" cy="170" r="52" stroke="#FFFDF7" stroke-opacity=".7" stroke-width="2"/>
+              <text x="170" y="164" fill="#FFFDF7" font-size="15" font-weight="800">单端口</text>
+              <text x="170" y="184" fill="#FFFDF7" fill-opacity=".85" font-size="10" letter-spacing="2">FUSION</text>
+              <g font-size="13" font-weight="800">
+                <circle cx="170" cy="44" r="30" fill="#FFFDF7" stroke="#E9D5A8" stroke-width="1.6"/>
+                <text x="170" y="49" fill="#A8823F">智库</text>
+                <circle cx="296" cy="170" r="30" fill="#FFFDF7" stroke="#E9D5A8" stroke-width="1.6"/>
+                <text x="296" y="175" fill="#A8823F">合同</text>
+                <circle cx="170" cy="296" r="30" fill="#FFFDF7" stroke="#E9D5A8" stroke-width="1.6"/>
+                <text x="170" y="301" fill="#A8823F">小二</text>
+                <circle cx="44" cy="170" r="30" fill="#FFFDF7" stroke="#E9D5A8" stroke-width="1.6"/>
+                <text x="44" y="175" fill="#A8823F">运营</text>
+              </g>
+            </g>
+          </svg>
         </div>
         <div class="module-grid" id="moduleGrid"></div>
         <div class="panel">
-          <div class="panel-head"><h3>系统状态</h3></div>
+          <div class="panel-head"><h3><svg class="ico"><use href="#ico-sliders"/></svg>系统状态</h3></div>
           <div class="panel-body" id="sysStatus"></div>
         </div>
       </section>
@@ -74,7 +140,7 @@
       <section class="view" id="view-kb">
         <div class="kb-layout">
           <div class="panel">
-            <div class="panel-head"><h3>📥 文档导入</h3></div>
+            <div class="panel-head"><h3><svg class="ico"><use href="#ico-upload"/></svg>文档导入</h3></div>
             <div class="panel-body">
               <input class="input" id="kbName" placeholder="文档名称，如：售后政策.txt">
               <textarea class="input textarea" id="kbText" rows="5" placeholder="粘贴文档内容（txt / md）…"></textarea>
@@ -89,7 +155,7 @@
             </div>
           </div>
           <div class="panel kb-chat-panel">
-            <div class="panel-head"><h3>💬 知识库问答</h3><span class="panel-tip" id="kbModeTip"></span></div>
+            <div class="panel-head"><h3><svg class="ico"><use href="#ico-spark"/></svg>知识库问答</h3><span class="panel-tip" id="kbModeTip"></span></div>
             <div class="chat-scroll" id="kbChatScroll"></div>
             <div class="chat-inputbar">
               <input class="input" id="kbQuestion" placeholder="基于已导入文档提问，回车发送">
@@ -102,7 +168,7 @@
       <!-- ======== 合同审批 ======== -->
       <section class="view" id="view-contract">
         <div class="panel">
-          <div class="panel-head"><h3>📑 提交合同审查</h3></div>
+          <div class="panel-head"><h3><svg class="ico"><use href="#ico-shield"/></svg>提交合同审查</h3></div>
           <div class="panel-body">
             <div class="form-grid">
               <input class="input" id="ctName" placeholder="合同名称">
@@ -125,7 +191,7 @@
           </div>
         </div>
         <div class="panel">
-          <div class="panel-head"><h3>审查列表</h3>
+          <div class="panel-head"><h3><svg class="ico"><use href="#ico-clipboard"/></svg>审查列表</h3>
             <select class="input input-sm" id="ctStatusFilter">
               <option value="">全部状态</option>
               <option value="pending">待审批</option>
@@ -137,7 +203,7 @@
           <div class="panel-body table-wrap" id="ctTableWrap"></div>
         </div>
         <div class="panel">
-          <div class="panel-head"><h3>🛡️ 审计日志</h3><button class="btn btn-ghost btn-sm" id="ctAuditRefresh">刷新</button></div>
+          <div class="panel-head"><h3><svg class="ico"><use href="#ico-shield"/></svg>审计日志</h3><button class="btn btn-ghost btn-sm" id="ctAuditRefresh">刷新</button></div>
           <div class="panel-body table-wrap" id="ctAuditWrap"></div>
         </div>
       </section>
@@ -147,7 +213,7 @@
         <div class="cs-layout">
           <div class="panel cs-chat-panel">
             <div class="panel-head">
-              <h3>💬 电商小二</h3>
+              <h3><svg class="ico"><use href="#ico-chat"/></svg>电商小二</h3>
               <div class="row-gap">
                 <span class="panel-tip" id="csTrackTip">三轨对话引擎</span>
                 <button class="btn btn-ghost btn-sm" id="csReset">重置会话</button>
@@ -161,13 +227,13 @@
           </div>
           <div class="cs-side">
             <div class="panel">
-              <div class="panel-head"><h3>⚡ 快捷入口</h3></div>
+              <div class="panel-head"><h3><svg class="ico"><use href="#ico-bolt"/></svg>快捷入口</h3></div>
               <div class="panel-body quick-grid" id="csQuick"></div>
             </div>
             <div class="panel">
-              <div class="panel-head"><h3>🧑‍💼 数字人坐席</h3></div>
+              <div class="panel-head"><h3><svg class="ico"><use href="#ico-user"/></svg>数字人坐席</h3></div>
               <div class="panel-body dh-body">
-                <div class="dh-avatar">🤖</div>
+                <div class="dh-avatar"><svg class="ico"><use href="#ico-user"/></svg></div>
                 <div class="dh-info">
                   <b>小二 · 数字人</b>
                   <p>状态：在线（演示）<br>负责：接待 / 答疑 / 引导</p>
@@ -175,7 +241,7 @@
               </div>
             </div>
             <div class="panel">
-              <div class="panel-head"><h3>⭐ 服务评价</h3></div>
+              <div class="panel-head"><h3><svg class="ico"><use href="#ico-star"/></svg>服务评价</h3></div>
               <div class="panel-body">
                 <div class="rate-row" id="csRateRow">
                   <span class="rate-star" data-v="1">★</span><span class="rate-star" data-v="2">★</span><span class="rate-star" data-v="3">★</span><span class="rate-star" data-v="4">★</span><span class="rate-star" data-v="5">★</span>
@@ -198,7 +264,7 @@
         </div>
         <div class="tab-pane active" id="pane-products">
           <div class="panel">
-            <div class="panel-head"><h3>商品管理</h3>
+            <div class="panel-head"><h3><svg class="ico"><use href="#ico-clipboard"/></svg>商品管理</h3>
               <button class="btn btn-gold btn-sm" id="opsNewProduct">+ 新增商品</button>
             </div>
             <div class="panel-body table-wrap" id="opsProductTable"></div>
@@ -206,7 +272,7 @@
         </div>
         <div class="tab-pane" id="pane-stores">
           <div class="panel">
-            <div class="panel-head"><h3>店铺管理</h3>
+            <div class="panel-head"><h3><svg class="ico"><use href="#ico-home"/></svg>店铺管理</h3>
               <button class="btn btn-gold btn-sm" id="opsNewStore">+ 新增店铺</button>
             </div>
             <div class="panel-body table-wrap" id="opsStoreTable"></div>
@@ -214,17 +280,17 @@
         </div>
         <div class="tab-pane" id="pane-agents">
           <div class="panel">
-            <div class="panel-head"><h3>🤖 运营 Agent</h3></div>
+            <div class="panel-head"><h3><svg class="ico"><use href="#ico-spark"/></svg>运营 Agent</h3></div>
             <div class="panel-body agent-grid" id="opsAgentGrid"></div>
           </div>
           <div class="panel">
-            <div class="panel-head"><h3>运行记录</h3></div>
+            <div class="panel-head"><h3><svg class="ico"><use href="#ico-clipboard"/></svg>运行记录</h3></div>
             <div class="panel-body" id="opsRunList"></div>
           </div>
         </div>
         <div class="tab-pane" id="pane-workflows">
           <div class="panel">
-            <div class="panel-head"><h3>⚙️ 自动化工作流</h3></div>
+            <div class="panel-head"><h3><svg class="ico"><use href="#ico-sliders"/></svg>自动化工作流</h3></div>
             <div class="panel-body table-wrap" id="opsWorkflowTable"></div>
           </div>
         </div>

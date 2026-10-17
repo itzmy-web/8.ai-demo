@@ -67,16 +67,16 @@ $("sidebarMask").onclick = closeSidebar;
 
 /* ============ 总览 ============ */
 const MODULES = [
-  { no: "1", ico: "📚", name: "RAG 智库", desc: "文档导入、FTS 全文检索、知识库问答，资料随问随答。", href: "#/kb", meta: "检索 · 问答" },
-  { no: "2", ico: "📑", name: "合同审批", desc: "规则引擎 + LLM 双驱动审查，风险识别、审批流、审计留痕。", href: "#/contract", meta: "审查 · 审批" },
-  { no: "3", ico: "💬", name: "电商小二", desc: "三轨对话引擎：业务办理 / 知识咨询 / 闲聊，流程可中断恢复。", href: "#/cs", meta: "客服 · 三轨" },
-  { no: "4", ico: "📈", name: "运营助手", desc: "商品店铺管理、数据看板、运营 Agent、自动化工作流。", href: "#/ops", meta: "看板 · Agent" },
+  { no: "1", ico: "book", name: "RAG 智库", desc: "文档导入、FTS 全文检索、知识库问答，资料随问随答。", href: "#/kb", meta: "检索 · 问答" },
+  { no: "2", ico: "shield", name: "合同审批", desc: "规则引擎 + LLM 双驱动审查，风险识别、审批流、审计留痕。", href: "#/contract", meta: "审查 · 审批" },
+  { no: "3", ico: "chat", name: "电商小二", desc: "三轨对话引擎：业务办理 / 知识咨询 / 闲聊，流程可中断恢复。", href: "#/cs", meta: "客服 · 三轨" },
+  { no: "4", ico: "chart", name: "运营助手", desc: "商品店铺管理、数据看板、运营 Agent、自动化工作流。", href: "#/ops", meta: "看板 · Agent" },
 ];
 
 async function renderOverview() {
   $("moduleGrid").innerHTML = MODULES.map((m) => `
     <div class="module-card" data-no="${m.no}" onclick="location.hash='${m.href.slice(1)}'">
-      <div class="mc-ico">${m.ico}</div>
+      <div class="mc-ico"><svg class="ico"><use href="#ico-${m.ico}"/></svg></div>
       <h4>${m.name}</h4>
       <p>${m.desc}</p>
       <div class="mc-meta">${m.meta} →</div>
@@ -135,7 +135,7 @@ async function loadKbDocs() {
   const list = data.documents || [];
   $("kbDocList").innerHTML = list.length ? list.map((d) => `
     <div class="doc-item">
-      <span>📄</span>
+      <svg class="ico"><use href="#ico-file"/></svg>
       <span class="di-name" title="${esc(d.name)}">${esc(d.name)}</span>
       <span class="di-meta">${d.chunks} 块 · ${fmtTime(d.created_at)}</span>
       <span class="di-del" data-id="${d.id}" title="删除">✕</span>
@@ -160,7 +160,7 @@ async function kbAsk() {
     if (r.refs && r.refs.length) {
       const box = document.createElement("div");
       box.className = "msg-refs";
-      box.innerHTML = r.refs.map((x) => `<div class="ref-item">📎 ${esc(x.doc)}：${esc(x.text)}…</div>`).join("");
+      box.innerHTML = r.refs.map((x) => `<div class="ref-item"><svg class="ico"><use href="#ico-link"/></svg>${esc(x.doc)}：${esc(x.text)}…</div>`).join("");
       typing.querySelector(".msg-body").appendChild(box);
     }
     typing.classList.remove("typing");
@@ -280,7 +280,7 @@ async function openContractModal(id) {
           ${x.by_llm ? '<span class="tag tag-gold">LLM</span>' : ""}</div>
         <div class="ri-reason">${esc(x.reason)}</div>
         ${x.snippet ? `<div class="ri-snippet">原文定位：${esc(x.snippet)}</div>` : ""}
-        <div class="ri-sug">💡 ${esc(x.suggestion)}</div>
+        <div class="ri-sug"><svg class="ico"><use href="#ico-bulb"/></svg><span>${esc(x.suggestion)}</span></div>
         <div class="ri-basis">依据：${esc(x.legal_basis)}</div>
       </div>`;
     }).join("") || '<div class="empty-tip">未发现风险</div>'}
@@ -294,7 +294,7 @@ async function openContractModal(id) {
       <button class="btn btn-gold" id="ctApprove">✓ 通过</button>
       <button class="btn btn-ghost" id="ctRectify">↩ 退回整改</button>
       <button class="btn btn-danger" id="ctReject">✕ 拒绝</button>
-      <button class="btn btn-ghost" id="ctWriteback">📨 写回审批系统</button>
+      <button class="btn btn-ghost" id="ctWriteback"><svg class="ico"><use href="#ico-send"/></svg>写回审批系统</button>
       <button class="btn btn-ghost" id="ctExport">⬇ 导出报告</button>
     </div>
     ${c.approvals && c.approvals.length ? `<div class="divider"><span>审批记录</span></div>` +
@@ -572,7 +572,7 @@ async function loadAgents() {
   ]);
   $("opsAgentGrid").innerHTML = agents.map((a) => `
     <div class="agent-card">
-      <div class="ac-name">🤖 ${esc(a.name)}</div>
+      <div class="ac-name"><svg class="ico"><use href="#ico-spark"/></svg>${esc(a.name)}</div>
       <div class="ac-desc">${esc(a.desc)}</div>
       <div class="ac-steps">${a.steps.map((s) => `<span>${esc(s)}</span>`).join("")}</div>
       <button class="btn btn-gold btn-sm" data-run="${a.id}">▶ 运行</button>
@@ -593,7 +593,7 @@ async function loadAgents() {
     <div class="run-item">
       <div class="ri-top"><span class="tag tag-gold">${esc(r.agent)}</span><b>${esc(r.task)}</b><span class="ri-time">${fmtTime(r.created_at)}</span></div>
       <div class="ri-steps">${(r.steps || []).map((s) => `<div class="ri-step"><b>${esc(s.step)}</b>：${esc(s.detail)}</div>`).join("")}</div>
-      ${r.result ? `<div class="ri-result">📋 ${esc(r.result)}</div>` : ""}
+      ${r.result ? `<div class="ri-result"><svg class="ico"><use href="#ico-clipboard"/></svg><span>${esc(r.result)}</span></div>` : ""}
     </div>`).join("") : `<div class="empty-tip">暂无运行记录</div>`;
 }
 
@@ -642,7 +642,7 @@ function pushMsg(scope, who, text, typing = false, track = "") {
   const wrap = document.createElement("div");
   wrap.className = "msg " + (who === "user" ? "user" : "bot") + (typing ? " typing" : "");
   wrap.innerHTML = `
-    <div class="msg-avatar">${who === "user" ? "我" : "🤖"}</div>
+    <div class="msg-avatar">${who === "user" ? "我" : '<svg class="ico"><use href="#ico-spark"/></svg>'}</div>
     <div class="msg-body">${track && who !== "user" ? `<span class="msg-track">${esc(track)}</span>` : ""}${esc(text)}</div>`;
   box.appendChild(wrap);
   scrollChat(box.id);
@@ -663,6 +663,18 @@ function jsonHeaders() {
   return { "Content-Type": "application/json" };
 }
 
+/* ---- 启动时兜底刷新 LLM 徽章（任何路由落地都显示真实状态）---- */
+async function refreshBadges() {
+  let health = {};
+  try { health = await api("/health"); } catch (e) { return; }
+  const demo = health.demo_mode !== false;
+  $("llmBadge").textContent = demo ? "演示模式 · 规则引擎" : "LLM 已连接";
+  $("llmBadge").classList.toggle("on", !demo);
+  $("demoChip").textContent = demo ? "演示模式" : "LLM 在线";
+  $("demoChip").classList.toggle("live", !demo);
+}
+
 /* ============ 启动 ============ */
 ensureModal();
 route();
+refreshBadges();
