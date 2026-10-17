@@ -61,13 +61,19 @@ console.log("== 2. 验证码校验 ==");
 $("loginPhone").value = "13800138000";
 $("loginCode").value = "";
 $("btnPhoneLogin").onclick();
-check("空验证码被拦截", lastToast() === "请输入验证码（演示模式：1234）");
-$("loginCode").value = "9999";
+check("未获取验证码时登录被拦截", lastToast() === "请先获取验证码");
+$("btnGetCode").onclick();
+const demoCode = $("loginCode").value;
+check("自动生成的验证码为 6 位数字", /^\d{6}$/.test(demoCode));
+$("loginCode").value = "";
 $("btnPhoneLogin").onclick();
-check("错误验证码被拦截", lastToast() === "验证码错误，演示模式固定为 1234");
+check("空验证码被拦截", lastToast() === "请输入验证码");
+$("loginCode").value = demoCode === "000000" ? "111111" : "000000";
+$("btnPhoneLogin").onclick();
+check("错误验证码被拦截", lastToast() === "验证码错误，请重新获取");
 
 console.log("== 3. 同意政策校验 ==");
-$("loginCode").value = "1234";
+$("loginCode").value = demoCode;
 $("agreePolicy").checked = false;
 $("btnPhoneLogin").onclick();
 check("未勾选协议被拦截", lastToast() === "请先勾选同意《用户服务协议》与《隐私政策》");
@@ -94,7 +100,7 @@ $("pane-wechat").classList.add = (c) => paneActivated.push(c);
 tabs[1].onclick();
 check("切到微信 pane 激活", paneActivated.includes("active"));
 
-console.log("== 7. 获取验证码（自动填入 + 倒计时 + 手机号预检）==");
+console.log("== 7. 获取验证码（自动填入 + 倒计时 + 手机号预检 + 六位随机）==");
 $("btnGetCode").disabled = false;
 $("loginPhone").value = "138";
 $("btnGetCode").onclick();
@@ -102,9 +108,15 @@ check("未填满 11 位不能发码", lastToast() === "请先输入 11 位手机
 $("loginPhone").value = "13800138000";
 $("loginCode").value = "";
 $("btnGetCode").onclick();
-check("验证码自动填入输入框", $("loginCode").value === "1234");
-check("自动填入提示", lastToast() === "演示模式：验证码已自动填入（1234）");
+check("验证码自动填入输入框（6 位）", /^\d{6}$/.test($("loginCode").value));
+check("自动填入提示", lastToast() === "演示模式：已生成 6 位验证码并自动填入");
 check("按钮进入倒计时禁用态", $("btnGetCode").disabled === true && /s 后重发/.test($("btnGetCode").textContent));
+// 随机性：再次获取应生成与上次不同的 6 位新码
+$("btnGetCode").disabled = false;
+const code1 = $("loginCode").value;
+$("btnGetCode").onclick();
+const code2 = $("loginCode").value;
+check("再次获取生成新的 6 位随机码", /^\d{6}$/.test(code2) && code2 !== code1);
 
 console.log(`\n结果: ${pass} 通过 / ${fail} 失败`);
 process.exit(fail ? 1 : 0);

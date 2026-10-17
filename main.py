@@ -25,7 +25,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-BUILD_MARK = "2026-10-17-fusion-v3"
+BUILD_MARK = "2026-10-17-fusion-v3-code6"
 
 
 @app.on_event("startup")

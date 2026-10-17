@@ -685,7 +685,7 @@ async function refreshBadges() {
 }
 
 /* ============ 登录门禁（内存制：每次打开先登录） ============ */
-const DEMO_CODE = "1234";
+let currentDemoCode = ""; // 演示模式：动态生成的 6 位随机验证码
 let codeTimer = null;
 
 function switchLoginTab(key) {
@@ -702,7 +702,7 @@ $("loginPhone").addEventListener("input", () => {
   $("phoneErr").textContent = v.length > 0 && v.length < 11 ? `手机号必须为 11 位，还差 ${11 - v.length} 位` : "";
 });
 
-// 获取验证码（演示模式固定 1234，60 秒倒计时）
+// 获取验证码（演示模式：每次生成 6 位随机码并自动填入，60 秒倒计时）
 $("btnGetCode").onclick = () => {
   const phone = $("loginPhone").value.trim();
   if (!/^1\d{10}$/.test(phone)) {
@@ -714,8 +714,10 @@ $("btnGetCode").onclick = () => {
   let n = 60;
   btn.disabled = true;
   btn.textContent = n + "s 后重发";
-  $("loginCode").value = DEMO_CODE; // 演示模式：验证码自动填入
-  toast("演示模式：验证码已自动填入（1234）");
+  // 生成 6 位随机验证码（100000-999999），每次点击都不同
+  currentDemoCode = String(Math.floor(100000 + Math.random() * 900000));
+  $("loginCode").value = currentDemoCode; // 演示模式：验证码自动填入
+  toast("演示模式：已生成 6 位验证码并自动填入");
   clearInterval(codeTimer);
   codeTimer = setInterval(() => {
     n -= 1;
@@ -732,8 +734,9 @@ $("btnPhoneLogin").onclick = () => {
     $("phoneErr").textContent = "手机号必须为 11 位数字";
     return toast("手机号必须为 11 位");
   }
-  if (!code) return toast("请输入验证码（演示模式：1234）");
-  if (code !== DEMO_CODE) return toast("验证码错误，演示模式固定为 1234");
+  if (!currentDemoCode) return toast("请先获取验证码");
+  if (!code) return toast("请输入验证码");
+  if (code !== currentDemoCode) return toast("验证码错误，请重新获取");
   if (!$("agreePolicy").checked) return toast("请先勾选同意《用户服务协议》与《隐私政策》");
   enterWorkbench("手机用户 " + phone.slice(0, 3) + "****" + phone.slice(7));
 };
