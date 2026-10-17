@@ -3,7 +3,7 @@
 > 把 4 个独立 AI 项目融合进同一个单端口工作台：**RAG 智能智库 · AI 合同审批 · 电商小二智能客服 · AI 电商运营助手**。
 > 一个 FastAPI 进程、一个 SQLite 数据库、一个 SPA 前端，36 个 API 开箱即用。
 
-**在线演示**：https://fusion-workbench-confirm.app.workbuddy.host/
+**在线演示**：http://39.107.107.246:8091/
 
 ---
 
