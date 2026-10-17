@@ -148,7 +148,7 @@ def bigrams(text):
     return [text[i:i+2] for i in range(len(text) - 1)]
 
 # 「企业经营分析」→ ["企业", "业经", "经营", "营分", "分析"]</code></pre>
-        <p>落地后中文检索命中率显著提升，答案又能强制附带原文引用——幻觉有据可查，这才是我敢把 RAG 系统拿给面试官演示的底气。局限也说清楚：超长文档分块仍有上下文丢失，多模态文件暂不支持，这些写在作品集项目卡的「已知局限」里，不藏着。</p>
+        <p>落地后中文检索命中率显著提升，答案又能强制附带原文引用——幻觉有据可查，这才是我敢把 RAG 系统拿给面试官演示的底气。后续方向：补充 PDF / Word 多格式解析与长文档分层分块，并用 Ragas 对检索命中做量化评测。</p>
       </article>
 
       <article class="glass-ultra post-full-card reveal" id="post-2">
@@ -182,7 +182,7 @@ def bigrams(text):
         </ol>
         <h3>坑 4：等待体验差</h3>
         <p>解法是 FastAPI SSE 流式：总结阶段按 token 推送，SQL 和引用随结果一起返回——用户能核对「这个数是怎么算出来的」，信任感比正确率数字更值钱。</p>
-        <p>边界也摆明：三表以上复杂关联仍会出错，歧义问句需要澄清轮次。这些都是作品集项目卡「已知局限」里的原话。</p>
+        <p>这套校验的收益很直接：错误 SQL 在执行前被兜住，用户看到的每个数都能追溯到 SQL 与结果表。下一步方向：建设 Few-shot 示例库按问题类型路由，并用 Ragas 对问数准确率做量化评测。</p>
       </article>
 
       <article class="glass-ultra post-full-card reveal" id="post-4">

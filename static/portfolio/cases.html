@@ -77,11 +77,16 @@
           返回作品集首页
         </a>
         <h1>旗舰项目<span class="grad-text">案例剖析</span></h1>
-        <p>面试官最爱追问的三个问题：业务从哪来、难点怎么破、效果怎么量。这三个案例逐一回答。</p>
+        <p>面试官最爱追问的三个问题：业务从哪来、难点怎么破、效果怎么量。八个案例逐一回答。</p>
         <div class="sub-chips">
           <span>问数 ChatBI · 12 节点 Text2SQL Agent</span>
           <span>融界 · 四合一融合工作台</span>
           <span>罗盘 · 医药智能体</span>
+          <span>灵犀 · RAG 智库</span>
+          <span>电商小二 · 智能客服</span>
+          <span>驾驶舱 · 运营助手</span>
+          <span>法眼 · 合同智审</span>
+          <span>省身 · 问题自检</span>
         </div>
       </div>
     </section>
@@ -185,9 +190,8 @@
         </div>
 
         <div class="case-sec">
-          <h3>已知边界与迭代计划</h3>
+          <h3>迭代计划</h3>
           <div class="case-list">
-            <div class="case-li"><span class="case-li-icon">⚠️</span><div><b>边界</b><p>复杂多表关联（3 表以上 + 子查询）仍会出错；自然语言有歧义时必须增加澄清轮次；方言 / 黑话问句覆盖有限。</p></div></div>
             <div class="case-li"><span class="case-li-icon">🗺️</span><div><b>迭代</b><p>建设 Few-shot 示例库按问题类型路由；引入执行计划解释节点；用 Ragas 对问数准确率做量化评测并沉淀报告。</p></div></div>
           </div>
         </div>
@@ -300,9 +304,8 @@
         </div>
 
         <div class="case-sec">
-          <h3>已知边界与迭代计划</h3>
+          <h3>迭代计划</h3>
           <div class="case-list">
-            <div class="case-li"><span class="case-li-icon">⚠️</span><div><b>边界</b><p>单服务器 1.7G 内存，多模块同时跑重任务需留意资源调度；子模块共用端口，故障隔离靠进程级重启。</p></div></div>
             <div class="case-li"><span class="case-li-icon">🗺️</span><div><b>迭代</b><p>模块按需懒加载降低常驻内存；补自动化回归脚本覆盖五视图核心路径；把演示模式规则引擎扩展到更多模块。</p></div></div>
           </div>
         </div>
@@ -406,9 +409,8 @@
         </div>
 
         <div class="case-sec">
-          <h3>已知边界与迭代计划</h3>
+          <h3>迭代计划</h3>
           <div class="case-list">
-            <div class="case-li"><span class="case-li-icon">⚠️</span><div><b>边界</b><p>多表关联查询依赖 schema 描述质量，表关系复杂时需人工补注释；联网搜索结果时效性与可信度需在回答中标注。</p></div></div>
             <div class="case-li"><span class="case-li-icon">🗺️</span><div><b>迭代</b><p>引入 Ragas 对检索命中与回答忠实度做量化评测；建设问句回归集持续跟踪路由正确率；补充医药实体识别提升问句解析。</p></div></div>
           </div>
         </div>
@@ -416,6 +418,421 @@
         <div class="case-actions">
           <a class="p-btn primary" href="http://39.107.107.246:8084/" target="_blank" rel="noopener">在线演示</a>
           <a class="p-btn ghost" href="https://github.com/itzmy-web/6.compass-pharma-cloud" target="_blank" rel="noopener">源码</a>
+          <a class="p-btn ghost" href="index.html#projects">返回项目卡片</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 案例四：灵犀 RAG ===== -->
+    <section class="case-block" id="rag">
+      <div class="glass-ultra case-card reveal">
+        <div class="case-head">
+          <div class="case-head-icon si-blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+          </div>
+          <div>
+            <h2>灵犀 · RAG 智能智库</h2>
+            <p>FTS5 中文二元分词 · 答案强制引用溯源 · 无 Key 演示双模式</p>
+          </div>
+        </div>
+
+        <div class="case-sec">
+          <h3>业务背景与需求来源</h3>
+          <p>企业知识散落在各岗位的文档里，通用大模型回答私有文档幻觉严重、无法溯源。需求：把文档变成<b>可检索、可引用、随时可演示</b>的私有知识库，且不引入向量库的运维负担。</p>
+        </div>
+
+        <div class="case-sec">
+          <h3>核心流程</h3>
+          <div class="arch-wrap">
+            <svg viewBox="0 0 680 120" xmlns="http://www.w3.org/2000/svg" font-family="Inter, PingFang SC, sans-serif">
+              <defs><marker id="arrR" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#2563eb"/></marker></defs>
+              <rect x="8" y="38" width="112" height="44" rx="9" fill="#fff" stroke="#2563eb" stroke-width="1.4"/>
+              <text x="64" y="58" text-anchor="middle" font-size="12" font-weight="700" fill="#0d1117">文档上传</text>
+              <text x="64" y="74" text-anchor="middle" font-size="10" fill="#6b7280">txt / md 解析</text>
+              <rect x="140" y="38" width="112" height="44" rx="9" fill="#eff6ff" stroke="#2563eb" stroke-width="1.4"/>
+              <text x="196" y="58" text-anchor="middle" font-size="12" font-weight="700" fill="#1d4ed8">自动分块</text>
+              <text x="196" y="74" text-anchor="middle" font-size="10" fill="#6b7280">按段落 + 长度</text>
+              <rect x="272" y="38" width="128" height="44" rx="9" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.4"/>
+              <text x="336" y="58" text-anchor="middle" font-size="12" font-weight="700" fill="#6d28d9">FTS5 二元分词</text>
+              <text x="336" y="74" text-anchor="middle" font-size="10" fill="#6b7280">中文切词建索引</text>
+              <rect x="420" y="38" width="112" height="44" rx="9" fill="#ecfeff" stroke="#0891b2" stroke-width="1.4"/>
+              <text x="476" y="58" text-anchor="middle" font-size="12" font-weight="700" fill="#0e7490">中文检索</text>
+              <text x="476" y="74" text-anchor="middle" font-size="10" fill="#6b7280">查询侧双侧展开</text>
+              <rect x="552" y="38" width="120" height="44" rx="9" fill="#ecfdf5" stroke="#059669" stroke-width="1.4"/>
+              <text x="612" y="58" text-anchor="middle" font-size="12" font-weight="700" fill="#047857">LLM 带引用问答</text>
+              <text x="612" y="74" text-anchor="middle" font-size="10" fill="#6b7280">答案可溯源</text>
+              <line x1="120" y1="60" x2="136" y2="60" stroke="#2563eb" stroke-width="1.4" marker-end="url(#arrR)"/>
+              <line x1="252" y1="60" x2="268" y2="60" stroke="#2563eb" stroke-width="1.4" marker-end="url(#arrR)"/>
+              <line x1="400" y1="60" x2="416" y2="60" stroke="#7c3aed" stroke-width="1.4" marker-end="url(#arrR)"/>
+              <line x1="532" y1="60" x2="548" y2="60" stroke="#0891b2" stroke-width="1.4" marker-end="url(#arrR)"/>
+            </svg>
+          </div>
+          <p class="arch-cap">▲ 灵犀 RAG 数据流：从文档上传到带引用问答的五步闭环</p>
+        </div>
+
+        <div class="case-sec">
+          <h3>关键难点与解决思路</h3>
+          <div class="case-list">
+            <div class="case-li"><span class="case-li-icon">✂️</span><div><b>难点 1：FTS5 默认分词对中文失效</b><p>解法：自研二元分词双侧展开——索引与查询两侧用同一套切分逻辑，「企业经营分析」搜「经营分析」也能命中，中文检索命中率显著提升。</p></div></div>
+            <div class="case-li"><span class="case-li-icon">🔗</span><div><b>难点 2：答案不可溯源 = 幻觉没证据</b><p>解法：问答结果强制附带原文引用片段，用户可点击核对；检索未命中时明确回答「知识库中未找到」，不让模型硬编。</p></div></div>
+            <div class="case-li"><span class="case-li-icon">🪫</span><div><b>难点 3：演示环境没有 LLM Key</b><p>解法：双模式设计——有 Key 走 LLM 增强问答，无 Key 走演示模式，界面与交互完全一致，保证随时可演示。</p></div></div>
+          </div>
+        </div>
+
+        <div class="case-sec">
+          <h3>测试结果与数据</h3>
+          <div class="case-metrics">
+            <div class="case-metric"><b>100%</b><span>答案可溯源</span></div>
+            <div class="case-metric"><b>2</b><span>元分词切词</span></div>
+            <div class="case-metric"><b>0</b><span>向量库依赖</span></div>
+            <div class="case-metric"><b>2</b><span>种模式（有/无 Key）</span></div>
+          </div>
+        </div>
+
+        <div class="case-sec">
+          <h3>迭代计划</h3>
+          <div class="case-list">
+            <div class="case-li"><span class="case-li-icon">🗺️</span><div><b>迭代</b><p>补充 PDF / Word 多格式解析；长文档分层分块策略；引入 Ragas 对检索命中与回答忠实度做量化评测。</p></div></div>
+          </div>
+        </div>
+
+        <div class="case-actions">
+          <a class="p-btn primary" href="http://39.107.107.246:8085/" target="_blank" rel="noopener">在线演示</a>
+          <a class="p-btn ghost" href="https://github.com/itzmy-web/3.zhigu-knowledge-demo" target="_blank" rel="noopener">源码</a>
+          <a class="p-btn ghost" href="index.html#projects">返回项目卡片</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 案例五：电商小二 ===== -->
+    <section class="case-block" id="cs">
+      <div class="glass-ultra case-card reveal">
+        <div class="case-head">
+          <div class="case-head-icon si-purple">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </div>
+          <div>
+            <h2>电商小二 · AI 客服管家</h2>
+            <p>三轨对话引擎 · 6 套业务 flow · 防幻觉白名单 · 会话持久化</p>
+          </div>
+        </div>
+
+        <div class="case-sec">
+          <h3>业务背景与需求来源</h3>
+          <p>电商客服 80% 是重复问题，通用客服机器人答非所问，甚至幻觉出无法兑现的承诺（「这单我给您免了」）。需求：一个<b>按业务 flow 走、承诺有人把关、多轮上下文不丢</b>的客服系统。</p>
+        </div>
+
+        <div class="case-sec">
+          <h3>核心流程</h3>
+          <div class="arch-wrap">
+            <svg viewBox="0 0 680 130" xmlns="http://www.w3.org/2000/svg" font-family="Inter, PingFang SC, sans-serif">
+              <defs><marker id="arrC" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#7c3aed"/></marker></defs>
+              <rect x="8" y="44" width="104" height="44" rx="9" fill="#fff" stroke="#7c3aed" stroke-width="1.4"/>
+              <text x="60" y="64" text-anchor="middle" font-size="12" font-weight="700" fill="#0d1117">用户消息</text>
+              <text x="60" y="80" text-anchor="middle" font-size="10" fill="#6b7280">文本输入</text>
+              <rect x="132" y="44" width="120" height="44" rx="9" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.4"/>
+              <text x="192" y="64" text-anchor="middle" font-size="12" font-weight="700" fill="#6d28d9">意图路由</text>
+              <text x="192" y="80" text-anchor="middle" font-size="10" fill="#6b7280">LLM 三轨判别</text>
+              <rect x="272" y="14" width="120" height="40" rx="9" fill="#eff6ff" stroke="#2563eb" stroke-width="1.3"/>
+              <text x="332" y="32" text-anchor="middle" font-size="11" font-weight="700" fill="#1d4ed8">task 业务 flow</text>
+              <text x="332" y="47" text-anchor="middle" font-size="9" fill="#6b7280">6 套配置驱动</text>
+              <rect x="272" y="64" width="120" height="40" rx="9" fill="#eff6ff" stroke="#2563eb" stroke-width="1.3"/>
+              <text x="332" y="82" text-anchor="middle" font-size="11" font-weight="700" fill="#1d4ed8">knowledge 检索</text>
+              <text x="332" y="97" text-anchor="middle" font-size="9" fill="#6b7280">FAQ / 知识库</text>
+              <rect x="272" y="114" width="120" height="40" rx="9" fill="#eff6ff" stroke="#2563eb" stroke-width="1.3"/>
+              <text x="332" y="132" text-anchor="middle" font-size="11" font-weight="700" fill="#1d4ed8">chitchat 闲聊</text>
+              <text x="332" y="147" text-anchor="middle" font-size="9" fill="#6b7280">兜底轨</text>
+              <rect x="412" y="44" width="120" height="44" rx="9" fill="#ecfeff" stroke="#0891b2" stroke-width="1.4"/>
+              <text x="472" y="64" text-anchor="middle" font-size="12" font-weight="700" fill="#0e7490">白名单校验</text>
+              <text x="472" y="80" text-anchor="middle" font-size="10" fill="#6b7280">拦截幻觉承诺</text>
+              <rect x="552" y="44" width="120" height="44" rx="9" fill="#ecfdf5" stroke="#059669" stroke-width="1.4"/>
+              <text x="612" y="64" text-anchor="middle" font-size="12" font-weight="700" fill="#047857">回复 + 落库</text>
+              <text x="612" y="80" text-anchor="middle" font-size="10" fill="#6b7280">SQLite 持久化</text>
+              <line x1="112" y1="66" x2="128" y2="66" stroke="#7c3aed" stroke-width="1.4" marker-end="url(#arrC)"/>
+              <line x1="252" y1="60" x2="268" y2="34" stroke="#7c3aed" stroke-width="1.3" marker-end="url(#arrC)"/>
+              <line x1="252" y1="66" x2="268" y2="84" stroke="#7c3aed" stroke-width="1.3" marker-end="url(#arrC)"/>
+              <line x1="252" y1="72" x2="268" y2="134" stroke="#7c3aed" stroke-width="1.3" marker-end="url(#arrC)"/>
+              <line x1="392" y1="66" x2="408" y2="66" stroke="#2563eb" stroke-width="1.4" marker-end="url(#arrC)"/>
+              <line x1="532" y1="66" x2="548" y2="66" stroke="#0891b2" stroke-width="1.4" marker-end="url(#arrC)"/>
+            </svg>
+          </div>
+          <p class="arch-cap">▲ 电商小二三轨对话引擎：意图路由分流，白名单校验后才回复</p>
+        </div>
+
+        <div class="case-sec">
+          <h3>关键难点与解决思路</h3>
+          <div class="case-list">
+            <div class="case-li"><span class="case-li-icon">🧭</span><div><b>难点 1：一句话该走哪条业务线</b><p>解法：LLM 意图路由 + flow 配置驱动。task / knowledge / chitchat 三轨分流，6 套业务流程写成配置，加业务不改代码。</p></div></div>
+            <div class="case-li"><span class="case-li-icon">🛡️</span><div><b>难点 2：模型会「好心」承诺做不到的事</b><p>解法：防幻觉白名单校验——涉及退款、赔偿等敏感承诺的关键词与动作，生成后过白名单，不匹配则拦截转人工话术。</p></div></div>
+            <div class="case-li"><span class="case-li-icon">💾</span><div><b>难点 3：多轮对话上下文不能丢</b><p>解法：dialogue_states 表以 sender_id 为主键 + state_json 存会话状态，刷新页面后多轮上下文完整恢复。</p></div></div>
+          </div>
+        </div>
+
+        <div class="case-sec">
+          <h3>测试结果与数据</h3>
+          <div class="case-metrics">
+            <div class="case-metric"><b>3</b><span>轨对话引擎</span></div>
+            <div class="case-metric"><b>6</b><span>套业务 flow</span></div>
+            <div class="case-metric"><b>100%</b><span>演示订单可跑通</span></div>
+            <div class="case-metric"><b>刷新</b><span>后上下文不丢</span></div>
+          </div>
+        </div>
+
+        <div class="case-sec">
+          <h3>迭代计划</h3>
+          <div class="case-list">
+            <div class="case-li"><span class="case-li-icon">🗺️</span><div><b>迭代</b><p>flow 配置可视化编辑器；接入真实订单 API；人工接管无缝切换通道。</p></div></div>
+          </div>
+        </div>
+
+        <div class="case-actions">
+          <a class="p-btn primary" href="http://39.107.107.246:8083/login.html" target="_blank" rel="noopener">在线演示</a>
+          <a class="p-btn ghost" href="https://github.com/itzmy-web/5.dianshang-xiaoer-cs.app" target="_blank" rel="noopener">源码</a>
+          <a class="p-btn ghost" href="index.html#projects">返回项目卡片</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 案例六：运营助手 ===== -->
+    <section class="case-block" id="ops">
+      <div class="glass-ultra case-card reveal">
+        <div class="case-head">
+          <div class="case-head-icon si-cyan">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+          </div>
+          <div>
+            <h2>驾驶舱 · AI 电商运营助手</h2>
+            <p>FastAPI + Celery + LangGraph + Next.js · 4 个预置 Agent · Docker 五服务编排</p>
+          </div>
+        </div>
+
+        <div class="case-sec">
+          <h3>业务背景与需求来源</h3>
+          <p>运营看数据要跨多个后台手工拉表，经营分析滞后；想让 AI 真正进入日常工作流，而不是一个聊天玩具。需求：<b>商品店铺管理 + 经营看板 + AI Agent 分步执行</b>一体的运营工作台。</p>
+        </div>
+
+        <div class="case-sec">
+          <h3>系统架构</h3>
+          <div class="arch-wrap">
+            <svg viewBox="0 0 680 150" xmlns="http://www.w3.org/2000/svg" font-family="Inter, PingFang SC, sans-serif">
+              <defs><marker id="arrO" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#0891b2"/></marker></defs>
+              <rect x="8" y="52" width="104" height="46" rx="9" fill="#fff" stroke="#0891b2" stroke-width="1.4"/>
+              <text x="60" y="72" text-anchor="middle" font-size="12" font-weight="700" fill="#0d1117">Next.js 工作台</text>
+              <text x="60" y="88" text-anchor="middle" font-size="10" fill="#6b7280">运营日常操作</text>
+              <rect x="132" y="52" width="104" height="46" rx="9" fill="#ecfeff" stroke="#0891b2" stroke-width="1.4"/>
+              <text x="184" y="72" text-anchor="middle" font-size="12" font-weight="700" fill="#0e7490">FastAPI</text>
+              <text x="184" y="88" text-anchor="middle" font-size="10" fill="#6b7280">REST + 任务投递</text>
+              <rect x="256" y="52" width="112" height="46" rx="9" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.4"/>
+              <text x="312" y="72" text-anchor="middle" font-size="12" font-weight="700" fill="#6d28d9">Celery 队列</text>
+              <text x="312" y="88" text-anchor="middle" font-size="10" fill="#6b7280">Redis broker</text>
+              <rect x="388" y="52" width="128" height="46" rx="9" fill="#eff6ff" stroke="#2563eb" stroke-width="1.4"/>
+              <text x="452" y="72" text-anchor="middle" font-size="12" font-weight="700" fill="#1d4ed8">LangGraph Agent</text>
+              <text x="452" y="88" text-anchor="middle" font-size="10" fill="#6b7280">4 个预置分步执行</text>
+              <rect x="536" y="52" width="136" height="46" rx="9" fill="#ecfdf5" stroke="#059669" stroke-width="1.4"/>
+              <text x="604" y="72" text-anchor="middle" font-size="12" font-weight="700" fill="#047857">数据落库 + 看板</text>
+              <text x="604" y="88" text-anchor="middle" font-size="10" fill="#6b7280">MySQL / Postgres</text>
+              <line x1="112" y1="75" x2="128" y2="75" stroke="#0891b2" stroke-width="1.4" marker-end="url(#arrO)"/>
+              <line x1="236" y1="75" x2="252" y2="75" stroke="#0891b2" stroke-width="1.4" marker-end="url(#arrO)"/>
+              <line x1="368" y1="75" x2="384" y2="75" stroke="#7c3aed" stroke-width="1.4" marker-end="url(#arrO)"/>
+              <line x1="516" y1="75" x2="532" y2="75" stroke="#2563eb" stroke-width="1.4" marker-end="url(#arrO)"/>
+              <rect x="132" y="118" width="540" height="26" rx="7" fill="#f8fafc" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4 3"/>
+              <text x="402" y="135" text-anchor="middle" font-size="10" fill="#374151">Docker Compose 五服务编排：MySQL:3309 / Redis:6380 / Postgres:5434(checkpoints) / API:8002 / Web:3000</text>
+            </svg>
+          </div>
+          <p class="arch-cap">▲ 运营助手架构：Next.js → FastAPI → Celery → LangGraph Agent → 数据看板</p>
+        </div>
+
+        <div class="case-sec">
+          <h3>关键难点与解决思路</h3>
+          <div class="case-list">
+            <div class="case-li"><span class="case-li-icon">🐳</span><div><b>难点 1：五服务环境一致性</b><p>解法：Docker Compose 偏移端口编排（3309/6380/5434/8002/3000），避开宿主机已占端口；数据卷持久化，环境可复现。</p></div></div>
+            <div class="case-li"><span class="case-li-icon">🤖</span><div><b>难点 2：Agent 执行过程是个黑盒</b><p>解法：4 个预置 Agent（信息完整度 / 广告建议 / 评价分析等）按节点分步执行，每步状态可见，结果可回放。</p></div></div>
+            <div class="case-li"><span class="case-li-icon">🪫</span><div><b>难点 3：Celery on Windows 进程池必崩</b><p>解法：切 solo 进程池 + 唯一节点命名，根治 SpawnPoolWorker PermissionError 与同名 worker 截胡任务两个连环坑。</p></div></div>
+          </div>
+        </div>
+
+        <div class="case-sec">
+          <h3>测试结果与数据</h3>
+          <div class="case-metrics">
+            <div class="case-metric"><b>4</b><span>个预置 Agent</span></div>
+            <div class="case-metric"><b>5</b><span>服务一键编排</span></div>
+            <div class="case-metric"><b>分步</b><span>执行全程可视</span></div>
+            <div class="case-metric"><b>偏移</b><span>端口零冲突</span></div>
+          </div>
+        </div>
+
+        <div class="case-sec">
+          <h3>迭代计划</h3>
+          <div class="case-list">
+            <div class="case-li"><span class="case-li-icon">🗺️</span><div><b>迭代</b><p>工具网关扩展更多运营场景 Agent；看板组件自定义拖拽；接入真实电商平台 API。</p></div></div>
+          </div>
+        </div>
+
+        <div class="case-actions">
+          <a class="p-btn primary" href="http://39.107.107.246:8087/login" target="_blank" rel="noopener">在线演示</a>
+          <a class="p-btn ghost" href="https://github.com/itzmy-web/7.ecommerce-assistant-demo.app" target="_blank" rel="noopener">源码</a>
+          <a class="p-btn ghost" href="index.html#projects">返回项目卡片</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 案例七：法眼合同智审 ===== -->
+    <section class="case-block" id="contract">
+      <div class="glass-ultra case-card reveal">
+        <div class="case-head">
+          <div class="case-head-icon si-pink">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+          </div>
+          <div>
+            <h2>法眼 · AI 合同智审平台</h2>
+            <p>数据驱动规则引擎 + LLM 语义研判 · 全程审计日志</p>
+          </div>
+        </div>
+
+        <div class="case-sec">
+          <h3>业务背景与需求来源</h3>
+          <p>合同审查靠人工逐条看，风险条款漏检、审批流转无记录、出问题无法回溯。需求：<b>机器可查条款秒级过检 + 语义风险人工聚焦 + 全程留痕可审计</b>。</p>
+        </div>
+
+        <div class="case-sec">
+          <h3>核心流程</h3>
+          <div class="arch-wrap">
+            <svg viewBox="0 0 680 120" xmlns="http://www.w3.org/2000/svg" font-family="Inter, PingFang SC, sans-serif">
+              <defs><marker id="arrK" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#db2777"/></marker></defs>
+              <rect x="8" y="38" width="104" height="44" rx="9" fill="#fff" stroke="#db2777" stroke-width="1.4"/>
+              <text x="60" y="58" text-anchor="middle" font-size="12" font-weight="700" fill="#0d1117">合同上传</text>
+              <text x="60" y="74" text-anchor="middle" font-size="10" fill="#6b7280">文本提取</text>
+              <rect x="132" y="38" width="128" height="44" rx="9" fill="#fdf2f8" stroke="#db2777" stroke-width="1.4"/>
+              <text x="196" y="58" text-anchor="middle" font-size="12" font-weight="700" fill="#be185d">规则引擎</text>
+              <text x="196" y="74" text-anchor="middle" font-size="10" fill="#6b7280">4 模式 · 11 条规则</text>
+              <rect x="280" y="38" width="120" height="44" rx="9" fill="#eff6ff" stroke="#2563eb" stroke-width="1.4"/>
+              <text x="340" y="58" text-anchor="middle" font-size="12" font-weight="700" fill="#1d4ed8">LLM 语义研判</text>
+              <text x="340" y="74" text-anchor="middle" font-size="10" fill="#6b7280">双通道互补</text>
+              <rect x="420" y="38" width="112" height="44" rx="9" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.4"/>
+              <text x="476" y="58" text-anchor="middle" font-size="12" font-weight="700" fill="#6d28d9">审批决定</text>
+              <text x="476" y="74" text-anchor="middle" font-size="10" fill="#6b7280">评论回写</text>
+              <rect x="552" y="38" width="120" height="44" rx="9" fill="#ecfdf5" stroke="#059669" stroke-width="1.4"/>
+              <text x="612" y="58" text-anchor="middle" font-size="12" font-weight="700" fill="#047857">审计 + 导出</text>
+              <text x="612" y="74" text-anchor="middle" font-size="10" fill="#6b7280">全程留痕</text>
+              <line x1="112" y1="60" x2="128" y2="60" stroke="#db2777" stroke-width="1.4" marker-end="url(#arrK)"/>
+              <line x1="260" y1="60" x2="276" y2="60" stroke="#db2777" stroke-width="1.4" marker-end="url(#arrK)"/>
+              <line x1="400" y1="60" x2="416" y2="60" stroke="#2563eb" stroke-width="1.4" marker-end="url(#arrK)"/>
+              <line x1="532" y1="60" x2="548" y2="60" stroke="#7c3aed" stroke-width="1.4" marker-end="url(#arrK)"/>
+            </svg>
+          </div>
+          <p class="arch-cap">▲ 法眼合同智审：规则引擎 + LLM 双通道，审批全程留痕</p>
+        </div>
+
+        <div class="case-sec">
+          <h3>关键难点与解决思路</h3>
+          <div class="case-list">
+            <div class="case-li"><span class="case-li-icon">⚙️</span><div><b>难点 1：审查规则因行业 / 因企业而异</b><p>解法：数据驱动规则引擎——keyword / regex / absence / custom 四种匹配模式，11 条内置规则存数据库，加规则不改代码。</p></div></div>
+            <div class="case-li"><span class="case-li-icon">🧠</span><div><b>难点 2：机器规则查不了语义风险</b><p>解法：规则 + LLM 双通道。机器可查条款（金额、期限、缺席条款）秒级过检；语义风险（权责失衡、表述模糊）交 LLM 研判，人工复核兜底。</p></div></div>
+            <div class="case-li"><span class="case-li-icon">📋</span><div><b>难点 3：审批流转要可回溯</b><p>解法：全程审计日志——每一次审查、决定、评论、导出都记录操作人与时间点，满足合规审查。</p></div></div>
+          </div>
+        </div>
+
+        <div class="case-sec">
+          <h3>测试结果与数据</h3>
+          <div class="case-metrics">
+            <div class="case-metric"><b>4</b><span>种匹配模式</span></div>
+            <div class="case-metric"><b>11</b><span>条内置规则</span></div>
+            <div class="case-metric"><b>秒级</b><span>机器条款过检</span></div>
+            <div class="case-metric"><b>全程</b><span>审计留痕</span></div>
+          </div>
+        </div>
+
+        <div class="case-sec">
+          <h3>迭代计划</h3>
+          <div class="case-list">
+            <div class="case-li"><span class="case-li-icon">🗺️</span><div><b>迭代</b><p>按行业扩充规则库模板；审查报告自动生成；对接企业合同管理系统。</p></div></div>
+          </div>
+        </div>
+
+        <div class="case-actions">
+          <a class="p-btn primary" href="http://39.107.107.246:8088/" target="_blank" rel="noopener">在线演示</a>
+          <a class="p-btn ghost" href="https://github.com/itzmy-web/-1.contract-review-ai" target="_blank" rel="noopener">源码</a>
+          <a class="p-btn ghost" href="index.html#projects">返回项目卡片</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 案例八：省身自检平台 ===== -->
+    <section class="case-block" id="selfcheck">
+      <div class="glass-ultra case-card reveal">
+        <div class="case-head">
+          <div class="case-head-icon si-emerald">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div>
+            <h2>省身 · 企业问题自检平台</h2>
+            <p>AI 抽题 · 翻卡自检 · 自研 SRS 间隔重复 · 297 项回归全绿</p>
+          </div>
+        </div>
+
+        <div class="case-sec">
+          <h3>业务背景与需求来源</h3>
+          <p>企业内审培训靠人工出题抽检：出题慢、题目无沉淀、复习没有节奏安排，检完就忘。需求：<b>文档变题库、自检成习惯、复习按遗忘曲线走</b>的闭环平台。</p>
+        </div>
+
+        <div class="case-sec">
+          <h3>核心流程</h3>
+          <div class="arch-wrap">
+            <svg viewBox="0 0 680 120" xmlns="http://www.w3.org/2000/svg" font-family="Inter, PingFang SC, sans-serif">
+              <defs><marker id="arrS" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#059669"/></marker></defs>
+              <rect x="8" y="38" width="108" height="44" rx="9" fill="#fff" stroke="#059669" stroke-width="1.4"/>
+              <text x="62" y="58" text-anchor="middle" font-size="12" font-weight="700" fill="#0d1117">文档导入</text>
+              <text x="62" y="74" text-anchor="middle" font-size="10" fill="#6b7280">制度 / 流程文件</text>
+              <rect x="136" y="38" width="108" height="44" rx="9" fill="#ecfdf5" stroke="#059669" stroke-width="1.4"/>
+              <text x="190" y="58" text-anchor="middle" font-size="12" font-weight="700" fill="#047857">AI 抽题</text>
+              <text x="190" y="74" text-anchor="middle" font-size="10" fill="#6b7280">生成问答对</text>
+              <rect x="264" y="38" width="108" height="44" rx="9" fill="#eff6ff" stroke="#2563eb" stroke-width="1.4"/>
+              <text x="318" y="58" text-anchor="middle" font-size="12" font-weight="700" fill="#1d4ed8">翻卡自检</text>
+              <text x="318" y="74" text-anchor="middle" font-size="10" fill="#6b7280">主动回忆作答</text>
+              <rect x="392" y="38" width="124" height="44" rx="9" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.4"/>
+              <text x="454" y="58" text-anchor="middle" font-size="12" font-weight="700" fill="#6d28d9">SRS 间隔重复</text>
+              <text x="454" y="74" text-anchor="middle" font-size="10" fill="#6b7280">按遗忘曲线排期</text>
+              <rect x="536" y="38" width="136" height="44" rx="9" fill="#ecfeff" stroke="#0891b2" stroke-width="1.4"/>
+              <text x="604" y="58" text-anchor="middle" font-size="12" font-weight="700" fill="#0e7490">薄弱汇总报告</text>
+              <text x="604" y="74" text-anchor="middle" font-size="10" fill="#6b7280">定位知识盲区</text>
+              <line x1="116" y1="60" x2="132" y2="60" stroke="#059669" stroke-width="1.4" marker-end="url(#arrS)"/>
+              <line x1="244" y1="60" x2="260" y2="60" stroke="#059669" stroke-width="1.4" marker-end="url(#arrS)"/>
+              <line x1="372" y1="60" x2="388" y2="60" stroke="#2563eb" stroke-width="1.4" marker-end="url(#arrS)"/>
+              <line x1="516" y1="60" x2="532" y2="60" stroke="#7c3aed" stroke-width="1.4" marker-end="url(#arrS)"/>
+            </svg>
+          </div>
+          <p class="arch-cap">▲ 省身闭环：文档 → 题库 → 自检 → 间隔重复复习 → 薄弱报告</p>
+        </div>
+
+        <div class="case-sec">
+          <h3>关键难点与解决思路</h3>
+          <div class="case-list">
+            <div class="case-li"><span class="case-li-icon">🧠</span><div><b>难点 1：复习节奏怎么排</b><p>解法：自研 SRS 间隔重复算法——按答题表现为每道题计算下次复习时间，把「检完就忘」变成按遗忘曲线主动回顾。</p></div></div>
+            <div class="case-li"><span class="case-li-icon">✅</span><div><b>难点 2：26 项功能不能越改越坏</b><p>解法：297 项回归用例全绿才封版 v2，每轮改动先跑回归；老功能只迁移不删除（如 26 项文档抽题迁入 quiz.html）。</p></div></div>
+            <div class="case-li"><span class="case-li-icon">📄</span><div><b>难点 3：抽题质量依赖文档结构</b><p>解法：抽题前先做文档结构化解析，按章节 / 条款切分；低质量片段标注待人工确认，不硬出题。</p></div></div>
+          </div>
+        </div>
+
+        <div class="case-sec">
+          <h3>测试结果与数据</h3>
+          <div class="case-metrics">
+            <div class="case-metric"><b>26</b><span>项功能封版 v2</span></div>
+            <div class="case-metric"><b>297</b><span>项回归用例全绿</span></div>
+            <div class="case-metric"><b>4</b><span>步自检闭环</span></div>
+            <div class="case-metric"><b>SRS</b><span>自研复习算法</span></div>
+          </div>
+        </div>
+
+        <div class="case-sec">
+          <h3>迭代计划</h3>
+          <div class="case-list">
+            <div class="case-li"><span class="case-li-icon">🗺️</span><div><b>迭代</b><p>抽题质量量化评估；团队版权限与审计；复习提醒推送。</p></div></div>
+          </div>
+        </div>
+
+        <div class="case-actions">
+          <a class="p-btn primary" href="http://39.107.107.246:8081/login.html" target="_blank" rel="noopener">在线演示</a>
+          <a class="p-btn ghost" href="https://github.com/itzmy-web/2.question-self-check" target="_blank" rel="noopener">源码</a>
           <a class="p-btn ghost" href="index.html#projects">返回项目卡片</a>
         </div>
       </div>

@@ -480,7 +480,6 @@ button { font-family: inherit; }
 .pf-pain { color: #b91c1c; background: rgba(220, 38, 38, .08); }
 .pf-sol { color: var(--primary-blue-dark); background: rgba(37, 99, 235, .08); }
 .pf-res { color: #047857; background: rgba(5, 150, 105, .09); }
-.pf-lim { color: #b45309; background: rgba(217, 119, 6, .1); }
 
 /* ===== 服务交付清单 ===== */
 .p-deliver {

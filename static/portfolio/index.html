@@ -121,7 +121,7 @@
       <div class="section-inner">
         <div class="sec-head reveal">
           <h2>项目作品<span class="grad-text">集</span></h2>
-          <p>每个项目都讲清楚：解决什么业务痛点 · 做了什么技术决策 · 拿到什么可量化结果 · 边界在哪里</p>
+          <p>每个项目都讲清楚：解决什么业务痛点 · 做了什么技术决策 · 拿到什么可量化结果</p>
         </div>
         <div class="filter-tabs reveal">
           <button class="filter-tab active" data-filter="all">全部</button>
@@ -141,11 +141,12 @@
                 <div class="p-fact"><span class="pf-label pf-pain">🎯 业务痛点</span><p>通用大模型回答私有文档幻觉严重、无法溯源，企业知识散落在各岗位无法复用。</p></div>
                 <div class="p-fact"><span class="pf-label pf-sol">✨ 核心方案</span><p>文档自动分块 + SQLite FTS5 全文检索 + LLM 增强问答；自研中文二元分词双侧展开，答案强制附带原文引用。</p></div>
                 <div class="p-fact"><span class="pf-label pf-res">📈 量化效果</span><p>答案 100% 可溯源，幻觉有据可查；中文检索命中率较默认分词显著提升；无 Key 演示模式随时可打开。</p></div>
-                <div class="p-fact"><span class="pf-label pf-lim">⚠️ 已知局限</span><p>超长文档分块仍会丢失部分上下文；暂不支持多模态文件解析。</p></div>
               </div>
               <div class="p-tags"><span>RAG</span><span>FTS5</span><span>SQLite</span><span>LLM</span></div>
               <div class="p-actions">
                 <a class="p-btn primary" href="http://39.107.107.246:8085/" target="_blank" rel="noopener">查看项目</a>
+                <a class="p-btn ghost" href="https://github.com/itzmy-web/3.zhigu-knowledge-demo" target="_blank" rel="noopener">源码</a>
+                <a class="p-btn ghost" href="cases.html#rag">案例剖析</a>
                 <a class="p-btn ghost" href="#" data-shot="assets/shots/01-rag.png" data-shot-alt="灵犀 RAG 智能智库界面截图">界面截图</a>
               </div>
             </div>
@@ -162,12 +163,12 @@
                 <div class="p-fact"><span class="pf-label pf-pain">🎯 业务痛点</span><p>电商客服 80% 是重复问题；通用客服机器人答非所问，甚至幻觉出无法兑现的承诺。</p></div>
                 <div class="p-fact"><span class="pf-label pf-sol">✨ 核心方案</span><p>三轨对话引擎（任务 / 知识 / 闲聊）+ 6 套业务 flow 配置驱动；LLM 意图路由叠加防幻觉白名单校验，会话状态落库持久化。</p></div>
                 <div class="p-fact"><span class="pf-label pf-res">📈 量化效果</span><p>6 套业务流程开箱可跑，演示订单全流程端到端可演示；白名单把幻觉承诺拦在生成之前。</p></div>
-                <div class="p-fact"><span class="pf-label pf-lim">⚠️ 已知局限</span><p>新业务流程需人工梳理成 flow 配置；复杂多轮追问仍可能跳出既有 flow。</p></div>
               </div>
               <div class="p-tags"><span>对话引擎</span><span>SQLite</span><span>LLM</span><span>意图路由</span></div>
               <div class="p-actions">
                 <a class="p-btn primary" href="http://39.107.107.246:8083/login.html" target="_blank" rel="noopener">查看项目</a>
                 <a class="p-btn ghost" href="https://github.com/itzmy-web/5.dianshang-xiaoer-cs.app" target="_blank" rel="noopener">源码</a>
+                <a class="p-btn ghost" href="cases.html#cs">案例剖析</a>
                 <a class="p-btn ghost" href="#" data-shot="assets/shots/02-cs.png" data-shot-alt="电商小二智能客服界面截图">界面截图</a>
               </div>
             </div>
@@ -184,12 +185,12 @@
                 <div class="p-fact"><span class="pf-label pf-pain">🎯 业务痛点</span><p>运营看数据要跨多个后台手工拉表，经营分析滞后，AI 能力与日常工作流割裂。</p></div>
                 <div class="p-fact"><span class="pf-label pf-sol">✨ 核心方案</span><p>商品 / 店铺管理 + 经营看板 + 4 个预置 Agent 分步执行；FastAPI + Celery + LangGraph + Next.js，Docker Compose 偏移端口编排。</p></div>
                 <div class="p-fact"><span class="pf-label pf-res">📈 量化效果</span><p>自然语言问经营数据，Agent 分步执行过程可视；MySQL / Redis / Postgres / API / Web 多服务一键编排部署。</p></div>
-                <div class="p-fact"><span class="pf-label pf-lim">⚠️ 已知局限</span><p>预置 Agent 覆盖场景有限，新场景需扩展工具网关；Windows 下 Celery 需切 solo 进程池。</p></div>
               </div>
               <div class="p-tags"><span>FastAPI</span><span>Celery</span><span>LangGraph</span><span>Next.js</span></div>
               <div class="p-actions">
                 <a class="p-btn primary" href="http://39.107.107.246:8087/login" target="_blank" rel="noopener">查看项目</a>
                 <a class="p-btn ghost" href="https://github.com/itzmy-web/7.ecommerce-assistant-demo.app" target="_blank" rel="noopener">源码</a>
+                <a class="p-btn ghost" href="cases.html#ops">案例剖析</a>
                 <a class="p-btn ghost" href="#" data-shot="assets/shots/03-ops.png" data-shot-alt="AI 电商运营助手界面截图">界面截图</a>
               </div>
             </div>
@@ -206,11 +207,12 @@
                 <div class="p-fact"><span class="pf-label pf-pain">🎯 业务痛点</span><p>合同审查靠人工逐条看，风险条款漏检、审批流转无记录、出问题无法回溯。</p></div>
                 <div class="p-fact"><span class="pf-label pf-sol">✨ 核心方案</span><p>数据驱动规则引擎（四种匹配模式、11 条内置规则）+ LLM 语义研判双通道；审批决定、评论回写、Markdown 导出、全程审计日志。</p></div>
                 <div class="p-fact"><span class="pf-label pf-res">📈 量化效果</span><p>机器可查条款秒级过检，人工只需聚焦语义风险；每一次审批留痕可回溯。</p></div>
-                <div class="p-fact"><span class="pf-label pf-lim">⚠️ 已知局限</span><p>规则库需按行业持续补充；LLM 研判结果需人工复核兜底。</p></div>
               </div>
               <div class="p-tags"><span>规则引擎</span><span>LLM</span><span>FastAPI</span><span>SQLite</span></div>
               <div class="p-actions">
                 <a class="p-btn primary" href="http://39.107.107.246:8088/" target="_blank" rel="noopener">查看项目</a>
+                <a class="p-btn ghost" href="https://github.com/itzmy-web/-1.contract-review-ai" target="_blank" rel="noopener">源码</a>
+                <a class="p-btn ghost" href="cases.html#contract">案例剖析</a>
                 <a class="p-btn ghost" href="#" data-shot="assets/shots/04-contract.png" data-shot-alt="AI 合同智审平台界面截图">界面截图</a>
               </div>
             </div>
@@ -227,7 +229,6 @@
                 <div class="p-fact"><span class="pf-label pf-pain">🎯 业务痛点</span><p>医药数据分散在 MySQL 多表、内部文档和互联网，问一句「XX 药库存和销量」要跨三四个系统手工查。</p></div>
                 <div class="p-fact"><span class="pf-label pf-sol">✨ 核心方案</span><p>DeepAgents / LangGraph 多子代理编排：DB 子代理直连 MySQL、RAGFlow 知识检索、Tavily 联网搜索三通道自动路由，LLM 多链路故障自动降级。</p></div>
                 <div class="p-fact"><span class="pf-label pf-res">📈 量化效果</span><p>一条问题自动选通道汇总回答；单条 LLM 链路故障自动切换，服务不中断。</p></div>
-                <div class="p-fact"><span class="pf-label pf-lim">⚠️ 已知局限</span><p>RAGFlow 服务偶发不可用（已做熔断降级）；多表关联查询依赖 schema 描述质量。</p></div>
               </div>
               <div class="p-tags"><span>DeepAgents</span><span>LangGraph</span><span>MySQL</span><span>RAG</span></div>
               <div class="p-actions">
@@ -250,7 +251,6 @@
                 <div class="p-fact"><span class="pf-label pf-pain">🎯 业务痛点</span><p>业务人员看数据要写 SQL、排期等数仓；通用问数工具生成的 SQL 常错且无法校验。</p></div>
                 <div class="p-fact"><span class="pf-label pf-sol">✨ 核心方案</span><p>12 节点 LangGraph Text2SQL Agent：schema linking → SQL 生成 → 静态校验 → 执行 → 流式总结；Qdrant + ES 双索引 + bge embedding，FastAPI SSE 流式。</p></div>
                 <div class="p-fact"><span class="pf-label pf-res">📈 量化效果</span><p>问数结果流式返回，降低等待时延；schema linking + 校验节点把错误 SQL 兜在执行前；登录门禁 + 演示模式随时可看。</p></div>
-                <div class="p-fact"><span class="pf-label pf-lim">⚠️ 已知局限</span><p>复杂多表关联 SQL 仍会出错；自然语言歧义需要澄清轮次。</p></div>
               </div>
               <div class="p-tags"><span>LangGraph</span><span>Text2SQL</span><span>Qdrant</span><span>Elasticsearch</span></div>
               <div class="p-actions">
@@ -273,12 +273,12 @@
                 <div class="p-fact"><span class="pf-label pf-pain">🎯 业务痛点</span><p>企业内审培训靠人工出题抽检，出题慢、无沉淀、复习没有节奏安排。</p></div>
                 <div class="p-fact"><span class="pf-label pf-sol">✨ 核心方案</span><p>文档导入 → AI 抽题 → 翻卡自检 → 薄弱汇总；自研 SRS 间隔重复算法，按遗忘曲线安排复习节奏。</p></div>
                 <div class="p-fact"><span class="pf-label pf-res">📈 量化效果</span><p>26 项功能封版 v2，297 项回归用例全绿；抽题-自检-复习闭环全自动。</p></div>
-                <div class="p-fact"><span class="pf-label pf-lim">⚠️ 已知局限</span><p>抽题质量依赖文档结构化程度；数字人集成依赖第三方 SDK 可用性。</p></div>
               </div>
               <div class="p-tags"><span>FastAPI</span><span>SQLite</span><span>SRS 算法</span><span>AI 抽题</span></div>
               <div class="p-actions">
                 <a class="p-btn primary" href="http://39.107.107.246:8081/login.html" target="_blank" rel="noopener">查看项目</a>
                 <a class="p-btn ghost" href="https://github.com/itzmy-web/2.question-self-check" target="_blank" rel="noopener">源码</a>
+                <a class="p-btn ghost" href="cases.html#selfcheck">案例剖析</a>
                 <a class="p-btn ghost" href="#" data-shot="assets/shots/07-selfcheck.png" data-shot-alt="企业问题自检平台界面截图">界面截图</a>
               </div>
             </div>
@@ -296,7 +296,6 @@
                 <div class="p-fact"><span class="pf-label pf-pain">🎯 业务痛点</span><p>四个项目四套入口、四份部署，演示要来回切换、运维要维护四份环境。</p></div>
                 <div class="p-fact"><span class="pf-label pf-sol">✨ 核心方案</span><p>单端口聚合 36 个 API 统一五大视图；三轨对话引擎、数据驱动规则引擎、FTS5 中文检索复用，LLM 双链路无 Key 自动降级。</p></div>
                 <div class="p-fact"><span class="pf-label pf-res">📈 量化效果</span><p>一次部署四套系统全部上线；36 个 API 单端口暴露，演示与运维成本降为 1/4；GitHub 开源 + 云端 + 服务器三端部署。</p></div>
-                <div class="p-fact"><span class="pf-label pf-lim">⚠️ 已知局限</span><p>单服务器 1.7G 内存，多模块并行需留意资源调度；子模块共用端口需保证故障隔离。</p></div>
               </div>
               <div class="p-tags"><span>Python</span><span>FastAPI</span><span>SQLite</span><span>FTS5</span><span>单端口聚合</span></div>
               <div class="p-actions">
