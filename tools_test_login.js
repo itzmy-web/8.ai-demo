@@ -94,14 +94,16 @@ $("pane-wechat").classList.add = (c) => paneActivated.push(c);
 tabs[1].onclick();
 check("切到微信 pane 激活", paneActivated.includes("active"));
 
-console.log("== 7. 获取验证码（倒计时 + 手机号预检）==");
+console.log("== 7. 获取验证码（自动填入 + 倒计时 + 手机号预检）==");
 $("btnGetCode").disabled = false;
 $("loginPhone").value = "138";
 $("btnGetCode").onclick();
 check("未填满 11 位不能发码", lastToast() === "请先输入 11 位手机号");
 $("loginPhone").value = "13800138000";
+$("loginCode").value = "";
 $("btnGetCode").onclick();
-check("发码提示", lastToast() === "演示模式：验证码已发送（固定 1234）");
+check("验证码自动填入输入框", $("loginCode").value === "1234");
+check("自动填入提示", lastToast() === "演示模式：验证码已自动填入（1234）");
 check("按钮进入倒计时禁用态", $("btnGetCode").disabled === true && /s 后重发/.test($("btnGetCode").textContent));
 
 console.log(`\n结果: ${pass} 通过 / ${fail} 失败`);

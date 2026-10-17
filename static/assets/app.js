@@ -714,7 +714,8 @@ $("btnGetCode").onclick = () => {
   let n = 60;
   btn.disabled = true;
   btn.textContent = n + "s 后重发";
-  toast("演示模式：验证码已发送（固定 1234）");
+  $("loginCode").value = DEMO_CODE; // 演示模式：验证码自动填入
+  toast("演示模式：验证码已自动填入（1234）");
   clearInterval(codeTimer);
   codeTimer = setInterval(() => {
     n -= 1;
