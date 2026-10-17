@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>案例剖析 | 问数 ChatBI · 融界工作台 · 罗盘医药 | 郑孟瑶作品集</title>
+  <meta name="description" content="三个旗舰项目的深度案例剖析：业务背景、系统架构、关键难点与解决思路、测试结果与边界问题——问数 ChatBI、融界四合一工作台、罗盘医药智能体。">
+  <link rel="stylesheet" href="https://fonts.loli.net/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <!-- ===== 移动端菜单按钮 ===== -->
+  <button class="menu-btn glass-card" id="menuBtn" aria-label="菜单">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+  </button>
+
+  <!-- ===== 左侧玻璃侧边栏 ===== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-head">
+      <h1 class="sidebar-logo">郑孟瑶</h1>
+      <p class="sidebar-tag">AI 应用工程师 · 大模型应用方向</p>
+    </div>
+    <nav class="sidebar-nav">
+      <ul>
+        <li><a href="index.html#home" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          <span>首页</span></a></li>
+        <li><a href="index.html#projects" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></svg>
+          <span>项目作品</span></a></li>
+        <li><a href="cases.html" class="nav-item active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+          <span>案例剖析</span></a></li>
+        <li><a href="blog.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16z"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          <span>技术随笔</span></a></li>
+        <li><a href="index.html#stack" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+          <span>技术栈</span></a></li>
+        <li><a href="index.html#journey" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          <span>学习历程</span></a></li>
+        <li><a href="index.html#about" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>关于我</span></a></li>
+        <li><a href="index.html#contact" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          <span>联系我</span></a></li>
+      </ul>
+      <a class="nav-resume" href="assets/郑孟瑶简历.pdf" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+        <span>下载简历 PDF</span>
+      </a>
+      <a class="nav-resume" href="https://github.com/itzmy-web" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.17c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.72-1.54-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.73.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.66.41.35.77 1.05.77 2.12v3.14c0 .3.21.67.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+        <span>GitHub 主页</span>
+      </a>
+    </nav>
+    <div class="sidebar-foot">© 2026 郑孟瑶 · 保留所有权利</div>
+  </aside>
+
+  <!-- ===== 主内容区 ===== -->
+  <main class="main">
+    <div class="page-bg"></div>
+    <div class="page-orbs">
+      <span class="page-orb orb-a"></span>
+      <span class="page-orb orb-b"></span>
+      <span class="page-orb orb-c"></span>
+    </div>
+
+    <!-- ===== 页头 ===== -->
+    <section class="sub-hero">
+      <div class="sub-hero-inner">
+        <a class="sub-back" href="index.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          返回作品集首页
+        </a>
+        <h1>旗舰项目<span class="grad-text">案例剖析</span></h1>
+        <p>面试官最爱追问的三个问题：业务从哪来、难点怎么破、效果怎么量。这三个案例逐一回答。</p>
+        <div class="sub-chips">
+          <span>问数 ChatBI · 12 节点 Text2SQL Agent</span>
+          <span>融界 · 四合一融合工作台</span>
+          <span>罗盘 · 医药智能体</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 案例一：问数 ChatBI ===== -->
+    <section class="case-block" id="chatbi">
+      <div class="glass-ultra case-card reveal">
+        <div class="case-head">
+          <div class="case-head-icon si-blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg>
+          </div>
+          <div>
+            <h2>问数 ChatBI · 智能问数平台</h2>
+            <p>12 节点 LangGraph Text2SQL Agent · Qdrant + ES 双索引 · FastAPI SSE 流式</p>
+          </div>
+          <span class="case-flag">旗舰案例</span>
+        </div>
+
+        <div class="case-sec">
+          <h3>业务背景与需求来源</h3>
+          <p>业务人员看数据的日常是「提需求 → 排期 → 等数仓 → 拿报表」，一个简单问题往往要等一两天。市面上的通用问数工具能聊天，但生成的 SQL 经常找错表、配错关联，答案错了也没人发现。需求很明确：<b>让业务人员用自然语言直接问到正确的数，并且答错能在执行前被兜住</b>。</p>
+        </div>
+
+        <div class="case-sec">
+          <h3>系统架构</h3>
+          <div class="arch-wrap">
+            <svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" font-family="Inter, PingFang SC, sans-serif">
+              <defs>
+                <marker id="arrB" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#2563eb"/></marker>
+              </defs>
+              <!-- 用户 -->
+              <rect x="16" y="120" width="96" height="56" rx="10" fill="#fff" stroke="#2563eb" stroke-width="1.5"/>
+              <text x="64" y="144" text-anchor="middle" font-size="13" font-weight="700" fill="#0d1117">业务用户</text>
+              <text x="64" y="163" text-anchor="middle" font-size="10" fill="#6b7280">自然语言提问</text>
+              <!-- SSE 入口 -->
+              <rect x="140" y="120" width="104" height="56" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+              <text x="192" y="144" text-anchor="middle" font-size="13" font-weight="700" fill="#1d4ed8">FastAPI</text>
+              <text x="192" y="163" text-anchor="middle" font-size="10" fill="#6b7280">SSE 流式通道</text>
+              <line x1="112" y1="148" x2="136" y2="148" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrB)"/>
+              <!-- LangGraph 主框 -->
+              <rect x="272" y="60" width="260" height="180" rx="12" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.5"/>
+              <text x="402" y="82" text-anchor="middle" font-size="13" font-weight="700" fill="#6d28d9">LangGraph 状态图（12 节点）</text>
+              <line x1="244" y1="148" x2="268" y2="148" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrB)"/>
+              <!-- 节点链 -->
+              <rect x="288" y="96" width="104" height="34" rx="8" fill="#fff" stroke="#7c3aed" stroke-width="1.2"/>
+              <text x="340" y="117" text-anchor="middle" font-size="11" font-weight="600" fill="#0d1117">① 意图识别</text>
+              <rect x="404" y="96" width="116" height="34" rx="8" fill="#fff" stroke="#7c3aed" stroke-width="1.2"/>
+              <text x="462" y="117" text-anchor="middle" font-size="11" font-weight="600" fill="#0d1117">② Schema Linking</text>
+              <rect x="288" y="140" width="104" height="34" rx="8" fill="#fff" stroke="#7c3aed" stroke-width="1.2"/>
+              <text x="340" y="161" text-anchor="middle" font-size="11" font-weight="600" fill="#0d1117">③ SQL 生成</text>
+              <rect x="404" y="140" width="116" height="34" rx="8" fill="#fff" stroke="#7c3aed" stroke-width="1.2"/>
+              <text x="462" y="161" text-anchor="middle" font-size="11" font-weight="600" fill="#0d1117">④ 静态校验</text>
+              <rect x="288" y="184" width="104" height="34" rx="8" fill="#fff" stroke="#7c3aed" stroke-width="1.2"/>
+              <text x="340" y="205" text-anchor="middle" font-size="11" font-weight="600" fill="#0d1117">⑤ SQL 执行</text>
+              <rect x="404" y="184" width="116" height="34" rx="8" fill="#fff" stroke="#7c3aed" stroke-width="1.2"/>
+              <text x="462" y="205" text-anchor="middle" font-size="11" font-weight="600" fill="#0d1117">⑥ 流式总结</text>
+              <line x1="392" y1="113" x2="400" y2="113" stroke="#7c3aed" stroke-width="1.2"/>
+              <line x1="340" y1="130" x2="340" y2="136" stroke="#7c3aed" stroke-width="1.2"/>
+              <line x1="392" y1="157" x2="400" y2="157" stroke="#7c3aed" stroke-width="1.2"/>
+              <line x1="462" y1="130" x2="462" y2="136" stroke="#7c3aed" stroke-width="1.2"/>
+              <line x1="340" y1="174" x2="340" y2="180" stroke="#7c3aed" stroke-width="1.2"/>
+              <line x1="392" y1="201" x2="400" y2="201" stroke="#7c3aed" stroke-width="1.2"/>
+              <!-- 双索引 -->
+              <rect x="548" y="88" width="116" height="56" rx="10" fill="#ecfeff" stroke="#0891b2" stroke-width="1.5"/>
+              <text x="606" y="110" text-anchor="middle" font-size="12" font-weight="700" fill="#0e7490">Qdrant + ES</text>
+              <text x="606" y="128" text-anchor="middle" font-size="10" fill="#6b7280">双索引 + bge embedding</text>
+              <line x1="532" y1="113" x2="544" y2="110" stroke="#0891b2" stroke-width="1.5" marker-end="url(#arrB)"/>
+              <!-- 数据库 -->
+              <rect x="548" y="176" width="116" height="56" rx="10" fill="#ecfdf5" stroke="#059669" stroke-width="1.5"/>
+              <text x="606" y="198" text-anchor="middle" font-size="12" font-weight="700" fill="#047857">MySQL / DW</text>
+              <text x="606" y="216" text-anchor="middle" font-size="10" fill="#6b7280">业务数据仓库</text>
+              <line x1="532" y1="201" x2="544" y2="204" stroke="#059669" stroke-width="1.5"/>
+              <line x1="556" y1="204" x2="544" y2="207" stroke="#059669" stroke-width="1.5"/>
+              <!-- 回流 -->
+              <path d="M 532 148 Q 660 250 192 190" fill="none" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arrB)"/>
+              <text x="380" y="262" text-anchor="middle" font-size="10" fill="#6b7280">结果 + SQL + 引用流式返回（token 级推送）</text>
+            </svg>
+          </div>
+          <p class="arch-cap">▲ 问数 ChatBI 数据流：SSE 入口 → 12 节点状态图 → 双索引 / 数据库，全程流式返回</p>
+        </div>
+
+        <div class="case-sec">
+          <h3>关键难点与解决思路</h3>
+          <div class="case-list">
+            <div class="case-li"><span class="case-li-icon">🧭</span><div><b>难点 1：LLM 不知道数据库里有什么</b><p>解法：Schema Linking 节点前置。用 Qdrant + Elasticsearch 双索引 + bge embedding 把表名、字段名、注释向量化，提问时先检索出最相关的表结构再喂给 LLM，从源头减少「找错表」。</p></div></div>
+            <div class="case-li"><span class="case-li-icon">🛡️</span><div><b>难点 2：生成的 SQL 会错且没人发现</b><p>解法：静态校验节点兜底。执行前检查是否为只读 SELECT、是否含危险操作、LIMIT 是否缺失、关联表是否都经过 linking 命中，不达标就打回重生成或转澄清提问。</p></div></div>
+            <div class="case-li"><span class="case-li-icon">⚡</span><div><b>难点 3：整段生成等待时间长</b><p>解法：FastAPI SSE 流式输出。总结阶段按 token 推送，用户看到第一个字从几十秒降到几百毫秒；SQL 与引用随结果一起返回，可核对。</p></div></div>
+            <div class="case-li"><span class="case-li-icon">🔑</span><div><b>难点 4：演示环境没有 LLM Key</b><p>解法：登录门禁 + 演示模式双轨。无 Key 时走规则引擎演示链路，界面与交互完全一致，保证任何时间打开都能演示；有 Key 时自动切真实 LLM。</p></div></div>
+          </div>
+        </div>
+
+        <div class="case-sec">
+          <h3>测试结果与数据</h3>
+          <div class="case-metrics">
+            <div class="case-metric"><b>12</b><span>LangGraph 节点</span></div>
+            <div class="case-metric"><b>2</b><span>检索引擎（Qdrant+ES）</span></div>
+            <div class="case-metric"><b>4</b><span>道静态校验规则</span></div>
+            <div class="case-metric"><b>ms 级</b><span>首 token 流式延迟</span></div>
+          </div>
+          <p>用课程 30 集知识体系自建的测试问句集逐条过：schema linking 命中后生成正确率显著高于直接喂全量 schema；常见单表 / 双表问句全部跑通，答案附带 SQL 与结果表。</p>
+        </div>
+
+        <div class="case-sec">
+          <h3>已知边界与迭代计划</h3>
+          <div class="case-list">
+            <div class="case-li"><span class="case-li-icon">⚠️</span><div><b>边界</b><p>复杂多表关联（3 表以上 + 子查询）仍会出错；自然语言有歧义时必须增加澄清轮次；方言 / 黑话问句覆盖有限。</p></div></div>
+            <div class="case-li"><span class="case-li-icon">🗺️</span><div><b>迭代</b><p>建设 Few-shot 示例库按问题类型路由；引入执行计划解释节点；用 Ragas 对问数准确率做量化评测并沉淀报告。</p></div></div>
+          </div>
+        </div>
+
+        <div class="case-actions">
+          <a class="p-btn primary" href="http://39.107.107.246:8082/" target="_blank" rel="noopener">在线演示</a>
+          <a class="p-btn ghost" href="https://github.com/itzmy-web/4.wenshu-chatbi-cloud.app" target="_blank" rel="noopener">源码</a>
+          <a class="p-btn ghost" href="index.html#projects">返回项目卡片</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 案例二：融界工作台 ===== -->
+    <section class="case-block" id="fusion">
+      <div class="glass-ultra case-card reveal">
+        <div class="case-head">
+          <div class="case-head-icon si-purple">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+          </div>
+          <div>
+            <h2>融界 · 四合一 AI 融合工作台</h2>
+            <p>单端口聚合 36 个 API · LLM 双链路自动降级 · 功能零改动合并</p>
+          </div>
+          <span class="case-flag">旗舰案例</span>
+        </div>
+
+        <div class="case-sec">
+          <h3>业务背景与需求来源</h3>
+          <p>四个项目（RAG 智库、合同审批、智能客服、运营助手）各自独立部署，带来四个入口、四份环境、四次运维。演示时要来回切换窗口，面试官问「这几个什么关系」只能口头解释。需求：<b>合成一个单端口工作台，功能一个不丢，演示一次全看到</b>。</p>
+        </div>
+
+        <div class="case-sec">
+          <h3>系统架构</h3>
+          <div class="arch-wrap">
+            <svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" font-family="Inter, PingFang SC, sans-serif">
+              <defs>
+                <marker id="arrP" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#7c3aed"/></marker>
+                <marker id="arrE" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#059669"/></marker>
+              </defs>
+              <!-- 登录门禁 -->
+              <rect x="16" y="118" width="104" height="60" rx="10" fill="#fff" stroke="#7c3aed" stroke-width="1.5"/>
+              <text x="68" y="142" text-anchor="middle" font-size="12" font-weight="700" fill="#0d1117">登录门禁</text>
+              <text x="68" y="160" text-anchor="middle" font-size="10" fill="#6b7280">手机 / 扫码 · 六位随机码</text>
+              <line x1="120" y1="148" x2="140" y2="148" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arrP)"/>
+              <!-- 单端口 -->
+              <rect x="144" y="104" width="120" height="88" rx="12" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.8"/>
+              <text x="204" y="130" text-anchor="middle" font-size="13" font-weight="700" fill="#6d28d9">单端口 :8091</text>
+              <text x="204" y="150" text-anchor="middle" font-size="11" fill="#6b7280">36 个 REST API</text>
+              <text x="204" y="168" text-anchor="middle" font-size="11" fill="#6b7280">5 大视图 · 一次登录</text>
+              <line x1="264" y1="148" x2="276" y2="148" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arrP)"/>
+              <!-- 四模块 -->
+              <rect x="292" y="40" width="150" height="42" rx="9" fill="#eff6ff" stroke="#2563eb" stroke-width="1.3"/>
+              <text x="367" y="65" text-anchor="middle" font-size="12" font-weight="600" fill="#1d4ed8">RAG 智库模块</text>
+              <rect x="292" y="92" width="150" height="42" rx="9" fill="#eff6ff" stroke="#2563eb" stroke-width="1.3"/>
+              <text x="367" y="117" text-anchor="middle" font-size="12" font-weight="600" fill="#1d4ed8">合同审批模块</text>
+              <rect x="292" y="144" width="150" height="42" rx="9" fill="#eff6ff" stroke="#2563eb" stroke-width="1.3"/>
+              <text x="367" y="169" text-anchor="middle" font-size="12" font-weight="600" fill="#1d4ed8">电商小二模块</text>
+              <rect x="292" y="196" width="150" height="42" rx="9" fill="#eff6ff" stroke="#2563eb" stroke-width="1.3"/>
+              <text x="367" y="221" text-anchor="middle" font-size="12" font-weight="600" fill="#1d4ed8">运营助手模块</text>
+              <!-- 干线 + 四条支线 -->
+              <line x1="276" y1="61" x2="276" y2="217" stroke="#7c3aed" stroke-width="1.4"/>
+              <line x1="276" y1="61" x2="292" y2="61" stroke="#7c3aed" stroke-width="1.4" marker-end="url(#arrP)"/>
+              <line x1="276" y1="113" x2="292" y2="113" stroke="#7c3aed" stroke-width="1.4" marker-end="url(#arrP)"/>
+              <line x1="276" y1="165" x2="292" y2="165" stroke="#7c3aed" stroke-width="1.4" marker-end="url(#arrP)"/>
+              <line x1="276" y1="217" x2="292" y2="217" stroke="#7c3aed" stroke-width="1.4" marker-end="url(#arrP)"/>
+              <!-- 引擎层 -->
+              <rect x="470" y="60" width="194" height="52" rx="10" fill="#ecfeff" stroke="#0891b2" stroke-width="1.4"/>
+              <text x="567" y="82" text-anchor="middle" font-size="12" font-weight="700" fill="#0e7490">三轨对话引擎</text>
+              <text x="567" y="100" text-anchor="middle" font-size="10" fill="#6b7280">task / knowledge / chitchat</text>
+              <rect x="470" y="122" width="194" height="52" rx="10" fill="#ecfeff" stroke="#0891b2" stroke-width="1.4"/>
+              <text x="567" y="144" text-anchor="middle" font-size="12" font-weight="700" fill="#0e7490">数据驱动规则引擎</text>
+              <text x="567" y="162" text-anchor="middle" font-size="10" fill="#6b7280">keyword / regex / absence / custom</text>
+              <rect x="470" y="184" width="194" height="52" rx="10" fill="#ecfeff" stroke="#0891b2" stroke-width="1.4"/>
+              <text x="567" y="206" text-anchor="middle" font-size="12" font-weight="700" fill="#0e7490">FTS5 中文检索引擎</text>
+              <text x="567" y="224" text-anchor="middle" font-size="10" fill="#6b7280">二元分词双侧展开</text>
+              <line x1="442" y1="148" x2="466" y2="148" stroke="#0891b2" stroke-width="1.4" marker-end="url(#arrE)"/>
+              <!-- LLM 双链路 -->
+              <rect x="470" y="252" width="90" height="36" rx="9" fill="#ecfdf5" stroke="#059669" stroke-width="1.4"/>
+              <text x="515" y="268" text-anchor="middle" font-size="11" font-weight="700" fill="#047857">SiliconFlow</text>
+              <text x="515" y="282" text-anchor="middle" font-size="9" fill="#6b7280">主链路</text>
+              <rect x="574" y="252" width="90" height="36" rx="9" fill="#fff" stroke="#059669" stroke-width="1.4" stroke-dasharray="4 3"/>
+              <text x="619" y="268" text-anchor="middle" font-size="11" font-weight="700" fill="#047857">阿里百炼</text>
+              <text x="619" y="282" text-anchor="middle" font-size="9" fill="#6b7280">备用 · 无 Key 降级</text>
+              <line x1="515" y1="236" x2="515" y2="248" stroke="#059669" stroke-width="1.4"/>
+              <line x1="619" y1="236" x2="619" y2="248" stroke="#059669" stroke-width="1.4" stroke-dasharray="4 3"/>
+            </svg>
+          </div>
+          <p class="arch-cap">▲ 融界工作台：登录门禁 → 单端口 36 API → 四模块复用三大引擎，LLM 双链路兜底</p>
+        </div>
+
+        <div class="case-sec">
+          <h3>关键难点与解决思路</h3>
+          <div class="case-list">
+            <div class="case-li"><span class="case-li-icon">🧩</span><div><b>难点 1：合并不能丢功能</b><p>解法：先建工具链再动手。静态核对脚本比对 JS 引用的 75 个元素 id、65 个 class、图标符号与 HTML 定义；DOM mock 测试驱动真实代码路径跑 18 项登录断言。改完全绿才提交，旧功能零回退。</p></div></div>
+            <div class="case-li"><span class="case-li-icon">🔌</span><div><b>难点 2：四套系统共用一个端口</b><p>解法：模块化路由 + 统一响应结构。各模块 API 挂独立前缀，静态资源分目录托管；LLM 健康徽章启动兜底刷新，避免页面停在「检测中」。</p></div></div>
+            <div class="case-li"><span class="case-li-icon">🪫</span><div><b>难点 3：LLM Key 会过期 / 限流</b><p>解法：双链路自动降级。主链路（SiliconFlow）异常时切备用（阿里百炼），都不可用走演示模式规则引擎，界面交互不变，服务不中断。</p></div></div>
+            <div class="case-li"><span class="case-li-icon">🔐</span><div><b>难点 4：公开演示要可控</b><p>解法：内存制登录门禁。每次打开先登录（手机六位随机验证码自动填入 / 微信 / 支付宝扫码），刷新需重登——演示环境不落敏感态，符合「显式可控」原则。</p></div></div>
+          </div>
+        </div>
+
+        <div class="case-sec">
+          <h3>测试结果与数据</h3>
+          <div class="case-metrics">
+            <div class="case-metric"><b>36</b><span>个 REST API</span></div>
+            <div class="case-metric"><b>75</b><span>个元素 id 零改动</span></div>
+            <div class="case-metric"><b>18</b><span>项登录逻辑断言</span></div>
+            <div class="case-metric"><b>3</b><span>端部署（Git/云/服务器）</span></div>
+          </div>
+          <p>合并后五视图（总览 / 智库 / 合同 / 小二 / 运营）全部可用，端点全 200；云端演示链接与服务器 :8091 双轨在线，代码开源至 GitHub。</p>
+        </div>
+
+        <div class="case-sec">
+          <h3>已知边界与迭代计划</h3>
+          <div class="case-list">
+            <div class="case-li"><span class="case-li-icon">⚠️</span><div><b>边界</b><p>单服务器 1.7G 内存，多模块同时跑重任务需留意资源调度；子模块共用端口，故障隔离靠进程级重启。</p></div></div>
+            <div class="case-li"><span class="case-li-icon">🗺️</span><div><b>迭代</b><p>模块按需懒加载降低常驻内存；补自动化回归脚本覆盖五视图核心路径；把演示模式规则引擎扩展到更多模块。</p></div></div>
+          </div>
+        </div>
+
+        <div class="case-actions">
+          <a class="p-btn primary" href="https://fusion-workbench-confirm.app.workbuddy.host/" target="_blank" rel="noopener">在线演示</a>
+          <a class="p-btn ghost" href="https://github.com/itzmy-web/8.ai-demo" target="_blank" rel="noopener">源码</a>
+          <a class="p-btn ghost" href="index.html#projects">返回项目卡片</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 案例三：罗盘医药智能体 ===== -->
+    <section class="case-block" id="compass">
+      <div class="glass-ultra case-card reveal">
+        <div class="case-head">
+          <div class="case-head-icon si-emerald">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          </div>
+          <div>
+            <h2>罗盘 · 医药智能体</h2>
+            <p>DeepAgents / LangGraph 多子代理 · MySQL + RAGFlow + Tavily 三通道 · LLM 多链路降级</p>
+          </div>
+          <span class="case-flag">旗舰案例</span>
+        </div>
+
+        <div class="case-sec">
+          <h3>业务背景与需求来源</h3>
+          <p>医药场景的数据天然分裂：药品 / 库存 / 销量在 MySQL 三张表里，产品知识在内部文档里，政策与竞品动态在互联网上。业务方问一句「XX 药最近卖得怎么样、库存还够吗、有没有新政策」，原来要查数据库、翻文档、搜网页三处手工汇总。需求：<b>一个智能体把三处数据源缝合成一个入口</b>。</p>
+        </div>
+
+        <div class="case-sec">
+          <h3>系统架构</h3>
+          <div class="arch-wrap">
+            <svg viewBox="0 0 680 290" xmlns="http://www.w3.org/2000/svg" font-family="Inter, PingFang SC, sans-serif">
+              <defs>
+                <marker id="arrG" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#059669"/></marker>
+                <marker id="arrG2" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#2563eb"/></marker>
+              </defs>
+              <!-- 用户 -->
+              <rect x="16" y="115" width="92" height="56" rx="10" fill="#fff" stroke="#059669" stroke-width="1.5"/>
+              <text x="62" y="139" text-anchor="middle" font-size="12" font-weight="700" fill="#0d1117">业务提问</text>
+              <text x="62" y="157" text-anchor="middle" font-size="10" fill="#6b7280">自然语言</text>
+              <line x1="108" y1="143" x2="132" y2="143" stroke="#059669" stroke-width="1.5" marker-end="url(#arrG)"/>
+              <!-- 主 Agent -->
+              <rect x="136" y="95" width="128" height="96" rx="12" fill="#ecfdf5" stroke="#059669" stroke-width="1.8"/>
+              <text x="200" y="124" text-anchor="middle" font-size="13" font-weight="700" fill="#047857">主智能体</text>
+              <text x="200" y="143" text-anchor="middle" font-size="10" fill="#6b7280">DeepAgents 编排</text>
+              <text x="200" y="160" text-anchor="middle" font-size="10" fill="#6b7280">意图判断 · 任务分解</text>
+              <text x="200" y="177" text-anchor="middle" font-size="10" fill="#6b7280">结果汇总 · 引用标注</text>
+              <line x1="264" y1="143" x2="292" y2="143" stroke="#059669" stroke-width="1.5"/>
+              <!-- 三个子代理 -->
+              <rect x="296" y="24" width="180" height="56" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="1.4"/>
+              <text x="386" y="46" text-anchor="middle" font-size="12" font-weight="700" fill="#1d4ed8">DB 子代理</text>
+              <text x="386" y="64" text-anchor="middle" font-size="10" fill="#6b7280">MySQL 药品 / 库存 / 销售</text>
+              <rect x="296" y="116" width="180" height="56" rx="10" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.4"/>
+              <text x="386" y="138" text-anchor="middle" font-size="12" font-weight="700" fill="#6d28d9">知识子代理</text>
+              <text x="386" y="156" text-anchor="middle" font-size="10" fill="#6b7280">RAGFlow 文档检索（熔断降级）</text>
+              <rect x="296" y="208" width="180" height="56" rx="10" fill="#fff7ed" stroke="#d97706" stroke-width="1.4"/>
+              <text x="386" y="230" text-anchor="middle" font-size="12" font-weight="700" fill="#b45309">搜索子代理</text>
+              <text x="386" y="248" text-anchor="middle" font-size="10" fill="#6b7280">Tavily 联网检索</text>
+              <line x1="264" y1="143" x2="264" y2="52" stroke="#059669" stroke-width="1.2"/>
+              <line x1="264" y1="143" x2="264" y2="236" stroke="#059669" stroke-width="1.2"/>
+              <line x1="264" y1="52" x2="292" y2="52" stroke="#059669" stroke-width="1.4" marker-end="url(#arrG)"/>
+              <line x1="264" y1="143" x2="292" y2="143" stroke="#059669" stroke-width="1.4" marker-end="url(#arrG)"/>
+              <line x1="264" y1="236" x2="292" y2="236" stroke="#059669" stroke-width="1.4" marker-end="url(#arrG)"/>
+              <!-- 回流 -->
+              <line x1="476" y1="143" x2="508" y2="143" stroke="#059669" stroke-width="1.4" marker-end="url(#arrG)"/>
+              <!-- 回答 -->
+              <rect x="512" y="115" width="152" height="56" rx="10" fill="#ecfdf5" stroke="#059669" stroke-width="1.5"/>
+              <text x="588" y="139" text-anchor="middle" font-size="12" font-weight="700" fill="#047857">汇总回答</text>
+              <text x="588" y="157" text-anchor="middle" font-size="10" fill="#6b7280">数据 + 引用 + 来源标注</text>
+              <!-- LLM 层 -->
+              <rect x="136" y="222" width="340" height="42" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="5 4"/>
+              <text x="306" y="247" text-anchor="middle" font-size="11" font-weight="600" fill="#374151">LLM 多链路：SiliconFlow 主 → 阿里百炼备 → 演示模式兜底（故障自动切换）</text>
+              <line x1="200" y1="191" x2="200" y2="218" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="4 3"/>
+            </svg>
+          </div>
+          <p class="arch-cap">▲ 罗盘医药智能体：主智能体按意图分发三个子代理，LLM 多链路兜底</p>
+        </div>
+
+        <div class="case-sec">
+          <h3>关键难点与解决思路</h3>
+          <div class="case-list">
+            <div class="case-li"><span class="case-li-icon">🧠</span><div><b>难点 1：问题该问数据库还是问文档？</b><p>解法：主智能体先做意图判断再分发子代理——带「库存 / 销量 / 记录」等数据词走 DB 子代理，带「说明 / 禁忌 / 政策」走知识子代理，时事类走搜索子代理；混合问题多代理并行后汇总。</p></div></div>
+            <div class="case-li"><span class="case-li-icon">🧯</span><div><b>难点 2：RAGFlow 服务偶发不可用</b><p>解法：熔断降级。知识子代理探测到 RAGFlow 无响应时自动切本地 FTS5 检索通道，并在回答里标注「知识库降级」，用户知情、服务不崩。</p></div></div>
+            <div class="case-li"><span class="case-li-icon">🔗</span><div><b>难点 3：LLM 链路说挂就挂</b><p>解法：双 LLM 后端 + 健康探测。主链路超时 / 报错自动切备用链路，全部不可用走演示模式，三种状态界面一致。</p></div></div>
+            <div class="case-li"><span class="case-li-icon">💾</span><div><b>难点 4：多轮追问上下文不能丢</b><p>解法：会话与历史记录持久化，子代理之间通过结构化消息传递中间结果，避免上下文互相污染。</p></div></div>
+          </div>
+        </div>
+
+        <div class="case-sec">
+          <h3>测试结果与数据</h3>
+          <div class="case-metrics">
+            <div class="case-metric"><b>3</b><span>个数据通道自动路由</span></div>
+            <div class="case-metric"><b>3</b><span>张核心业务表</span></div>
+            <div class="case-metric"><b>2</b><span>条 LLM 链路互备</span></div>
+            <div class="case-metric"><b>0</b><span>次服务中断（降级后）</span></div>
+          </div>
+          <p>用药品库存查询、销售排行、政策咨询三类典型问句回归：路由正确率与回答可溯源率均达预期；模拟 RAGFlow 挂断与 LLM 超时，降级链路自动接管，界面无感知。</p>
+        </div>
+
+        <div class="case-sec">
+          <h3>已知边界与迭代计划</h3>
+          <div class="case-list">
+            <div class="case-li"><span class="case-li-icon">⚠️</span><div><b>边界</b><p>多表关联查询依赖 schema 描述质量，表关系复杂时需人工补注释；联网搜索结果时效性与可信度需在回答中标注。</p></div></div>
+            <div class="case-li"><span class="case-li-icon">🗺️</span><div><b>迭代</b><p>引入 Ragas 对检索命中与回答忠实度做量化评测；建设问句回归集持续跟踪路由正确率；补充医药实体识别提升问句解析。</p></div></div>
+          </div>
+        </div>
+
+        <div class="case-actions">
+          <a class="p-btn primary" href="http://39.107.107.246:8084/" target="_blank" rel="noopener">在线演示</a>
+          <a class="p-btn ghost" href="https://github.com/itzmy-web/6.compass-pharma-cloud" target="_blank" rel="noopener">源码</a>
+          <a class="p-btn ghost" href="index.html#projects">返回项目卡片</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 页脚 ===== -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <p class="footer-copy">© <span id="year">2026</span> 郑孟瑶 · 个人作品集 · Built with FastAPI, SQLite, and <span class="footer-love">❤</span></p>
+        <div class="footer-links">
+          <a href="index.html">作品集首页</a>
+          <a href="blog.html">技术随笔</a>
+          <a href="assets/郑孟瑶简历.pdf" download>下载简历</a>
+          <a href="https://github.com/itzmy-web" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="assets/main.js"></script>
+</body>
+</html>

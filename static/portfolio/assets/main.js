@@ -69,4 +69,37 @@
   // ---- 页脚年份 ----
   var year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
+
+  // ---- 界面截图灯箱 ----
+  var shotBtns = document.querySelectorAll("[data-shot]");
+  if (shotBtns.length) {
+    var lb = document.createElement("div");
+    lb.className = "lightbox";
+    lb.setAttribute("role", "dialog");
+    lb.innerHTML = '<div class="lightbox-inner"><img alt="项目界面截图"><button class="lightbox-close" type="button" aria-label="关闭">×</button></div>';
+    document.body.appendChild(lb);
+    var lbImg = lb.querySelector("img");
+    var lbClose = lb.querySelector(".lightbox-close");
+    function openLb(src, alt) {
+      lbImg.src = src;
+      lbImg.alt = alt || "项目界面截图";
+      lb.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+    function closeLb() {
+      lb.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+    Array.prototype.forEach.call(shotBtns, function (b) {
+      b.addEventListener("click", function (e) {
+        e.preventDefault();
+        openLb(b.getAttribute("data-shot"), b.getAttribute("data-shot-alt"));
+      });
+    });
+    lb.addEventListener("click", function (e) { if (e.target === lb) closeLb(); });
+    lbClose.addEventListener("click", closeLb);
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && lb.classList.contains("open")) closeLb();
+    });
+  }
 })();

@@ -3,10 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>郑孟瑶的个人作品集 | AI 应用开发之路</title>
-  <meta name="description" content="郑孟瑶的个人作品集：AI 应用工程师 · 大模型应用方向。RAG 智能智库、AI 客服管家、电商运营助手、合同智审、医药智能体等 8 个上线项目，覆盖 RAG / Agent 编排 / 多模态 / Text2SQL 全链路。">
+  <title>郑孟瑶 · AI 应用工程师 | RAG / Agent / Text2SQL 全链路落地 · 8 个可演示上线项目</title>
+  <meta name="description" content="郑孟瑶的个人作品集：AI 应用工程师，专注 RAG / Agent 编排 / Text2SQL 全链路落地。8 个上线可演示项目、36 个 REST API、297 项回归用例，擅长把大模型能力封装成可用业务系统。提供 RAG 知识库、智能客服、AI 智能体定制开发服务。">
+  <meta name="keywords" content="郑孟瑶,AI应用工程师,RAG,Agent,LangGraph,Text2SQL,FastAPI,大模型应用,作品集,求职,AI定制开发">
+  <meta name="author" content="郑孟瑶">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="郑孟瑶 · AI 应用工程师 | 把大模型能力封装成可用业务系统">
+  <meta property="og:description" content="8 个上线可演示 AI 项目，覆盖 RAG / Agent / Text2SQL 全链路。297 项回归用例，工程化落地大模型应用。">
+  <meta property="og:url" content="https://itzmy-web.github.io/portfolio/">
+  <meta property="og:locale" content="zh_CN">
+  <link rel="canonical" href="https://itzmy-web.github.io/portfolio/">
   <link rel="stylesheet" href="https://fonts.loli.net/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap">
-  <link rel="stylesheet" href="/portfolio/assets/style.css">
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
@@ -15,7 +23,7 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
   </button>
 
-  <!-- ===== 左侧玻璃侧边栏（参考站 fixed w-64 glass-nav）===== -->
+  <!-- ===== 左侧玻璃侧边栏 ===== -->
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-head">
       <h1 class="sidebar-logo">郑孟瑶</h1>
@@ -29,6 +37,12 @@
         <li><a href="#projects" class="nav-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></svg>
           <span>项目作品</span></a></li>
+        <li><a href="cases.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+          <span>案例剖析</span></a></li>
+        <li><a href="blog.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16z"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          <span>技术随笔</span></a></li>
         <li><a href="#stack" class="nav-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
           <span>技术栈</span></a></li>
@@ -41,10 +55,16 @@
         <li><a href="#journey" class="nav-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
           <span>学习历程</span></a></li>
+        <li><a href="#about" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>关于我</span></a></li>
+        <li><a href="#contact" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          <span>联系我</span></a></li>
       </ul>
-      <a class="nav-resume" href="/portfolio/resume.html">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
-        <span>查看简历</span>
+      <a class="nav-resume" href="assets/郑孟瑶简历.pdf" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+        <span>下载简历 PDF</span>
       </a>
       <a class="nav-resume" href="https://github.com/itzmy-web" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.17c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.72-1.54-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.73.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.66.41.35.77 1.05.77 2.12v3.14c0 .3.21.67.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
@@ -66,20 +86,21 @@
     <!-- ===== Hero ===== -->
     <section class="hero" id="home">
       <div class="hero-inner">
-        <p class="hero-badge reveal">PERSONAL PORTFOLIO · AI 应用方向</p>
-        <h1 class="hero-title reveal">AI 应用<span class="grad-text">开发之路</span> – 郑孟瑶</h1>
-        <h3 class="hero-sub reveal">AI 应用工程师 &amp; 全栈开发者</h3>
-        <p class="hero-desc reveal">1.5 年大模型应用开发经验，专注 AI 应用落地与全栈开发，8 个上线项目全部可演示，覆盖 RAG / Agent 编排 / 多模态 / Text2SQL 全链路。</p>
+        <p class="hero-badge reveal">PERSONAL PORTFOLIO · AI 应用方向 · 求职 / 接单中</p>
+        <h1 class="hero-title reveal">把大模型能力，<br>封装成<span class="grad-text">可用的业务系统</span></h1>
+        <h3 class="hero-sub reveal">郑孟瑶 · AI 应用工程师 / 全栈开发者</h3>
+        <p class="hero-desc reveal">1.5 年大模型应用开发经验，专注 RAG / Agent 编排 / Text2SQL 全链路落地。8 个上线项目全部可演示，从需求分析、架构设计、编码实现到部署运维独立完成。</p>
         <div class="hero-cta reveal">
-          <a class="btn btn-primary" href="https://wx.mail.qq.com/" target="_blank" rel="noopener">一起交流讨论 💬</a>
-          <a class="btn btn-outline" href="#projects">探索实战案例</a>
+          <a class="btn btn-primary" href="assets/郑孟瑶简历.pdf" download>📄 下载简历 PDF</a>
           <a class="btn btn-outline" href="https://github.com/itzmy-web" target="_blank" rel="noopener">GitHub 主页</a>
+          <a class="btn btn-outline" href="#contact">联系我 ✉️</a>
+          <a class="btn btn-outline" href="#projects">探索实战案例</a>
         </div>
         <div class="hero-stats reveal">
           <div class="glass-ultra stat-card"><b>8+</b><span>实战项目</span></div>
           <div class="glass-ultra stat-card"><b>36+</b><span>API 接口</span></div>
+          <div class="glass-ultra stat-card"><b>297</b><span>项回归用例</span></div>
           <div class="glass-ultra stat-card"><b>100%</b><span>功能可演示</span></div>
-          <div class="glass-ultra stat-card"><b>24h</b><span>响应反馈</span></div>
         </div>
         <div class="hero-tools reveal">
           <h4>开发路上的得力工具 🛠️</h4>
@@ -100,7 +121,7 @@
       <div class="section-inner">
         <div class="sec-head reveal">
           <h2>项目作品<span class="grad-text">集</span></h2>
-          <p>我在 AI 应用开发、Web 技术和工具创建方面的实践成果</p>
+          <p>每个项目都讲清楚：解决什么业务痛点 · 做了什么技术决策 · 拿到什么可量化结果 · 边界在哪里</p>
         </div>
         <div class="filter-tabs reveal">
           <button class="filter-tab active" data-filter="all">全部</button>
@@ -108,121 +129,181 @@
           <button class="filter-tab" data-filter="web">Web 应用</button>
         </div>
         <div class="project-grid">
+
           <article class="glass-ultra project-card reveal" data-cat="ai">
             <div class="p-cover">
-              <img src="/portfolio/assets/covers/RAG 智能智库.svg" alt="灵犀 · RAG 智能智库" loading="lazy">
+              <img src="assets/covers/RAG 智能智库.svg" alt="灵犀 · RAG 智能智库" loading="lazy">
             </div>
             <div class="p-body">
               <h3>灵犀 · RAG 智能智库</h3>
               <p>文档上传与文本入库、自动分块、FTS5 全文检索、带引用问答；LLM 增强问答，中文二元分词优化检索命中率，答案可溯源。</p>
+              <div class="p-facts">
+                <div class="p-fact"><span class="pf-label pf-pain">🎯 业务痛点</span><p>通用大模型回答私有文档幻觉严重、无法溯源，企业知识散落在各岗位无法复用。</p></div>
+                <div class="p-fact"><span class="pf-label pf-sol">✨ 核心方案</span><p>文档自动分块 + SQLite FTS5 全文检索 + LLM 增强问答；自研中文二元分词双侧展开，答案强制附带原文引用。</p></div>
+                <div class="p-fact"><span class="pf-label pf-res">📈 量化效果</span><p>答案 100% 可溯源，幻觉有据可查；中文检索命中率较默认分词显著提升；无 Key 演示模式随时可打开。</p></div>
+                <div class="p-fact"><span class="pf-label pf-lim">⚠️ 已知局限</span><p>超长文档分块仍会丢失部分上下文；暂不支持多模态文件解析。</p></div>
+              </div>
               <div class="p-tags"><span>RAG</span><span>FTS5</span><span>SQLite</span><span>LLM</span></div>
               <div class="p-actions">
                 <a class="p-btn primary" href="http://39.107.107.246:8085/" target="_blank" rel="noopener">查看项目</a>
+                <a class="p-btn ghost" href="#" data-shot="assets/shots/01-rag.png" data-shot-alt="灵犀 RAG 智能智库界面截图">界面截图</a>
               </div>
             </div>
           </article>
 
           <article class="glass-ultra project-card reveal" data-cat="ai">
             <div class="p-cover">
-              <img src="/portfolio/assets/covers/电商小二 · 智能客服.svg" alt="电商小二 · AI 客服管家" loading="lazy">
+              <img src="assets/covers/电商小二 · 智能客服.svg" alt="电商小二 · AI 客服管家" loading="lazy">
             </div>
             <div class="p-body">
               <h3>电商小二 · AI 客服管家</h3>
               <p>三轨对话引擎（task / knowledge / chitchat），6 个对话 flow 配置驱动，LLM 意图路由叠加防幻觉白名单校验，会话状态 SQLite 持久化，支持演示订单全流程。</p>
+              <div class="p-facts">
+                <div class="p-fact"><span class="pf-label pf-pain">🎯 业务痛点</span><p>电商客服 80% 是重复问题；通用客服机器人答非所问，甚至幻觉出无法兑现的承诺。</p></div>
+                <div class="p-fact"><span class="pf-label pf-sol">✨ 核心方案</span><p>三轨对话引擎（任务 / 知识 / 闲聊）+ 6 套业务 flow 配置驱动；LLM 意图路由叠加防幻觉白名单校验，会话状态落库持久化。</p></div>
+                <div class="p-fact"><span class="pf-label pf-res">📈 量化效果</span><p>6 套业务流程开箱可跑，演示订单全流程端到端可演示；白名单把幻觉承诺拦在生成之前。</p></div>
+                <div class="p-fact"><span class="pf-label pf-lim">⚠️ 已知局限</span><p>新业务流程需人工梳理成 flow 配置；复杂多轮追问仍可能跳出既有 flow。</p></div>
+              </div>
               <div class="p-tags"><span>对话引擎</span><span>SQLite</span><span>LLM</span><span>意图路由</span></div>
               <div class="p-actions">
                 <a class="p-btn primary" href="http://39.107.107.246:8083/login.html" target="_blank" rel="noopener">查看项目</a>
                 <a class="p-btn ghost" href="https://github.com/itzmy-web/5.dianshang-xiaoer-cs.app" target="_blank" rel="noopener">源码</a>
+                <a class="p-btn ghost" href="#" data-shot="assets/shots/02-cs.png" data-shot-alt="电商小二智能客服界面截图">界面截图</a>
               </div>
             </div>
           </article>
 
           <article class="glass-ultra project-card reveal" data-cat="web">
             <div class="p-cover">
-              <img src="/portfolio/assets/covers/AI 电商运营助手.svg" alt="驾驶舱 · AI 电商运营助手" loading="lazy">
+              <img src="assets/covers/AI 电商运营助手.svg" alt="驾驶舱 · AI 电商运营助手" loading="lazy">
             </div>
             <div class="p-body">
               <h3>驾驶舱 · AI 电商运营助手</h3>
               <p>商品与店铺管理、经营数据看板、4 个预置 Agent 分步执行与工作流编排；采用 FastAPI + Celery + LangGraph + Next.js 架构，Docker Compose 偏移端口部署。</p>
+              <div class="p-facts">
+                <div class="p-fact"><span class="pf-label pf-pain">🎯 业务痛点</span><p>运营看数据要跨多个后台手工拉表，经营分析滞后，AI 能力与日常工作流割裂。</p></div>
+                <div class="p-fact"><span class="pf-label pf-sol">✨ 核心方案</span><p>商品 / 店铺管理 + 经营看板 + 4 个预置 Agent 分步执行；FastAPI + Celery + LangGraph + Next.js，Docker Compose 偏移端口编排。</p></div>
+                <div class="p-fact"><span class="pf-label pf-res">📈 量化效果</span><p>自然语言问经营数据，Agent 分步执行过程可视；MySQL / Redis / Postgres / API / Web 多服务一键编排部署。</p></div>
+                <div class="p-fact"><span class="pf-label pf-lim">⚠️ 已知局限</span><p>预置 Agent 覆盖场景有限，新场景需扩展工具网关；Windows 下 Celery 需切 solo 进程池。</p></div>
+              </div>
               <div class="p-tags"><span>FastAPI</span><span>Celery</span><span>LangGraph</span><span>Next.js</span></div>
               <div class="p-actions">
                 <a class="p-btn primary" href="http://39.107.107.246:8087/login" target="_blank" rel="noopener">查看项目</a>
                 <a class="p-btn ghost" href="https://github.com/itzmy-web/7.ecommerce-assistant-demo.app" target="_blank" rel="noopener">源码</a>
+                <a class="p-btn ghost" href="#" data-shot="assets/shots/03-ops.png" data-shot-alt="AI 电商运营助手界面截图">界面截图</a>
               </div>
             </div>
           </article>
 
           <article class="glass-ultra project-card reveal" data-cat="ai">
             <div class="p-cover">
-              <img src="/portfolio/assets/covers/AI 合同审批.svg" alt="法眼 · AI 合同智审平台" loading="lazy">
+              <img src="assets/covers/AI 合同审批.svg" alt="法眼 · AI 合同智审平台" loading="lazy">
             </div>
             <div class="p-body">
               <h3>法眼 · AI 合同智审平台</h3>
               <p>数据驱动规则引擎（keyword / regex / absence / custom 四种模式、11 条内置规则）叠加 LLM 语义研判，支持审批决定、回写评论、Markdown 导出与全程审计日志。</p>
+              <div class="p-facts">
+                <div class="p-fact"><span class="pf-label pf-pain">🎯 业务痛点</span><p>合同审查靠人工逐条看，风险条款漏检、审批流转无记录、出问题无法回溯。</p></div>
+                <div class="p-fact"><span class="pf-label pf-sol">✨ 核心方案</span><p>数据驱动规则引擎（四种匹配模式、11 条内置规则）+ LLM 语义研判双通道；审批决定、评论回写、Markdown 导出、全程审计日志。</p></div>
+                <div class="p-fact"><span class="pf-label pf-res">📈 量化效果</span><p>机器可查条款秒级过检，人工只需聚焦语义风险；每一次审批留痕可回溯。</p></div>
+                <div class="p-fact"><span class="pf-label pf-lim">⚠️ 已知局限</span><p>规则库需按行业持续补充；LLM 研判结果需人工复核兜底。</p></div>
+              </div>
               <div class="p-tags"><span>规则引擎</span><span>LLM</span><span>FastAPI</span><span>SQLite</span></div>
               <div class="p-actions">
                 <a class="p-btn primary" href="http://39.107.107.246:8088/" target="_blank" rel="noopener">查看项目</a>
+                <a class="p-btn ghost" href="#" data-shot="assets/shots/04-contract.png" data-shot-alt="AI 合同智审平台界面截图">界面截图</a>
               </div>
             </div>
           </article>
 
           <article class="glass-ultra project-card reveal" data-cat="ai">
             <div class="p-cover">
-              <img src="/portfolio/assets/covers/罗盘医药智能体.svg" alt="罗盘 · 医药智能体" loading="lazy">
+              <img src="assets/covers/罗盘医药智能体.svg" alt="罗盘 · 医药智能体" loading="lazy">
             </div>
             <div class="p-body">
               <h3>罗盘 · 医药智能体</h3>
               <p>基于 DeepAgents / LangGraph 的医药行业智能体：对接 MySQL 药品 / 库存 / 销售数据库，RAGFlow 知识检索 + Tavily 联网搜索，LLM 多链路故障自动降级。</p>
+              <div class="p-facts">
+                <div class="p-fact"><span class="pf-label pf-pain">🎯 业务痛点</span><p>医药数据分散在 MySQL 多表、内部文档和互联网，问一句「XX 药库存和销量」要跨三四个系统手工查。</p></div>
+                <div class="p-fact"><span class="pf-label pf-sol">✨ 核心方案</span><p>DeepAgents / LangGraph 多子代理编排：DB 子代理直连 MySQL、RAGFlow 知识检索、Tavily 联网搜索三通道自动路由，LLM 多链路故障自动降级。</p></div>
+                <div class="p-fact"><span class="pf-label pf-res">📈 量化效果</span><p>一条问题自动选通道汇总回答；单条 LLM 链路故障自动切换，服务不中断。</p></div>
+                <div class="p-fact"><span class="pf-label pf-lim">⚠️ 已知局限</span><p>RAGFlow 服务偶发不可用（已做熔断降级）；多表关联查询依赖 schema 描述质量。</p></div>
+              </div>
               <div class="p-tags"><span>DeepAgents</span><span>LangGraph</span><span>MySQL</span><span>RAG</span></div>
               <div class="p-actions">
                 <a class="p-btn primary" href="http://39.107.107.246:8084/" target="_blank" rel="noopener">查看项目</a>
                 <a class="p-btn ghost" href="https://github.com/itzmy-web/6.compass-pharma-cloud" target="_blank" rel="noopener">源码</a>
+                <a class="p-btn ghost" href="cases.html#compass">案例剖析</a>
+                <a class="p-btn ghost" href="#" data-shot="assets/shots/05-compass.png" data-shot-alt="罗盘医药智能体界面截图">界面截图</a>
               </div>
             </div>
           </article>
 
           <article class="glass-ultra project-card reveal" data-cat="ai">
             <div class="p-cover">
-              <img src="/portfolio/assets/covers/问数 ChatBI.svg" alt="问数 ChatBI · 智能问数平台" loading="lazy">
+              <img src="assets/covers/问数 ChatBI.svg" alt="问数 ChatBI · 智能问数平台" loading="lazy">
             </div>
             <div class="p-body">
               <h3>问数 ChatBI · 智能问数平台</h3>
               <p>12 节点 LangGraph Text2SQL Agent：自然语言问数 → schema linking → SQL 生成 → 校验 → 执行 → 流式总结；Qdrant + Elasticsearch 双索引 + bge embedding，FastAPI SSE 流式输出。</p>
+              <div class="p-facts">
+                <div class="p-fact"><span class="pf-label pf-pain">🎯 业务痛点</span><p>业务人员看数据要写 SQL、排期等数仓；通用问数工具生成的 SQL 常错且无法校验。</p></div>
+                <div class="p-fact"><span class="pf-label pf-sol">✨ 核心方案</span><p>12 节点 LangGraph Text2SQL Agent：schema linking → SQL 生成 → 静态校验 → 执行 → 流式总结；Qdrant + ES 双索引 + bge embedding，FastAPI SSE 流式。</p></div>
+                <div class="p-fact"><span class="pf-label pf-res">📈 量化效果</span><p>问数结果流式返回，降低等待时延；schema linking + 校验节点把错误 SQL 兜在执行前；登录门禁 + 演示模式随时可看。</p></div>
+                <div class="p-fact"><span class="pf-label pf-lim">⚠️ 已知局限</span><p>复杂多表关联 SQL 仍会出错；自然语言歧义需要澄清轮次。</p></div>
+              </div>
               <div class="p-tags"><span>LangGraph</span><span>Text2SQL</span><span>Qdrant</span><span>Elasticsearch</span></div>
               <div class="p-actions">
                 <a class="p-btn primary" href="http://39.107.107.246:8082/" target="_blank" rel="noopener">查看项目</a>
                 <a class="p-btn ghost" href="https://github.com/itzmy-web/4.wenshu-chatbi-cloud.app" target="_blank" rel="noopener">源码</a>
+                <a class="p-btn ghost" href="cases.html#chatbi">案例剖析</a>
+                <a class="p-btn ghost" href="#" data-shot="assets/shots/06-chatbi.png" data-shot-alt="问数 ChatBI 界面截图">界面截图</a>
               </div>
             </div>
           </article>
 
           <article class="glass-ultra project-card reveal" data-cat="ai">
             <div class="p-cover">
-              <img src="/portfolio/assets/covers/企业问题自检平台.svg" alt="省身 · 企业问题自检平台" loading="lazy">
+              <img src="assets/covers/企业问题自检平台.svg" alt="省身 · 企业问题自检平台" loading="lazy">
             </div>
             <div class="p-body">
               <h3>省身 · 企业问题自检平台</h3>
               <p>文档导入 → AI 抽题 → 翻卡自检 → 薄弱汇总的企业问题自检平台，自研 SRS 间隔重复算法，26 项功能 / 297 项回归全绿。</p>
+              <div class="p-facts">
+                <div class="p-fact"><span class="pf-label pf-pain">🎯 业务痛点</span><p>企业内审培训靠人工出题抽检，出题慢、无沉淀、复习没有节奏安排。</p></div>
+                <div class="p-fact"><span class="pf-label pf-sol">✨ 核心方案</span><p>文档导入 → AI 抽题 → 翻卡自检 → 薄弱汇总；自研 SRS 间隔重复算法，按遗忘曲线安排复习节奏。</p></div>
+                <div class="p-fact"><span class="pf-label pf-res">📈 量化效果</span><p>26 项功能封版 v2，297 项回归用例全绿；抽题-自检-复习闭环全自动。</p></div>
+                <div class="p-fact"><span class="pf-label pf-lim">⚠️ 已知局限</span><p>抽题质量依赖文档结构化程度；数字人集成依赖第三方 SDK 可用性。</p></div>
+              </div>
               <div class="p-tags"><span>FastAPI</span><span>SQLite</span><span>SRS 算法</span><span>AI 抽题</span></div>
               <div class="p-actions">
                 <a class="p-btn primary" href="http://39.107.107.246:8081/login.html" target="_blank" rel="noopener">查看项目</a>
                 <a class="p-btn ghost" href="https://github.com/itzmy-web/2.question-self-check" target="_blank" rel="noopener">源码</a>
+                <a class="p-btn ghost" href="#" data-shot="assets/shots/07-selfcheck.png" data-shot-alt="企业问题自检平台界面截图">界面截图</a>
               </div>
             </div>
           </article>
 
           <article class="glass-ultra project-card reveal" data-cat="ai">
             <div class="p-cover">
-              <img src="/portfolio/assets/covers/四合一 AI 融合工作台.svg" alt="融界 · 四合一 AI 融合工作台" loading="lazy">
+              <img src="assets/covers/四合一 AI 融合工作台.svg" alt="融界 · 四合一 AI 融合工作台" loading="lazy">
               <span class="p-flag">旗舰</span>
             </div>
             <div class="p-body">
               <h3>融界 · 四合一 AI 融合工作台</h3>
               <p>将 RAG 智库、AI 合同审批、电商小二客服、电商运营助手四个独立项目融合为单端口工作台：36 个 API、三轨对话引擎、数据驱动合同规则引擎、FTS5 中文检索，LLM 双链路无 Key 自动降级。</p>
+              <div class="p-facts">
+                <div class="p-fact"><span class="pf-label pf-pain">🎯 业务痛点</span><p>四个项目四套入口、四份部署，演示要来回切换、运维要维护四份环境。</p></div>
+                <div class="p-fact"><span class="pf-label pf-sol">✨ 核心方案</span><p>单端口聚合 36 个 API 统一五大视图；三轨对话引擎、数据驱动规则引擎、FTS5 中文检索复用，LLM 双链路无 Key 自动降级。</p></div>
+                <div class="p-fact"><span class="pf-label pf-res">📈 量化效果</span><p>一次部署四套系统全部上线；36 个 API 单端口暴露，演示与运维成本降为 1/4；GitHub 开源 + 云端 + 服务器三端部署。</p></div>
+                <div class="p-fact"><span class="pf-label pf-lim">⚠️ 已知局限</span><p>单服务器 1.7G 内存，多模块并行需留意资源调度；子模块共用端口需保证故障隔离。</p></div>
+              </div>
               <div class="p-tags"><span>Python</span><span>FastAPI</span><span>SQLite</span><span>FTS5</span><span>单端口聚合</span></div>
               <div class="p-actions">
-                <a class="p-btn primary" href="http://39.107.107.246:8091/" target="_blank" rel="noopener">查看项目</a>
+                <a class="p-btn primary" href="https://fusion-workbench-confirm.app.workbuddy.host/" target="_blank" rel="noopener">查看项目</a>
                 <a class="p-btn ghost" href="https://github.com/itzmy-web/8.ai-demo" target="_blank" rel="noopener">源码</a>
+                <a class="p-btn ghost" href="cases.html#fusion">案例剖析</a>
+                <a class="p-btn ghost" href="#" data-shot="assets/shots/08-fusion.png" data-shot-alt="融界四合一融合工作台界面截图">界面截图</a>
               </div>
             </div>
           </article>
@@ -230,12 +311,54 @@
       </div>
     </section>
 
+    <!-- ===== 工程质量 ===== -->
+    <section class="section section-alt" id="quality">
+      <div class="section-inner">
+        <div class="sec-head reveal">
+          <h2>测试与<span class="grad-text">工程质量</span></h2>
+          <p>不只是写 demo：回归、降级、持久化、审计，生产级工程实践贯穿每个项目</p>
+        </div>
+        <div class="quality-grid">
+          <div class="glass-ultra quality-card reveal">
+            <div class="q-icon si-emerald"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+            <h3>297 项回归用例</h3>
+            <p>省身项目封版 v2：26 项功能逐条对齐需求，297 项回归用例全部通过，每次改动前先跑回归再上线。</p>
+          </div>
+          <div class="glass-ultra quality-card reveal">
+            <div class="q-icon si-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg></div>
+            <h3>36 个 REST API</h3>
+            <p>FastAPI + Pydantic 校验 + 依赖注入，OpenAPI 文档自动生成；接口层统一异常处理，错误响应结构化返回。</p>
+          </div>
+          <div class="glass-ultra quality-card reveal">
+            <div class="q-icon si-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="m16.2 7.8 2.9-2.9"/><path d="M18 12h4"/><path d="m16.2 16.2 2.9 2.9"/><path d="M12 18v4"/><path d="m4.9 19.1 2.9-2.9"/><path d="M2 12h4"/><path d="m4.9 4.9 2.9 2.9"/></svg></div>
+            <h3>LLM 多链路降级</h3>
+            <p>双 LLM 后端自动切换，无 Key / 超时 / 限流时演示模式兜底，服务不中断；RAGFlow 不可用时熔断降级到本地检索。</p>
+          </div>
+          <div class="glass-ultra quality-card reveal">
+            <div class="q-icon si-cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg></div>
+            <h3>会话状态持久化</h3>
+            <p>dialogue_states 表以 sender_id 为主键 + state_json 存储会话状态，刷新页面不丢上下文，多轮对话可恢复。</p>
+          </div>
+          <div class="glass-ultra quality-card reveal">
+            <div class="q-icon si-pink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg></div>
+            <h3>全程审计日志</h3>
+            <p>合同审批每一次决定、评论、导出全部留痕，可回溯到操作人与时间点，满足合规审查要求。</p>
+          </div>
+          <div class="glass-ultra quality-card reveal">
+            <div class="q-icon si-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+            <h3>工具链自测</h3>
+            <p>静态回归核对脚本（id / class / 图标符号零缺失）+ DOM mock 逻辑测试（18 项断言），改样式先过工具链再上线。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ===== 技术栈 ===== -->
-    <section class="section section-alt" id="stack">
+    <section class="section" id="stack">
       <div class="section-inner">
         <div class="sec-head reveal">
           <h2>技术<span class="grad-text">栈</span></h2>
-          <p>掌握的现代技术栈和工具，持续学习和实践最新技术</p>
+          <p>不只写会什么，更写清楚在每个项目里为什么这么选、解决了什么问题</p>
         </div>
         <div class="stack-grid">
           <div class="glass-ultra stack-card reveal">
@@ -248,9 +371,9 @@
                 <span class="stack-avg">平均 72</span>
               </div>
             </div>
-            <div class="skill-row"><div class="skill-info"><span class="skill-name">HTML / CSS / JS</span><span class="skill-level">Advanced · 78</span></div><p>独立完成交互界面与响应式布局，注重细节与可访问性</p></div>
-            <div class="skill-row"><div class="skill-info"><span class="skill-name">Vue</span><span class="skill-level">Advanced · 72</span></div><p>阅读并改造多个 Vue 项目，熟悉组件与状态管理</p></div>
-            <div class="skill-row"><div class="skill-info"><span class="skill-name">Next.js</span><span class="skill-level">Intermediate · 68</span></div><p>了解 App Router 与 SSR，跟进参考项目学习</p></div>
+            <div class="skill-row"><div class="skill-info"><span class="skill-name">HTML / CSS / JS</span><span class="skill-level">Advanced · 78</span></div><p><b>选型理由：</b>作品集与全部项目界面零框架依赖手写，加载快、可控性强；交互界面与响应式布局独立完成，注重细节与可访问性。</p></div>
+            <div class="skill-row"><div class="skill-info"><span class="skill-name">Vue</span><span class="skill-level">Advanced · 72</span></div><p><b>选型理由：</b>客服前端主力方案，组件 + 状态管理适配多轮对话场景；阅读并改造多个既有 Vue 项目。</p></div>
+            <div class="skill-row"><div class="skill-info"><span class="skill-name">Next.js</span><span class="skill-level">Intermediate · 68</span></div><p><b>选型理由：</b>运营助手工作台需要 SSR 与 App Router，跟随参考项目实战学习，掌握页面级数据获取。</p></div>
           </div>
 
           <div class="glass-ultra stack-card reveal">
@@ -263,9 +386,9 @@
                 <span class="stack-avg">平均 84</span>
               </div>
             </div>
-            <div class="skill-row"><div class="skill-info"><span class="skill-name">Python</span><span class="skill-level">Expert · 90</span></div><p>主力开发语言，8 个上线项目全部基于 Python 构建</p></div>
-            <div class="skill-row"><div class="skill-info"><span class="skill-name">FastAPI</span><span class="skill-level">Expert · 85</span></div><p>36 个 RESTful API 设计实战，Pydantic 与依赖注入熟练</p></div>
-            <div class="skill-row"><div class="skill-info"><span class="skill-name">SQL 数据库</span><span class="skill-level">Advanced · 80</span></div><p>SQLite WAL/FTS5、MySQL 多表关联与查询优化实践</p></div>
+            <div class="skill-row"><div class="skill-info"><span class="skill-name">Python</span><span class="skill-level">Expert · 90</span></div><p><b>选型理由：</b>AI 生态主场，8 个上线项目全部基于 Python 构建，从脚本到服务一人闭环。</p></div>
+            <div class="skill-row"><div class="skill-info"><span class="skill-name">FastAPI</span><span class="skill-level">Expert · 85</span></div><p><b>选型理由：</b>异步 + Pydantic 校验 + 依赖注入，36 个 RESTful API 设计实战，OpenAPI 文档零成本维护，适合 AI 服务快速开发。</p></div>
+            <div class="skill-row"><div class="skill-info"><span class="skill-name">SQL 数据库</span><span class="skill-level">Advanced · 80</span></div><p><b>选型理由：</b>SQLite WAL / FTS5 做单文件零运维部署，MySQL 承接多表关联业务数据；按场景选库而不是一把梭。</p></div>
           </div>
 
           <div class="glass-ultra stack-card reveal">
@@ -278,9 +401,9 @@
                 <span class="stack-avg">平均 80</span>
               </div>
             </div>
-            <div class="skill-row"><div class="skill-info"><span class="skill-name">LangGraph / DeepAgents</span><span class="skill-level">Advanced · 80</span></div><p>多 Agent 编排、子代理上下文隔离、HITL 中断实战</p></div>
-            <div class="skill-row"><div class="skill-info"><span class="skill-name">RAG 检索增强</span><span class="skill-level">Advanced · 78</span></div><p>FTS5 中文二元分词、Qdrant + ES 双索引、bge embedding</p></div>
-            <div class="skill-row"><div class="skill-info"><span class="skill-name">LLM 应用</span><span class="skill-level">Advanced · 82</span></div><p>多链路故障降级、Text2SQL、意图路由与防幻觉校验</p></div>
+            <div class="skill-row"><div class="skill-info"><span class="skill-name">LangGraph / DeepAgents</span><span class="skill-level">Advanced · 80</span></div><p><b>选型理由：</b>复杂流程需要状态图与检查点，12 节点 Text2SQL Agent 与多子代理编排实战；多 Agent 编排、子代理上下文隔离、HITL 中断。</p></div>
+            <div class="skill-row"><div class="skill-info"><span class="skill-name">RAG 检索增强</span><span class="skill-level">Advanced · 78</span></div><p><b>选型理由：</b>先 FTS5 后向量的渐进路线，避免向量库运维成本；中文二元分词优化检索，Qdrant + ES 双索引按需升级。</p></div>
+            <div class="skill-row"><div class="skill-info"><span class="skill-name">LLM 应用</span><span class="skill-level">Advanced · 82</span></div><p><b>选型理由：</b>多链路故障降级、Text2SQL 校验策略、意图路由与防幻觉白名单，把「模型不稳定」工程化兜住。</p></div>
           </div>
 
           <div class="glass-ultra stack-card reveal">
@@ -293,16 +416,16 @@
                 <span class="stack-avg">平均 72</span>
               </div>
             </div>
-            <div class="skill-row"><div class="skill-info"><span class="skill-name">Docker</span><span class="skill-level">Advanced · 72</span></div><p>Compose 多服务编排、偏移端口部署、数据卷持久化</p></div>
-            <div class="skill-row"><div class="skill-info"><span class="skill-name">Git</span><span class="skill-level">Expert · 85</span></div><p>分支管理、SSH 免 token 推送、多副本代码同步策略</p></div>
-            <div class="skill-row"><div class="skill-info"><span class="skill-name">Linux 部署</span><span class="skill-level">Intermediate · 65</span></div><p>内网服务器运维、uv 虚拟环境、后台服务管理</p></div>
+            <div class="skill-row"><div class="skill-info"><span class="skill-name">Docker</span><span class="skill-level">Advanced · 72</span></div><p><b>选型理由：</b>运营助手五服务编排必须容器化，Compose 偏移端口部署 + 数据卷持久化，环境一致性可复现。</p></div>
+            <div class="skill-row"><div class="skill-info"><span class="skill-name">Git</span><span class="skill-level">Expert · 85</span></div><p><b>选型理由：</b>多项目并行靠分支与多副本同步策略，SSH 免 token 推送，本地 / 部署目录 / U 盘三备份。</p></div>
+            <div class="skill-row"><div class="skill-info"><span class="skill-name">Linux 部署</span><span class="skill-level">Intermediate · 65</span></div><p><b>选型理由：</b>8 个项目全部跑在云服务器，uv 虚拟环境 + nohup 后台服务 + 安全组端口管理实操经验。</p></div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ===== AI 开发工具 ===== -->
-    <section class="section" id="tools">
+    <section class="section section-alt" id="tools">
       <div class="section-inner">
         <div class="sec-head reveal">
           <h2>AI 开发<span class="grad-text">工具</span></h2>
@@ -408,11 +531,11 @@
     </section>
 
     <!-- ===== 项目服务 ===== -->
-    <section class="section section-alt" id="services">
+    <section class="section" id="services">
       <div class="section-inner">
         <div class="sec-head reveal">
           <h2>项目<span class="grad-text">服务</span></h2>
-          <p>基于真实项目经验提供的开发服务，满足不同业务场景需求</p>
+          <p>基于真实项目经验提供的开发服务，每项服务都有已上线的同款案例可验证</p>
         </div>
         <div class="service-grid">
           <div class="glass-ultra service-card reveal">
@@ -425,7 +548,8 @@
             <h3>智能客服系统定制</h3>
             <p>基于三轨对话引擎的智能客服系统，支持意图路由、知识问答与业务 flow 配置，电商小二同款架构。</p>
             <div class="service-features"><span>三轨对话</span><span>意图路由</span><span>防幻觉校验</span><span>会话持久化</span><span>人工接管</span></div>
-            <a class="service-btn" href="https://wx.mail.qq.com/" target="_blank" rel="noopener">咨询服务</a>
+            <div class="p-deliver"><b>交付清单：</b>部署脚本 + 使用文档 + 回归测试用例 + 可登录演示环境</div>
+            <a class="service-btn" href="#contact">咨询服务</a>
           </div>
 
           <div class="glass-ultra service-card reveal">
@@ -438,7 +562,8 @@
             <h3>RAG 知识库搭建</h3>
             <p>文档导入、自动分块、全文检索与带引用问答的完整 RAG 知识库，RAG 智能智库同款，支持 LLM 增强与无 Key 演示双模式。</p>
             <div class="service-features"><span>文档入库</span><span>全文检索</span><span>引用问答</span><span>中文分词优化</span><span>双模式</span></div>
-            <a class="service-btn" href="https://wx.mail.qq.com/" target="_blank" rel="noopener">咨询服务</a>
+            <div class="p-deliver"><b>交付清单：</b>部署脚本 + 使用文档 + 检索测试用例 + 可登录演示环境</div>
+            <a class="service-btn" href="#contact">咨询服务</a>
           </div>
 
           <div class="glass-ultra service-card reveal">
@@ -451,7 +576,8 @@
             <h3>AI 智能体开发</h3>
             <p>基于 LangGraph / DeepAgents 的行业智能体：数据库对接、工具调用、多 Agent 编排与故障自动降级，罗盘医药同款架构。</p>
             <div class="service-features"><span>多 Agent</span><span>工具调用</span><span>数据库对接</span><span>联网搜索</span><span>自动降级</span></div>
-            <a class="service-btn" href="https://wx.mail.qq.com/" target="_blank" rel="noopener">咨询服务</a>
+            <div class="p-deliver"><b>交付清单：</b>部署脚本 + 架构文档 + 降级测试用例 + 可登录演示环境</div>
+            <a class="service-btn" href="#contact">咨询服务</a>
           </div>
 
           <div class="glass-ultra service-card reveal">
@@ -464,18 +590,19 @@
             <h3>数据看板与问数系统</h3>
             <p>经营数据看板与 NL2SQL 问数系统：自然语言查数据、图表可视化、经营指标统计，运营助手与问数 ChatBI 同款。</p>
             <div class="service-features"><span>自然语言查数</span><span>数据看板</span><span>指标统计</span><span>图表导出</span><span>持续迭代</span></div>
-            <a class="service-btn" href="https://wx.mail.qq.com/" target="_blank" rel="noopener">咨询服务</a>
+            <div class="p-deliver"><b>交付清单：</b>部署脚本 + 指标文档 + 问数测试集 + 可登录演示环境</div>
+            <a class="service-btn" href="#contact">咨询服务</a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ===== 学习历程 ===== -->
-    <section class="section" id="journey">
+    <section class="section section-alt" id="journey">
       <div class="section-inner">
         <div class="sec-head reveal">
           <h2>学习<span class="grad-text">历程</span></h2>
-          <p>从后端入门到 AI 应用落地，一步一个脚印</p>
+          <p>从后端入门到 AI 应用落地，记录每个阶段跨过的坎和拿到的结果</p>
         </div>
         <div class="timeline">
           <div class="tl-item reveal">
@@ -484,6 +611,7 @@
               <div class="tl-date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>2026-01</div>
               <h3>前端与编程基础</h3>
               <p>系统学习 HTML / CSS / JavaScript 与 Vue，完成第一个响应式页面，建立前端工程化思维。</p>
+              <div class="tl-note"><b>最大难点：</b>从「能写出来」到「写得可维护」，第一次理解组件化与工程化的差别。<b>收获：</b>独立完成响应式布局，作品集界面全程手写零框架依赖。</div>
               <div class="p-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Vue</span></div>
               <span class="tl-badge tl-badge-blue">学习</span>
             </div>
@@ -495,6 +623,7 @@
               <div class="tl-date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>2026-03</div>
               <h3>Python 后端进阶</h3>
               <p>转向 Python 后端，掌握 FastAPI 与 RESTful API 设计，完成第一个 FastAPI + SQLite 全栈项目。</p>
+              <div class="tl-note"><b>最大难点：</b>ORM 会话生命周期（DetachedInstanceError）与脚本 sys.path 问题反复踩坑。<b>收获：</b>36 个 REST API 设计经验，Pydantic 校验与依赖注入形成肌肉记忆。</div>
               <div class="p-tags"><span>Python</span><span>FastAPI</span><span>SQLite</span><span>RESTful</span></div>
               <span class="tl-badge tl-badge-blue">项目</span>
             </div>
@@ -506,6 +635,7 @@
               <div class="tl-date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>2026-05</div>
               <h3>多 Agent 框架实战</h3>
               <p>学习 LangGraph / DeepAgents，完成 CEO→CTO→CODER 多 Agent demo 与 HITL 中断、子代理上下文隔离等十大组件实践。</p>
+              <div class="tl-note"><b>最大难点：</b>子代理上下文隔离边界与 HITL 中断后的状态恢复。<b>收获：</b>Agent Harness 十大组件 demo 08-17 全部跑通，多 Agent 编排有手感。</div>
               <div class="p-tags"><span>LangGraph</span><span>DeepAgents</span><span>多 Agent</span><span>HITL</span></div>
               <span class="tl-badge tl-badge-purple">学习</span>
             </div>
@@ -517,6 +647,7 @@
               <div class="tl-date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>2026-07</div>
               <h3>RAG 检索增强落地</h3>
               <p>攻克 SQLite FTS5 中文检索难题（二元分词双侧展开），完成 RAG 智能智库与 Qdrant + ES 双索引实践。</p>
+              <div class="tl-note"><b>最大难点：</b>FTS5 默认分词对中文支持差，自研二元分词双侧展开才把命中率拉起来。<b>收获：</b>「先 FTS5 后向量」的渐进式 RAG 路线成型，检索命中率显著提升。</div>
               <div class="p-tags"><span>RAG</span><span>FTS5</span><span>Qdrant</span><span>Elasticsearch</span></div>
               <span class="tl-badge tl-badge-purple">项目</span>
             </div>
@@ -528,6 +659,7 @@
               <div class="tl-date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>2026-09</div>
               <h3>多项目并行实战</h3>
               <p>电商小二智能客服、AI 合同审批、罗盘医药智能体、企业问题自检平台四个项目并行推进，全部上线可演示。</p>
+              <div class="tl-note"><b>最大难点：</b>Celery on Windows 进程池必崩（prefork PermissionError），切 solo 进程池解决；多项目上下文频繁切换。<b>收获：</b>四项目全部上线，297 项回归用例方法论成型。</div>
               <div class="p-tags"><span>智能客服</span><span>合同审批</span><span>医药智能体</span><span>问题自检</span></div>
               <span class="tl-badge tl-badge-green">成就</span>
             </div>
@@ -539,9 +671,82 @@
               <div class="tl-date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>2026-10</div>
               <h3>四合一融合工作台上线</h3>
               <p>将四个独立项目融合为单端口工作台：36 个 API、LLM 双链路无 Key 自动降级，代码开源至 GitHub 并云端部署。</p>
+              <div class="tl-note"><b>最大难点：</b>合并不丢功能——用静态核对脚本 + DOM mock 测试守住 75 个元素 id 与 65 个 class 零改动。<b>收获：</b>GitHub 开源 + 云端 + 服务器三端部署，演示运维成本降为 1/4。</div>
               <div class="p-tags"><span>单端口聚合</span><span>LLM 双链路</span><span>GitHub 开源</span><span>云端部署</span></div>
               <span class="tl-badge tl-badge-green">成就</span>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 关于我 ===== -->
+    <section class="section" id="about">
+      <div class="section-inner">
+        <div class="sec-head reveal">
+          <h2>关于<span class="grad-text">我</span></h2>
+          <p>背景、方向、理念，以及正在做的事</p>
+        </div>
+        <div class="about-grid">
+          <div class="glass-ultra about-card reveal">
+            <h3>👋 你好，我是郑孟瑶</h3>
+            <p>AI 应用工程师，大模型应用方向。从 AI 训练营起步，用 1.5 年时间独立完成 <b>8 个上线项目</b>——覆盖 RAG 检索增强、多 Agent 编排、Text2SQL 问数、智能客服、合同智审等方向，全部可登录演示、代码开源。</p>
+            <p>我的工作理念是<b>「把大模型能力封装成可用的业务系统」</b>：不追概念Demo，每个项目都从真实业务痛点出发，做深技术决策（为什么选 FTS5 而不是向量库、为什么双链路降级），并用回归测试和工具链守住工程质量。</p>
+            <div class="about-list">
+              <div class="about-row"><span class="ab-k">求职方向</span><span class="ab-v">AI 应用工程师（全职 / 实习）· 大模型应用落地</span></div>
+              <div class="about-row"><span class="ab-k">技术主场</span><span class="ab-v">Python / FastAPI / LangGraph / RAG / Text2SQL</span></div>
+              <div class="about-row"><span class="ab-k">工作方式</span><span class="ab-v">需求 → 架构 → 编码 → 测试 → 部署，一人闭环，也可团队协作</span></div>
+              <div class="about-row"><span class="ab-k">响应时效</span><span class="ab-v">消息 24 小时内回复，演示环境长期在线</span></div>
+            </div>
+            <div class="about-actions">
+              <a class="btn btn-primary" href="assets/郑孟瑶简历.pdf" download>📄 下载简历 PDF</a>
+              <a class="btn btn-outline" href="resume.html">在线查看简历</a>
+            </div>
+          </div>
+          <div class="glass-ultra about-card reveal">
+            <h3>🚧 当前在做</h3>
+            <div class="now-list">
+              <div class="now-item"><span class="now-dot dot-blue"></span><div><b>融界工作台持续迭代</b><p>登录门禁（六位随机验证码自动填入）、界面细节打磨，保持「每次修改不丢旧功能」纪律。</p></div></div>
+              <div class="now-item"><span class="now-dot dot-purple"></span><div><b>问数 ChatBI 质量优化</b><p>schema linking 命中率与 Text2SQL 生成正确率攻坚，双索引 + bge embedding 调优。</p></div></div>
+              <div class="now-item"><span class="now-dot dot-emerald"></span><div><b>RAG 评测与鲁棒性研究</b><p>用 Ragas 对检索与回答质量做量化评估，沉淀 LLM 边界与冗余研究报告。</p></div></div>
+              <div class="now-item"><span class="now-dot dot-orange"></span><div><b>技术随笔输出</b><p>把 FTS5 分词、子代理隔离、Text2SQL 校验等踩坑经验整理成文，见技术随笔页。</p></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 联系我 ===== -->
+    <section class="section section-alt" id="contact">
+      <div class="section-inner">
+        <div class="sec-head reveal">
+          <h2>联系<span class="grad-text">我</span></h2>
+          <p>全职机会、项目合作、技术交流都欢迎，24 小时内回复</p>
+        </div>
+        <div class="contact-grid">
+          <a class="glass-ultra contact-card reveal" href="mailto:3505895840@qq.com">
+            <div class="ct-icon si-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+            <h3>邮箱</h3>
+            <p>3505895840@qq.com</p>
+            <span class="ct-hint">点击直接发邮件 →</span>
+          </a>
+          <a class="glass-ultra contact-card reveal" href="https://github.com/itzmy-web" target="_blank" rel="noopener">
+            <div class="ct-icon si-purple"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.17c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.72-1.54-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.73.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.66.41.35.77 1.05.77 2.12v3.14c0 .3.21.67.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg></div>
+            <h3>GitHub</h3>
+            <p>github.com/itzmy-web</p>
+            <span class="ct-hint">8 个项目全部开源 →</span>
+          </a>
+          <a class="glass-ultra contact-card reveal" href="https://wx.mail.qq.com/" target="_blank" rel="noopener">
+            <div class="ct-icon si-cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+            <h3>QQ 邮箱网页版</h3>
+            <p>wx.mail.qq.com</p>
+            <span class="ct-hint">浏览器直接登录 →</span>
+          </a>
+          <div class="glass-ultra contact-card contact-qr reveal">
+            <div class="ct-icon si-emerald"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+            <h3>微信</h3>
+            <img src="assets/wechat-qr.svg" alt="微信二维码" loading="lazy">
+            <span class="ct-hint">扫码添加好友</span>
           </div>
         </div>
       </div>
@@ -552,7 +757,10 @@
       <div class="footer-inner">
         <p class="footer-copy">© <span id="year">2026</span> 郑孟瑶 · 个人作品集 · Built with FastAPI, SQLite, and <span class="footer-love">❤</span></p>
         <div class="footer-links">
-          <a href="/portfolio/resume.html">查看简历</a>
+          <a href="assets/郑孟瑶简历.pdf" download>下载简历</a>
+          <a href="resume.html">在线简历</a>
+          <a href="cases.html">案例剖析</a>
+          <a href="blog.html">技术随笔</a>
           <a href="https://github.com/itzmy-web" target="_blank" rel="noopener">GitHub</a>
           <a href="https://itzmy-web.github.io/portfolio/" target="_blank" rel="noopener">GitHub Pages</a>
         </div>
@@ -560,6 +768,6 @@
     </footer>
   </main>
 
-  <script src="/portfolio/assets/main.js"></script>
+  <script src="assets/main.js"></script>
 </body>
 </html>

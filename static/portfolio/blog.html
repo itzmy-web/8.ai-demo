@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>技术随笔 | FTS5 分词 · 子代理隔离 · Text2SQL 校验 · LLM 降级 | 郑孟瑶作品集</title>
+  <meta name="description" content="郑孟瑶的技术随笔：SQLite FTS5 中文二元分词踩坑、LangGraph 子代理上下文隔离、Text2SQL 校验策略、LLM 多链路降级方案、Celery on Windows 排查实录——全部来自上线项目的真实经验。">
+  <link rel="stylesheet" href="https://fonts.loli.net/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <!-- ===== 移动端菜单按钮 ===== -->
+  <button class="menu-btn glass-card" id="menuBtn" aria-label="菜单">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+  </button>
+
+  <!-- ===== 左侧玻璃侧边栏 ===== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-head">
+      <h1 class="sidebar-logo">郑孟瑶</h1>
+      <p class="sidebar-tag">AI 应用工程师 · 大模型应用方向</p>
+    </div>
+    <nav class="sidebar-nav">
+      <ul>
+        <li><a href="index.html#home" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          <span>首页</span></a></li>
+        <li><a href="index.html#projects" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></svg>
+          <span>项目作品</span></a></li>
+        <li><a href="cases.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+          <span>案例剖析</span></a></li>
+        <li><a href="blog.html" class="nav-item active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16z"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          <span>技术随笔</span></a></li>
+        <li><a href="index.html#stack" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+          <span>技术栈</span></a></li>
+        <li><a href="index.html#journey" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          <span>学习历程</span></a></li>
+        <li><a href="index.html#about" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>关于我</span></a></li>
+        <li><a href="index.html#contact" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          <span>联系我</span></a></li>
+      </ul>
+      <a class="nav-resume" href="assets/郑孟瑶简历.pdf" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+        <span>下载简历 PDF</span>
+      </a>
+      <a class="nav-resume" href="https://github.com/itzmy-web" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.17c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.72-1.54-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.73.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.66.41.35.77 1.05.77 2.12v3.14c0 .3.21.67.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+        <span>GitHub 主页</span>
+      </a>
+    </nav>
+    <div class="sidebar-foot">© 2026 郑孟瑶 · 保留所有权利</div>
+  </aside>
+
+  <!-- ===== 主内容区 ===== -->
+  <main class="main">
+    <div class="page-bg"></div>
+    <div class="page-orbs">
+      <span class="page-orb orb-a"></span>
+      <span class="page-orb orb-b"></span>
+      <span class="page-orb orb-c"></span>
+    </div>
+
+    <!-- ===== 页头 ===== -->
+    <section class="sub-hero">
+      <div class="sub-hero-inner">
+        <a class="sub-back" href="index.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          返回作品集首页
+        </a>
+        <h1>技术<span class="grad-text">随笔</span></h1>
+        <p>不写空谈概念，只记上线项目里真实踩过的坑——每篇都能在对应项目的源码里找到现场。</p>
+        <div class="sub-chips">
+          <span>RAG 检索</span><span>Agent 编排</span><span>Text2SQL</span><span>工程降级</span><span>排障实录</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 文章列表 ===== -->
+    <section class="post-grid">
+      <article class="glass-ultra post-card reveal">
+        <div class="post-meta"><span class="post-cat">RAG 检索</span><span>2026-10-15</span><span>· 灵犀智库</span></div>
+        <h2><a href="#post-1">SQLite FTS5 中文二元分词：实现与踩坑</a></h2>
+        <p>默认分词器把中文按单字切，「企业经营分析」能搜到、「经营分析企业」搜不到。二元分词 + 查询侧双侧展开，命中率才算拉起来。</p>
+        <div class="post-tags"><span>FTS5</span><span>SQLite</span><span>中文分词</span></div>
+      </article>
+
+      <article class="glass-ultra post-card reveal">
+        <div class="post-meta"><span class="post-cat">Agent 编排</span><span>2026-10-12</span><span>· 多 Agent demos</span></div>
+        <h2><a href="#post-2">LangGraph 多 Agent：子代理上下文隔离实践</a></h2>
+        <p>子代理不是「另起一个对话框」：状态怎么传、上下文怎么切、HITL 中断后怎么恢复，一次讲清我在 CEO→CTO→CODER 框架里的做法。</p>
+        <div class="post-tags"><span>LangGraph</span><span>DeepAgents</span><span>上下文隔离</span></div>
+      </article>
+
+      <article class="glass-ultra post-card reveal">
+        <div class="post-meta"><span class="post-cat">Text2SQL</span><span>2026-10-10</span><span>· 问数 ChatBI</span></div>
+        <h2><a href="#post-3">Text2SQL 生产环境常见坑点与校验策略</a></h2>
+        <p>生成的 SQL 找错表、配错关联、悄悄加上 DELETE——没有校验节点的问数系统等于把数据库钥匙交给模型。四道静态校验兜底。</p>
+        <div class="post-tags"><span>Text2SQL</span><span>SQL 校验</span><span>Schema Linking</span></div>
+      </article>
+
+      <article class="glass-ultra post-card reveal">
+        <div class="post-meta"><span class="post-cat">工程降级</span><span>2026-10-08</span><span>· 融界工作台</span></div>
+        <h2><a href="#post-4">LLM 应用多链路故障降级方案设计</a></h2>
+        <p>Key 会过期、接口会限流、服务会挂。把「模型不稳定」当成一类正常输入来设计：双链路互备 + 演示模式兜底，界面始终一致。</p>
+        <div class="post-tags"><span>LLM 降级</span><span>双链路</span><span>高可用</span></div>
+      </article>
+
+      <article class="glass-ultra post-card reveal">
+        <div class="post-meta"><span class="post-cat">排障实录</span><span>2026-10-03</span><span>· 电商运营助手</span></div>
+        <h2><a href="#post-5">Celery on Windows 进程池崩溃排查实录</a></h2>
+        <p>worker 显示 ready、任务 received 却永远不 succeeded——SpawnPoolWorker 全员 PermissionError。根因是 Windows 没有 fork，solo 池一招根治。</p>
+        <div class="post-tags"><span>Celery</span><span>Windows</span><span>进程池</span></div>
+      </article>
+
+      <article class="glass-ultra post-card reveal">
+        <div class="post-meta"><span class="post-cat">工程质量</span><span>2026-10-17</span><span>· 融界工作台</span></div>
+        <h2><a href="#post-6">用工具链守住「功能零改动」</a></h2>
+        <p>重设计页面最容易顺手删掉一个 id、改掉一个 class，然后把交互悄悄改坏。静态核对 + DOM mock 测试，让回归从「凭记忆」变成「跑一遍」。</p>
+        <div class="post-tags"><span>回归测试</span><span>静态核对</span><span>DOM mock</span></div>
+      </article>
+    </section>
+
+    <!-- ===== 文章正文 ===== -->
+    <section class="post-full">
+
+      <article class="glass-ultra post-full-card reveal" id="post-1">
+        <div class="post-meta"><span class="post-cat">RAG 检索</span><span>2026-10-15</span></div>
+        <h2>SQLite FTS5 中文二元分词：实现与踩坑</h2>
+        <p>做灵犀 RAG 智库时，我选了一条「先 FTS5、后向量」的渐进路线：不引入向量库，用 SQLite 内置的全文检索先把知识库跑起来。好处是零运维、单文件部署；代价是得自己解决中文分词。</p>
+        <h3>坑一：默认分词器对中文基本失效</h3>
+        <p>FTS5 的 <code>unicode61</code> 分词器按 Unicode 类别切分，中文一串汉字会被当成一个「词」。「企业经营分析」存进去，用户搜「经营分析」——匹配不上，因为整串才算一个 token。搜单个字又能匹配到一堆噪音。</p>
+        <h3>坑二：查询词和索引词切分方式不一致</h3>
+        <p>就算入库时切了词，查询时如果按用户原话匹配，同样对不齐。必须在索引和查询两侧用同一套切分逻辑。</p>
+        <h3>解法：二元分词 + 查询侧双侧展开</h3>
+        <p>思路很直白：中文按两个字一组切（二元），长词全覆盖；查询时同样切二元，并且对查询串做「单侧 + 双侧」展开，兼顾二字词与单字场景。</p>
+        <pre><code># 索引侧：二元切分（简化示意）
+def bigrams(text):
+    text = re.sub(r"\s+", "", text)
+    return [text[i:i+2] for i in range(len(text) - 1)]
+
+# 「企业经营分析」→ ["企业", "业经", "经营", "营分", "分析"]</code></pre>
+        <p>落地后中文检索命中率显著提升，答案又能强制附带原文引用——幻觉有据可查，这才是我敢把 RAG 系统拿给面试官演示的底气。局限也说清楚：超长文档分块仍有上下文丢失，多模态文件暂不支持，这些写在作品集项目卡的「已知局限」里，不藏着。</p>
+      </article>
+
+      <article class="glass-ultra post-full-card reveal" id="post-2">
+        <div class="post-meta"><span class="post-cat">Agent 编排</span><span>2026-10-12</span></div>
+        <h2>LangGraph 多 Agent：子代理上下文隔离实践</h2>
+        <p>在 CEO→CTO→CODER 多 Agent demo 系列里踩得最深的坑，是子代理的「上下文隔离」——不是把对话转发给子代理这么简单，得想清楚三件事：状态怎么传、上下文怎么切、中断怎么恢复。</p>
+        <h3>一、状态传递：共享图状态，而非共享全部历史</h3>
+        <p>LangGraph 的图状态是全图可见的，如果子代理把中间思考全部写回共享状态，父 Agent 的上下文会被瞬间污染。实践下来最稳的做法是：子代理只把<b>结构化结论</b>写回（计划、代码、错误摘要），过程数据留在子图内部。</p>
+        <h3>二、上下文隔离：子图 + 独立消息通道</h3>
+        <p>子代理跑在子图里，拥有自己的消息列表；父 Agent 只看到「派了什么任务、拿回什么结果」。这样 CODER 改十轮代码的中间过程，不会把 CEO 的决策上下文冲爆。</p>
+        <h3>三、HITL 中断恢复：检查点是生命线</h3>
+        <p>人工介入（HITL Interrupt）时流程停在等审批节点，恢复后要继续跑——靠检查点持久化整图状态。我把它和会话持久化放在一起设计：刷新页面不丢上下文，不是前端缓存，是图状态可恢复。</p>
+        <p>这套方法的验收标准很朴素：demo 08-17 每个都能独立跑通、中断后能恢复、子代理爆掉不影响主图。能做到这三点，「多 Agent」才从 PPT 变成系统。</p>
+      </article>
+
+      <article class="glass-ultra post-full-card reveal" id="post-3">
+        <div class="post-meta"><span class="post-cat">Text2SQL</span><span>2026-10-10</span></div>
+        <h2>Text2SQL 生产环境常见坑点与校验策略</h2>
+        <p>问数 ChatBI 的 12 节点 LangGraph Agent 里，真正决定「敢不敢上线」的不是生成节点，是校验节点。把踩过的坑按出现频率排个序：</p>
+        <h3>坑 1：模型不知道数据库里有什么</h3>
+        <p>全量 schema 塞进 prompt，表一多就超长且干扰注意力。解法是 Schema Linking 前置：用 Qdrant + Elasticsearch 双索引 + bge embedding 把表名、字段名、注释向量化，提问时先检索最相关的表结构再生成。</p>
+        <h3>坑 2：SQL 能跑但结果是错的</h3>
+        <p>找错关联字段、聚合维度选错，比语法错误更隐蔽。解法：校验节点检查关联表是否都经过 linking 命中，未命中字段要求重生成或转澄清。</p>
+        <h3>坑 3：危险操作没有闸门</h3>
+        <p>模型偶尔会「贴心」地加上 UPDATE / DELETE 或漏掉 LIMIT。四道静态校验兜底：</p>
+        <ol>
+          <li>只允许 <code>SELECT</code> 开头，拒绝任何写操作；</li>
+          <li>强制 <code>LIMIT</code> 存在且不超过阈值，防全表拉爆；</li>
+          <li>关联表必须全部出现在 linking 命中集里；</li>
+          <li>语法层预解析，明显残缺直接打回。</li>
+        </ol>
+        <h3>坑 4：等待体验差</h3>
+        <p>解法是 FastAPI SSE 流式：总结阶段按 token 推送，SQL 和引用随结果一起返回——用户能核对「这个数是怎么算出来的」，信任感比正确率数字更值钱。</p>
+        <p>边界也摆明：三表以上复杂关联仍会出错，歧义问句需要澄清轮次。这些都是作品集项目卡「已知局限」里的原话。</p>
+      </article>
+
+      <article class="glass-ultra post-full-card reveal" id="post-4">
+        <div class="post-meta"><span class="post-cat">工程降级</span><span>2026-10-08</span></div>
+        <h2>LLM 应用多链路故障降级方案设计</h2>
+        <p>LLM 项目的「生产可用」，一半是功能，一半是降级。我在融界工作台和罗盘医药里把降级当成一类正常输入来设计，而不是异常处理补丁。</p>
+        <h3>为什么必须设计降级</h3>
+        <p>Key 会过期（我自己的腾讯套餐就过期 403 过）、接口会限流（429）、服务会挂（502）、网络会抖。任何一环出问题，如果没有降级，用户看到的就是白屏或报错——演示现场出这种事，比没有 AI 功能更糟。</p>
+        <h3>三级降级架构</h3>
+        <ol>
+          <li><b>主链路</b>：SiliconFlow（Qwen 系），日常走这条；</li>
+          <li><b>备用链路</b>：阿里百炼，主链路超时 / 报错自动切；</li>
+          <li><b>演示模式</b>：两条都不可用，切规则引擎兜底——界面、交互、数据流完全一致，只是回答由本地规则生成。</li>
+        </ol>
+        <h3>关键实现细节</h3>
+        <ul>
+          <li>健康探测：启动即探测 LLM 可用性，徽章实时显示「LLM 已连接 / 演示模式」，不把探测中的中间态暴露给用户；</li>
+          <li>超时预算：单次调用超时短于用户可感知阈值，失败立刻降级而不是让用户干等；</li>
+          <li>降级可见：罗盘里 RAGFlow 挂断时会标注「知识库降级」，用户知情不等于体验降级；</li>
+          <li>状态一致：三种模式共用同一套前端交互，切换对用户无感。</li>
+        </ul>
+        <p>这套架构的回报很直接：不管 Key 有没有效、网络通不通，演示链接随时打得开——这对求职演示不是加分项，是必选项。</p>
+      </article>
+
+      <article class="glass-ultra post-full-card reveal" id="post-5">
+        <div class="post-meta"><span class="post-cat">排障实录</span><span>2026-10-03</span></div>
+        <h2>Celery on Windows 进程池崩溃排查实录</h2>
+        <p>这个坑我在电商运营助手上连踩两次，第二次才彻底想明白。症状极具迷惑性，值得完整记录。</p>
+        <h3>症状</h3>
+        <p>Celery worker 日志一切正常：显示 <code>ready</code>、任务 <code>received</code>，但任务状态永远 PENDING，<code>.get()</code>一直超时。更诡异的是<b>正常 worker 的日志里连 received 都没有</b>——任务被什么东西截走了。</p>
+        <h3>排查过程</h3>
+        <ol>
+          <li>先怀疑代码：任务体 import 同目录模块失败？改完依旧；</li>
+          <li>再看日志：满屏 <code>SpawnPoolWorker-N</code> 报 <code>PermissionError(13, '拒绝访问。')</code>——Windows 下 Celery 默认进程池必崩；</li>
+          <li>最阴的第三层：<b>同名 worker 截胡任务</b>。一台坏掉的 prefork worker 不退出，也能从 Redis 队列抢走任务却不执行，正常 worker 连任务都看不到。日志里 <code>DuplicateNodenameWarning</code> 是铁证。</li>
+        </ol>
+        <h3>解法</h3>
+        <p>启动加 <code>--pool=solo</code>（Windows 没有 fork，prefork 生态不完整，solo 单进程最稳），并且多节点必须用 <code>-n name@%h</code> 唯一命名，从根上杜绝同名截胡。排查时用 <code>celery inspect ping</code> 看活了几台——注意是 <code>inspect ping</code> ，<code>control</code> 子命令里没有 ping。</p>
+        <p>附赠两个小坑：celery 不热重载，改 <code>tasks.py</code> 必须重启 worker；输出重定向到文件时 Python 块缓冲会让日志长期 0 字节，调试一律加 <code>-u</code>。现在这些经验都写进了项目的部署文档，换机器不再裸奔。</p>
+      </article>
+
+      <article class="glass-ultra post-full-card reveal" id="post-6">
+        <div class="post-meta"><span class="post-cat">工程质量</span><span>2026-10-17</span></div>
+        <h2>用工具链守住「功能零改动」</h2>
+        <p>融界工作台做深蓝科技风重设计时，我给自己立了条规矩：只改视觉层，<code>app.js</code> 依赖的 75 个元素 id、65 个 class 一个不删。口号容易，执行难——人都会手滑。所以先写工具，再动样式。</p>
+        <h3>工具一：静态回归核对</h3>
+        <p>一个 Python 脚本，把三份清单拉齐比对：JS 里引用的 id、HTML 里定义的 id、JS 模板动态注入的 id、JS 生成的 class、CSS 定义的 class、SVG 图标符号定义与引用。任何一边缺了另一边，直接报错退出。</p>
+        <pre><code># 核心逻辑（简化示意）
+js_ids = set(re.findall(r'\$\("([\w-]+)"\)', app_js))
+html_ids = set(re.findall(r'id="([\w-]+)"', index_html))
+missing = js_ids - html_ids
+if missing:
+    sys.exit(f"缺失 id: {missing}")  # 改样式前先过这关</code></pre>
+        <h3>工具二：DOM mock 逻辑测试</h3>
+        <p>静态核对只能证明「元素还在」，证明不了「点击还有反应」。用 Node 起一个最小 DOM mock（<code>getElementById</code> 返回可观测的假元素），eval 真实的 <code>app.js</code>，然后模拟点击、检查 toast 文案——18 项断言覆盖登录校验全路径。</p>
+        <h3>执行纪律</h3>
+        <ul>
+          <li>每轮改完：静态核对 → <code>node --check</code> → 逻辑测试，全绿才提交；</li>
+          <li>每个阶段截图留证，前后对比；</li>
+          <li>提交信息写清楚改了什么、验证了什么，回滚时找得到锚点。</li>
+        </ul>
+        <p>这套流程的收益不只是这次重设计：后来加「六位随机验证码」功能，测试文件同步改断言，跑一遍 18/18 全绿就敢直接推送三端。回归从「凭记忆」变成「跑一遍」，这就是工程感和玩具Demo的分界线。</p>
+      </article>
+    </section>
+
+    <!-- ===== 页脚 ===== -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <p class="footer-copy">© <span id="year">2026</span> 郑孟瑶 · 个人作品集 · Built with FastAPI, SQLite, and <span class="footer-love">❤</span></p>
+        <div class="footer-links">
+          <a href="index.html">作品集首页</a>
+          <a href="cases.html">案例剖析</a>
+          <a href="assets/郑孟瑶简历.pdf" download>下载简历</a>
+          <a href="https://github.com/itzmy-web" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="assets/main.js"></script>
+</body>
+</html>
