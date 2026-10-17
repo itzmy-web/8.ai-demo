@@ -127,6 +127,14 @@ async function renderKb() {
     };
     $("kbAsk").onclick = kbAsk;
     $("kbQuestion").addEventListener("keydown", (e) => { if (e.key === "Enter") kbAsk(); });
+    // 顶部大搜索条 → 转交聊天输入框提问（新增，不动原逻辑）
+    $("kbSearchBtn").onclick = () => {
+      const v = $("kbSearch").value.trim();
+      if (!v) return toast("请输入搜索内容");
+      $("kbQuestion").value = v;
+      kbAsk();
+    };
+    $("kbSearch").addEventListener("keydown", (e) => { if (e.key === "Enter") $("kbSearchBtn").click(); });
   }
 }
 
@@ -146,6 +154,8 @@ async function loadKbDocs() {
     loadKbDocs();
   }));
   $("kbModeTip").textContent = list.length ? `已收录 ${list.length} 份文档` : "";
+  const assetBox = $("assetDocCount");
+  if (assetBox) assetBox.textContent = list.length;
 }
 
 async function kbAsk() {
@@ -672,6 +682,69 @@ async function refreshBadges() {
   $("llmBadge").classList.toggle("on", !demo);
   $("demoChip").textContent = demo ? "演示模式" : "LLM 在线";
   $("demoChip").classList.toggle("live", !demo);
+}
+
+/* ============ 登录门禁（内存制：每次打开先登录） ============ */
+const DEMO_CODE = "1234";
+let codeTimer = null;
+
+function switchLoginTab(key) {
+  document.querySelectorAll(".lc-tab").forEach((t) => t.classList.toggle("active", t.dataset.login === key));
+  document.querySelectorAll(".lc-pane").forEach((p) => p.classList.remove("active"));
+  $("pane-" + key)?.classList.add("active");
+}
+document.querySelectorAll(".lc-tab").forEach((t) => (t.onclick = () => switchLoginTab(t.dataset.login)));
+
+// 手机号：仅允许数字，11 位实时校验
+$("loginPhone").addEventListener("input", () => {
+  const v = $("loginPhone").value.replace(/\D/g, "").slice(0, 11);
+  $("loginPhone").value = v;
+  $("phoneErr").textContent = v.length > 0 && v.length < 11 ? `手机号必须为 11 位，还差 ${11 - v.length} 位` : "";
+});
+
+// 获取验证码（演示模式固定 1234，60 秒倒计时）
+$("btnGetCode").onclick = () => {
+  const phone = $("loginPhone").value.trim();
+  if (!/^1\d{10}$/.test(phone)) {
+    $("phoneErr").textContent = "请先输入正确的 11 位手机号";
+    return toast("请先输入 11 位手机号");
+  }
+  $("phoneErr").textContent = "";
+  const btn = $("btnGetCode");
+  let n = 60;
+  btn.disabled = true;
+  btn.textContent = n + "s 后重发";
+  toast("演示模式：验证码已发送（固定 1234）");
+  clearInterval(codeTimer);
+  codeTimer = setInterval(() => {
+    n -= 1;
+    btn.textContent = n + "s 后重发";
+    if (n <= 0) { clearInterval(codeTimer); btn.disabled = false; btn.textContent = "获取验证码"; }
+  }, 1000);
+};
+
+// 手机号验证登录：11 位 + 验证码 + 同意政策，三者齐备才放行
+$("btnPhoneLogin").onclick = () => {
+  const phone = $("loginPhone").value.trim();
+  const code = $("loginCode").value.trim();
+  if (!/^1\d{10}$/.test(phone)) {
+    $("phoneErr").textContent = "手机号必须为 11 位数字";
+    return toast("手机号必须为 11 位");
+  }
+  if (!code) return toast("请输入验证码（演示模式：1234）");
+  if (code !== DEMO_CODE) return toast("验证码错误，演示模式固定为 1234");
+  if (!$("agreePolicy").checked) return toast("请先勾选同意《用户服务协议》与《隐私政策》");
+  enterWorkbench("手机用户 " + phone.slice(0, 3) + "****" + phone.slice(7));
+};
+
+// 扫码登录（演示模式：点击二维码模拟扫码成功）
+$("qrWechat").onclick = () => enterWorkbench("微信扫码用户");
+$("qrAlipay").onclick = () => enterWorkbench("支付宝扫码用户");
+
+function enterWorkbench(who) {
+  $("loginLayer").classList.add("done");
+  toast("登录成功，欢迎 " + who);
+  refreshBadges();
 }
 
 /* ============ 启动 ============ */

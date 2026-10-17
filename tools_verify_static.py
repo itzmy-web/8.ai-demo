@@ -68,11 +68,14 @@ if unused_icons:
 required_ids = """sidebar menuBtn pageTitle demoChip content
 view-overview view-kb view-contract view-cs view-ops
 moduleGrid sysStatus kbName kbText kbImportText kbFile kbDocList kbModeTip kbChatScroll kbQuestion kbAsk
+kbSearch kbSearchBtn assetDocCount
 ctName ctBiz ctApplicant ctText ctSubmit ctDemo ctFile ctStatusFilter ctTableWrap ctAuditRefresh ctAuditWrap
 csTrackTip csReset csChatScroll csInput csSend csQuick csRateRow csRateTip
 opsMetrics opsTabs pane-products pane-stores pane-agents pane-workflows
 opsNewProduct opsProductTable opsNewStore opsStoreTable opsAgentGrid opsRunList opsWorkflowTable
-toast llmBadge sidebarMask""".split()
+toast llmBadge sidebarMask
+loginLayer loginPhone loginCode btnGetCode btnPhoneLogin agreePolicy phoneErr
+pane-phone pane-wechat pane-alipay qrWechat qrAlipay appRoot""".split()
 miss_req = [i for i in required_ids if i not in html_ids]
 if miss_req:
     errors.append(f"原版关键 id 丢失: {miss_req}")
